@@ -1,0 +1,63 @@
+{
+  "name": "react-force-graph",
+  "version": "1.0.0",
+  "description": "React component for 2D, 3D and VR force directed graphs",
+  "unpkg": "dist/react-force-graph.min.js",
+  "main": "dist/react-force-graph.common.js",
+  "module": "dist/react-force-graph.module.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasturiano/react-force-graph.git"
+  },
+  "homepage": "https://github.com/vasturiano/react-force-graph",
+  "keywords": [
+    "react",
+    "force",
+    "graph",
+    "3d",
+    "2d",
+    "vr",
+    "three",
+    "webgl",
+    "canvas"
+  ],
+  "author": {
+    "name": "Vasco Asturiano",
+    "url": "http://bl.ocks.org/vasturiano"
+  },
+  "bugs": {
+    "url": "https://github.com/vasturiano/react-force-graph/issues"
+  },
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && rollup -c",
+    "watch": "rollup -c -w",
+    "minify": "uglifyjs dist/react-force-graph.js -o dist/react-force-graph.min.js -c -m --comments '/Version/'",
+    "build-module": "rollup -c rollup.config.module.js",
+    "prepublish": "npm run build && npm run minify && npm run build-module"
+  },
+  "dependencies": {
+    "3d-force-graph": "^1.28.4",
+    "3d-force-graph-vr": "^1.13.2",
+    "force-graph": "^1.2.3",
+    "kapsule": "^1.9.0",
+    "prop-types": "^15.6.1",
+    "react-kapsule": "^1.2.7"
+  },
+  "peerDependencies": {
+    "react": "*"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "rollup": "^0.56.5",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^9.0.0",
+    "rollup-plugin-node-resolve": "^3.2.0",
+    "rollup-watch": "^4.3.1",
+    "uglify-es": "^3.3.9"
+  }
+}
