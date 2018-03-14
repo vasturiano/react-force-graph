@@ -1,0 +1,35 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/react/16.2.0/umd/react.production.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/react-dom/16.2.0/umd/react-dom.production.min.js"></script>
+
+  <script src="//unpkg.com/react-force-graph"></script>
+  <!--<script src="../dist/react-force-graph.js"></script>-->
+</head>
+
+<body>
+  <div id="graph"></div>
+
+  <script>
+    // Random tree
+    const N = 300;
+    const graphData = {
+        nodes: [...Array(N).keys()].map(i => ({ id: i })),
+      links: [...Array(N).keys()]
+    .filter(id => id)
+      .map(id => ({
+          source: id,
+          target: Math.round(Math.random() * (id-1))
+      }))
+    };
+
+    ReactDOM.render(
+      React.createElement(
+        ForceGraph,
+        { graphData }
+      ),
+      document.getElementById('graph')
+    );
+  </script>
+</body>
