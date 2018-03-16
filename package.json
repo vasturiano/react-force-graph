@@ -41,7 +41,7 @@
     "force-graph": "^1.2.3",
     "kapsule": "^1.9.0",
     "prop-types": "^15.6.1",
-    "react-kapsule": "^1.2.7"
+    "react-kapsule": "^1.2.8"
   },
   "peerDependencies": {
     "react": "*"
