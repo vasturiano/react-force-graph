@@ -1,0 +1,34 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/babel-standalone"></script>
+
+  <script src="//unpkg.com/react-force-graph"></script>
+  <!--<script src="../../dist/react-force-graph.js"></script>-->
+
+  <script src="../datasets/random-data.js"></script>
+</head>
+
+<body>
+  <div id="graph"></div>
+
+  <script type="text/jsx">
+    const comps = [ForceGraph.ForceGraph2D, ForceGraph.ForceGraph3D, ForceGraph.ForceGraphVR];
+    const compWidth = window.innerWidth / comps.length;
+
+    ReactDOM.render(
+      <div style={{ display: 'flex' }}>
+        {comps.map(Comp =>
+        <div style={{ width: compWidth }}>
+          <Comp
+            width={compWidth}
+            graphData={genRandomTree()}
+          />
+        </div>)}
+      </div>,
+      document.getElementById('graph')
+    );
+  </script>
+</body>
