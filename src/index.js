@@ -1,9 +1,10 @@
 import React from 'react';
 //import PropTypes from 'prop-types';
 
-import ForceGraph2D from './ForceGraph2D.js';
-import ForceGraph3D from './ForceGraph3D.js';
+// Load VR first to avoid three.js collisions
 import ForceGraphVR from './ForceGraphVR.js';
+import ForceGraph3D from './ForceGraph3D.js';
+import ForceGraph2D from './ForceGraph2D.js';
 
 class ForceGraph extends React.PureComponent {
   static propTypes = {
