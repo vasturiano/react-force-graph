@@ -21,12 +21,10 @@
     ReactDOM.render(
       <div style={{ display: 'flex' }}>
         {comps.map(Comp =>
-          <div style={{ width: compWidth }}>
-            <Comp
-              width={compWidth}
-              graphData={genRandomTree()}
-            />
-          </div>
+          <Comp
+            width={compWidth}
+            graphData={genRandomTree()}
+          />
         )}
       </div>,
       document.getElementById('graph')
