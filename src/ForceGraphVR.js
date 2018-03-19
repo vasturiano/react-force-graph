@@ -1,4 +1,10 @@
 import fromKapsule from 'react-kapsule';
-import ForceGraphVR from '3d-force-graph-vr';
+import ForceGraphVRKapsule from '3d-force-graph-vr';
+import { ForceGraphVRPropTypes } from './forcegraph-proptypes';
 
-export default fromKapsule(ForceGraphVR);
+const ForceGraphVR = fromKapsule(ForceGraphVRKapsule);
+
+ForceGraphVR.displayName = 'ForceGraphVR';
+ForceGraphVR.propTypes = ForceGraphVRPropTypes;
+
+export default ForceGraphVR;

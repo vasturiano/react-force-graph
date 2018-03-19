@@ -18,7 +18,7 @@ export default {
     }
   ],
   plugins: [
-    replace({ 'process.env.NODE_ENV': JSON.stringify('production') }), // To fool React in the browser
+    replace({ 'process.env.NODE_ENV': JSON.stringify('development') }), // To fool React in the browser
     babel({ exclude: 'node_modules/**' }),
     resolve(),
     commonJs()
