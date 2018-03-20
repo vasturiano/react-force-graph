@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 const commonPropTypes = {
@@ -81,8 +80,3 @@ export const ForceGraphVRPropTypes = Object.assign({},
     linkDesc: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   }
 );
-
-// Methods:
-// 3d: d3Force, stopAnimation, cameraPosition
-// 2d: d3Force, stopAnimation
-
