@@ -101,7 +101,7 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 ### Render control
 | Method | Arguments | Description | 2D | 3D | VR |
 | --- | :--: | --- | :--: | :--: | :--: |
-| <b>stopAnimation</b> | *-* | Stops the rendering cycle of the component, effectively freezing the current view and canceling all future user interaction. This method can be used to save performance in circumstances when a static image is sufficient. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| <b>stopAnimation</b> | *-* | Stops the rendering cycle of the component, effectively freezing the current view and canceling all future user interaction. This method can be used to save performance in circumstances when a static image is sufficient. | :heavy_check_mark: | :heavy_check_mark: | |
 | <b>centerAt</b> | ([<i>x</i>, <i>y</i>]) | Set the coordinates of the center of the viewport. This method can be used to perform panning on the 2D canvas programmatically. Each of the `x, y` coordinates is optional, allowing for motion in just one dimension. | :heavy_check_mark: | |
 | <b>zoom</b> | ([<i>num</i>]) | Set the 2D canvas zoom amount. The zoom is defined in terms of the scale transform of each px. A value of `1` indicates unity, larger values zoom in and smaller values zoom out. By default the zoom is set to a value inversely proportional to the amount of nodes in the system. | :heavy_check_mark: | |
 | <b>cameraPosition</b> | ([<i>{x,y,z}</i>],[<i>lookAt</i>]) | Re-position the camera, in terms of `x`, `y`, `z` coordinates. Each of the coordinates is optional, allowing for motion in just some dimensions. An optional second argument can be used to define the direction that the camera should aim at, in terms of an `{x,y,z}` point in the 3D space. By default the camera will face the center of the graph at a `z` distance proportional to the amount of nodes in the system. | | :heavy_check_mark: | |
@@ -109,7 +109,7 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 ### Force engine (d3-force) configuration 
 | Prop | Type | Default | Description | 2D | 3D | VR |
 | --- | :--: | :--: | --- | :--: | :--: | :--: |
-| <b>numDimensions</b> | <i>1</i>, <i>2</i> or <i>3</i> | 3 | Not applicable to 2D mode. Number of dimensions to run the force simulation on. | | :heavy_check_mark: | |
+| <b>numDimensions</b> | <i>1</i>, <i>2</i> or <i>3</i> | 3 | Not applicable to 2D mode. Number of dimensions to run the force simulation on. | | :heavy_check_mark: | :heavy_check_mark: |
 | <b>d3AlphaDecay</b> | <i>number</i> | 0.0228 | Sets the [simulation intensity decay](https://github.com/vasturiano/d3-force-3d#simulation_alphaDecay) parameter. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>d3VelocityDecay</b> | <i>number</i> | 0.4 | Nodes' [velocity decay](https://github.com/vasturiano/d3-force-3d#simulation_velocityDecay) that simulates the medium resistance. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>warmupTicks</b> | <i>number</i> | 0 | Number of layout engine cycles to dry-run at ignition before starting to render. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -118,7 +118,7 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 
 | Method | Arguments | Description | 2D | 3D | VR |
 | --- | :--: | --- | :--: | :--: | :--: |
-| <b>d3Force</b> | (<i>string</i>, [<i>func</i>]) | Access to the internal forces that control the d3 simulation engine. Follows the same interface as `d3-force-3d`'s [simulation.force](https://github.com/vasturiano/d3-force-3d#simulation_force). Three forces are included by default: `'link'` (based on [forceLink](https://github.com/vasturiano/d3-force-3d#forceLink)), `'charge'` (based on [forceManyBody](https://github.com/vasturiano/d3-force-3d#forceManyBody)) and `'center'` (based on [forceCenter](https://github.com/vasturiano/d3-force-3d#forceCenter)). Each of these forces can be reconfigured, or new forces can be added to the system. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| <b>d3Force</b> | (<i>string</i>, [<i>func</i>]) | Access to the internal forces that control the d3 simulation engine. Follows the same interface as `d3-force-3d`'s [simulation.force](https://github.com/vasturiano/d3-force-3d#simulation_force). Three forces are included by default: `'link'` (based on [forceLink](https://github.com/vasturiano/d3-force-3d#forceLink)), `'charge'` (based on [forceManyBody](https://github.com/vasturiano/d3-force-3d#forceManyBody)) and `'center'` (based on [forceCenter](https://github.com/vasturiano/d3-force-3d#forceCenter)). Each of these forces can be reconfigured, or new forces can be added to the system. | :heavy_check_mark: | :heavy_check_mark: | |
 
 ### Interaction
 | Prop | Type | Default | Description | 2D | 3D | VR |

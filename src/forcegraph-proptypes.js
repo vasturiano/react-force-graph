@@ -49,7 +49,8 @@ const threeBasedPropTypes = {
   linkOpacity: PropTypes.number,
   linkResolution: PropTypes.number,
   linkDirectionalParticleResolution: PropTypes.number,
-  forceEngine: PropTypes.oneOf(['d3', 'ngraph'])
+  forceEngine: PropTypes.oneOf(['d3', 'ngraph']),
+  numDimensions: PropTypes.oneOf([1, 2, 3])
 };
 
 export const ForceGraph2DPropTypes = Object.assign({},
@@ -64,10 +65,7 @@ export const ForceGraph2DPropTypes = Object.assign({},
 export const ForceGraph3DPropTypes = Object.assign({},
   commonPropTypes,
   pointerBasedPropTypes,
-  threeBasedPropTypes,
-  {
-    numDimensions: PropTypes.oneOf([1, 2, 3])
-  }
+  threeBasedPropTypes
 );
 
 export const ForceGraphVRPropTypes = Object.assign({},
