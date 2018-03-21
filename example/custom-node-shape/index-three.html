@@ -1,0 +1,44 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/babel-standalone"></script>
+  <script src="//unpkg.com/three"></script>
+
+  <script src="//unpkg.com/react-force-graph"></script>
+  <!--<script src="../../dist/react-force-graph.js"></script>-->
+
+  <script src="../datasets/random-data.js"></script>
+</head>
+
+<body>
+  <div id="graph"></div>
+
+  <script type="text/jsx">
+    const { ForceGraphVR } = ForceGraph;
+
+    ReactDOM.render(
+      <ForceGraphVR
+        graphData={genRandomTree(100)}
+        nodeThreeObject={({ id }) => new THREE.Mesh(
+          [
+            new THREE.BoxGeometry(Math.random() * 20, Math.random() * 20, Math.random() * 20),
+            new THREE.ConeGeometry(Math.random() * 10, Math.random() * 20),
+            new THREE.CylinderGeometry(Math.random() * 10, Math.random() * 10, Math.random() * 20),
+            new THREE.DodecahedronGeometry(Math.random() * 10),
+            new THREE.SphereGeometry(Math.random() * 10),
+            new THREE.TorusGeometry(Math.random() * 10, Math.random() * 2),
+            new THREE.TorusKnotGeometry(Math.random() * 10, Math.random() * 2)
+          ][id%7],
+          new THREE.MeshLambertMaterial({
+            color: Math.round(Math.random() * Math.pow(2, 24)),
+            transparent: true,
+            opacity: 0.75
+          })
+        )}
+      />,
+      document.getElementById('graph')
+    );
+  </script>
+</body>

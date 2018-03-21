@@ -1,0 +1,43 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/babel-standalone"></script>
+
+  <script src="//unpkg.com/react-force-graph"></script>
+  <!--<script src="../../dist/react-force-graph.js"></script>-->
+</head>
+
+<body>
+  <div id="graph"></div>
+
+  <script type="text/jsx">
+    fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
+      const { ForceGraph3D } = ForceGraph;
+
+      class FocusGraph extends React.Component {
+
+        _handleClick = node => {
+          // Aim at node from outside it
+          this.fg.cameraPosition({ x: node.x + 40, y: node.y + 40, z: node.z + 40 }, node);
+        };
+
+        render() {
+          return <ForceGraph3D
+            ref={el => { this.fg = el; }}
+            graphData={data}
+            nodeLabel="id"
+            nodeAutoColorBy="group"
+            onNodeClick={this._handleClick}
+          />;
+        }
+      }
+
+      ReactDOM.render(
+        <FocusGraph />,
+        document.getElementById('graph')
+      );
+    });
+  </script>
+</body>

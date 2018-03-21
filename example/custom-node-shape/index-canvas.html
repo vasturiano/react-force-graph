@@ -1,0 +1,40 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/babel-standalone"></script>
+
+  <script src="//unpkg.com/react-force-graph"></script>
+  <!--<script src="../../dist/react-force-graph.js"></script>-->
+
+  <script src="../datasets/random-data.js"></script>
+</head>
+
+<body>
+  <div id="graph"></div>
+
+  <script type="text/jsx">
+    const { ForceGraph2D } = ForceGraph;
+
+    // gen a number persistent color from around the palette
+    const getColor = n => '#' + ((n * 1234567) % Math.pow(2, 24)).toString(16).padStart(6, '0');
+
+    ReactDOM.render(
+      <ForceGraph2D
+        graphData={genRandomTree(20)}
+        nodeLabel="id"
+        nodeCanvasObject={({ id, x, y }, ctx) => {
+          ctx.fillStyle = getColor(id);
+          [
+            () => { ctx.fillRect(x - 6, y - 4, 12, 8); }, // rectangle
+            () => { ctx.beginPath(); ctx.moveTo(x, y - 5); ctx.lineTo(x - 5, y + 5); ctx.lineTo(x + 5, y + 5); ctx.fill(); }, // triangle
+            () => { ctx.beginPath(); ctx.arc(x, y, 5, 0, 2 * Math.PI, false); ctx.fill(); }, // circle
+            () => { ctx.font = '10px Sans-Serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('Text', x, y); } // text
+          ][id%4]();
+        }}
+      />,
+      document.getElementById('graph')
+    );
+  </script>
+</body>

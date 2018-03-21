@@ -1,0 +1,52 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/babel-standalone"></script>
+
+  <script src="//unpkg.com/react-force-graph"></script>
+  <!--<script src="../../dist/react-force-graph.js"></script>-->
+
+  <script src="../datasets/random-data.js"></script>
+</head>
+
+<body>
+  <div id="graph"></div>
+
+  <script type="text/jsx">
+    const { ForceGraph3D } = ForceGraph;
+
+    const data = genRandomTree();
+    const distance = 1000;
+
+    class CameraOrbit extends React.Component {
+      componentDidMount() {
+        this.fg.cameraPosition({ z: distance });
+
+        // camera orbit
+        let angle = 0;
+        setInterval(() => {
+          this.fg.cameraPosition({
+            x: distance * Math.sin(angle),
+            z: distance * Math.cos(angle)
+          });
+          angle += Math.PI / 300;
+        }, 10);
+      }
+
+      render() {
+        return <ForceGraph3D
+          ref={el => { this.fg = el; }}
+          graphData={data}
+          enableNodeDrag={false}
+        />
+      }
+    }
+
+    ReactDOM.render(
+      <CameraOrbit />,
+      document.getElementById('graph')
+    );
+  </script>
+</body>
