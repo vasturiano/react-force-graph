@@ -1,10 +1,8 @@
 # react-force-graph
 
-2D, 3D and VR force directed graphs in React.
+React bindings for the **force-graph** suite of components: [3d-force-graph](https://github.com/vasturiano/3d-force-graph) (ThreeJS/WebGL), [3d-force-graph-vr](https://github.com/vasturiano/3d-force-graph-vr) (A-Frame) and [force-graph](https://github.com/vasturiano/force-graph) (2D HTML Canvas).
 
 [![NPM](https://nodei.co/npm/react-force-graph.png?compact=true)](https://nodei.co/npm/react-force-graph/)
-
-React bindings for the **force-graph** suite of components: [3d-force-graph](https://github.com/vasturiano/3d-force-graph) (ThreeJS/WebGL), [3d-force-graph-vr](https://github.com/vasturiano/3d-force-graph-vr) (A-Frame) and [force-graph](https://github.com/vasturiano/force-graph) (2D HTML Canvas).
 
 This module exports 3 React components with identical interfaces: `ForceGraph2D`, `ForceGraph3D` and `ForceGraphVR`. Each can be used to represent a graph data structure in a 2 or 3-dimensional space using a force-directed iterative layout.
 
