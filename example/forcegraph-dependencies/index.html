@@ -1,0 +1,42 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/babel-standalone"></script>
+
+  <script src="//unpkg.com/three"></script>
+  <script src="//unpkg.com/three-spritetext"></script>
+
+  <script src="//unpkg.com/react-force-graph"></script>
+  <!--<script src="../../dist/react-force-graph.js"></script>-->
+</head>
+
+<body>
+  <div id="graph"></div>
+
+  <script type="text/jsx">
+    fetch('../datasets/forcegraph-dependencies.json').then(res => res.json()).then(depData => {
+      const elem = document.getElementById('graph');
+
+      ReactDOM.render(
+        <ForceGraph.ForceGraph3D
+          graphData={depData}
+          nodeId="package"
+          nodeAutoColorBy="user"
+          linkDirectionalParticles={2}
+          linkDirectionalParticleWidth={0.5}
+          onNodeHover={node => elem.style.cursor = node ? 'pointer' : null}
+          onNodeClick={node => window.open(`https://github.com/${node.user}/${node.package}`, '_blank')}
+          nodeThreeObject={node => {
+            const sprite = new SpriteText(node.package);
+            sprite.color = node.color;
+            sprite.textHeight = 5;
+            return sprite;
+          }}
+        />,
+        elem
+      );
+    });
+  </script>
+</body>
