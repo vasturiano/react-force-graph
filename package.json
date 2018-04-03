@@ -1,6 +1,6 @@
 {
   "name": "react-force-graph",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "React component for 2D, 3D and VR force directed graphs",
   "unpkg": "dist/react-force-graph.min.js",
   "main": "dist/react-force-graph.common.js",
