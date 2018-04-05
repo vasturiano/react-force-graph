@@ -5,8 +5,6 @@
   <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
   <script src="//unpkg.com/babel-standalone"></script>
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js"></script>
-
   <script src="//unpkg.com/react-force-graph"></script>
   <!--<script src="../../dist/react-force-graph.js"></script>-->
 </head>
@@ -24,16 +22,12 @@
           // Aim at node from outside it
           const distance = 40;
           const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
-          const finalPos = { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio };
-          const finalLookAt = node; // has x,y,z attributes
 
-          const { lookAt, ...pos } = this.fg.cameraPosition(); // current camera position / lookAt
-
-          TweenLite.to(lookAt, 1, finalLookAt); // Face node in 1s
-
-          TweenLite.to(pos, 3, Object.assign({
-            onUpdate: () => this.fg.cameraPosition(pos, lookAt)
-          }, finalPos));
+          this.fg.cameraPosition(
+            { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
+            node, // lookAt ({ x, y, z })
+            3000  // ms transition duration
+          );
         };
 
         render() {
