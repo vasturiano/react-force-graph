@@ -48,6 +48,7 @@ const threeBasedPropTypes = {
   nodeThreeObject: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.func]),
   linkOpacity: PropTypes.number,
   linkResolution: PropTypes.number,
+  linkMaterial: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.func]),
   linkDirectionalParticleResolution: PropTypes.number,
   forceEngine: PropTypes.oneOf(['d3', 'ngraph']),
   numDimensions: PropTypes.oneOf([1, 2, 3])
