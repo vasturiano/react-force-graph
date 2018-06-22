@@ -22,6 +22,9 @@ const commonPropTypes = {
   linkAutoColorBy: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   linkWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
   linkCurvature: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  linkDirectionalArrowLength: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  linkDirectionalArrowColor: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  linkDirectionalArrowRelPos: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
   linkDirectionalParticles: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
   linkDirectionalParticleSpeed: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
   linkDirectionalParticleWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
@@ -51,6 +54,7 @@ const threeBasedPropTypes = {
   linkResolution: PropTypes.number,
   linkCurveRotation: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
   linkMaterial: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.func]),
+  linkDirectionalArrowResolution: PropTypes.number,
   linkDirectionalParticleResolution: PropTypes.number,
   forceEngine: PropTypes.oneOf(['d3', 'ngraph']),
   numDimensions: PropTypes.oneOf([1, 2, 3])
