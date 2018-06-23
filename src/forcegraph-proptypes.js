@@ -72,7 +72,10 @@ export const ForceGraph2DPropTypes = Object.assign({},
 export const ForceGraph3DPropTypes = Object.assign({},
   commonPropTypes,
   pointerBasedPropTypes,
-  threeBasedPropTypes
+  threeBasedPropTypes,
+  {
+    enableNavigationControls: PropTypes.bool
+  }
 );
 
 export const ForceGraphVRPropTypes = Object.assign({},
