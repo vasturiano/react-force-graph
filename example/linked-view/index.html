@@ -1,0 +1,32 @@
+<head>
+  <style> body { margin: 0; } </style>
+  <script src='//unpkg.com/react@16/umd/react.production.min.js'></script>
+  <script src='//unpkg.com/react-dom@16/umd/react-dom.production.min.js'></script>
+  <script src='//unpkg.com/babel-standalone'></script>
+  <script src='//unpkg.com/react-force-graph'></script>
+  <!--<script src='react-force-graph.js'></script>-->
+</head>
+<body>
+  <div id='graph'></div>
+  <script type='text/jsx'>
+    fetch('../datasets/miserables.json')
+      .then(res => res.json())
+      .then(data => {
+        const components = [ForceGraph.ForceGraph2D, ForceGraph.ForceGraph3D]
+        const componentWidth = window.innerWidth / components.length
+    
+        // same data structure `data` is passed by reference to each component
+        // on interaction (like dragging a node),
+        // the component that the user interacts with mutates the shared `data`
+        // which causes both components to re-render
+        ReactDOM.render(
+          <div style={{ display: 'flex' }}>
+            {components.map(Component => (
+              <Component width={componentWidth} graphData={data} />
+            ))}
+          </div>,
+          document.getElementById('graph')
+        )
+      })
+  </script>
+</body>
