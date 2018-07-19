@@ -33,7 +33,9 @@ const commonPropTypes = {
   d3VelocityDecay: PropTypes.number,
   warmupTicks: PropTypes.number,
   cooldownTicks: PropTypes.number,
-  cooldownTime: PropTypes.number
+  cooldownTime: PropTypes.number,
+  onEngineTick: PropTypes.func,
+  onEngineStop: PropTypes.func
 };
 
 const pointerBasedPropTypes = {

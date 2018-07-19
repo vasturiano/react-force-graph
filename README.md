@@ -123,6 +123,8 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | <b>warmupTicks</b> | <i>number</i> | 0 | Number of layout engine cycles to dry-run at ignition before starting to render. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>cooldownTicks</b> | <i>number</i> | Infinity | How many build-in frames to render before stopping and freezing the layout engine. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>cooldownTime</b> | <i>num</i> | 15000 | How long (ms) to render for before stopping and freezing the layout engine. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| <b>onEngineTick</b> | <i>func</i> | *-* | Callback function invoked at every tick of the simulation engine. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| <b>onEngineStop</b> | <i>func</i> | *-* | Callback function invoked when the simulation engine stops and the layout is frozen. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 | Method | Arguments | Description | 2D | 3D | VR |
 | --- | :--: | --- | :--: | :--: | :--: |
