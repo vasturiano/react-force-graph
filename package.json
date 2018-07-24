@@ -36,9 +36,9 @@
     "prepublish": "npm run build && npm run minify && npm run build-module"
   },
   "dependencies": {
-    "3d-force-graph": "^1.36.1",
+    "3d-force-graph": "^1.37.0",
     "3d-force-graph-vr": "1.19.0",
-    "force-graph": "^1.7.1",
+    "force-graph": "^1.8.0",
     "kapsule": "^1.9.1",
     "prop-types": "^15.6.2",
     "react-kapsule": "^1.3.0"
@@ -54,7 +54,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "rimraf": "^2.6.2",
-    "rollup": "^0.63.2",
+    "rollup": "^0.63.4",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-commonjs": "^9.1.3",
     "rollup-plugin-node-resolve": "^3.3.0",
