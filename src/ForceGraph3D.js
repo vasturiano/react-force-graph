@@ -5,7 +5,15 @@ import { ForceGraph3DPropTypes } from './forcegraph-proptypes';
 const ForceGraph3D = fromKapsule(
   ForceGraph3DKapsule,
   undefined,
-  ['d3Force', 'stopAnimation', 'cameraPosition', 'scene']  // bind methods
+  [  // bind methods
+    'd3Force',
+    'stopAnimation',
+    'cameraPosition',
+    'scene',
+    'camera',
+    'renderer',
+    'tbControls'
+  ]
 );
 
 ForceGraph3D.displayName = 'ForceGraph3D';
