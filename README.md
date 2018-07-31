@@ -88,6 +88,7 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | --- | :--: | :--: | --- | :--: | :--: | :--: |
 | <b>linkLabel</b> | <i>string</i> or <i>func</i> | `name` | Link object accessor function or attribute for name (shown in label). Supports plain text or HTML content (except in VR). | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>linkDesc</b> | <i>string</i> or <i>func</i> | `desc` | For VR only. Link object accessor function or attribute for description (shown under label). | | | :heavy_check_mark: |
+| <b>linkVisibility</b>| <i>bool</i>, <i>string</i> or <i>func</i> | `true` | Link object accessor function, attribute or a boolean constant for whether to display the link line. | | :heavy_check_mark: | :heavy_check_mark: |
 | <b>linkColor</b>| <i>string</i> or <i>func</i> | `color` | Link object accessor function or attribute for line color. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>linkAutoColorBy</b> | <i>string</i> or <i>func</i> | | Link object accessor function or attribute to automatically group colors by. Only affects links without a color attribute. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>linkOpacity</b> | <i>number</i> | 0.2 | Line opacity of links, between [0,1]. | | :heavy_check_mark: | :heavy_check_mark: |

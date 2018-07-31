@@ -54,6 +54,7 @@ const threeBasedPropTypes = {
   nodeOpacity: PropTypes.number,
   nodeResolution: PropTypes.number,
   nodeThreeObject: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.func]),
+  linkVisibility: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.func]),
   linkOpacity: PropTypes.number,
   linkResolution: PropTypes.number,
   linkCurveRotation: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
