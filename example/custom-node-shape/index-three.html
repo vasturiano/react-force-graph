@@ -6,8 +6,8 @@
   <script src="//unpkg.com/babel-standalone"></script>
   <script src="//unpkg.com/three"></script>
 
-  <script src="//unpkg.com/react-force-graph"></script>
-  <!--<script src="../../dist/react-force-graph.js"></script>-->
+  <script src="//unpkg.com/react-force-graph-vr"></script>
+  <!--<script src="../../src/packages/react-force-graph-vr/dist/react-force-graph-vr.js"></script>-->
 
   <script src="../datasets/random-data.js"></script>
 </head>
@@ -16,8 +16,6 @@
   <div id="graph"></div>
 
   <script type="text/jsx">
-    const { ForceGraphVR } = ForceGraph;
-
     ReactDOM.render(
       <ForceGraphVR
         graphData={genRandomTree(100)}

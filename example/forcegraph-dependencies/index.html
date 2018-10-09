@@ -8,8 +8,8 @@
   <script src="//unpkg.com/three"></script>
   <script src="//unpkg.com/three-spritetext"></script>
 
-  <script src="//unpkg.com/react-force-graph"></script>
-  <!--<script src="../../dist/react-force-graph.js"></script>-->
+  <script src="//unpkg.com/react-force-graph-3d"></script>
+  <!--<script src="../../src/packages/react-force-graph-3d/dist/react-force-graph-3d.js"></script>-->
 </head>
 
 <body>
@@ -20,7 +20,7 @@
       const elem = document.getElementById('graph');
 
       ReactDOM.render(
-        <ForceGraph.ForceGraph3D
+        <ForceGraph3D
           graphData={depData}
           nodeId="package"
           nodeAutoColorBy="user"

@@ -5,8 +5,8 @@
   <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
   <script src="//unpkg.com/babel-standalone"></script>
 
-  <script src="//unpkg.com/react-force-graph"></script>
-  <!--<script src="../../dist/react-force-graph.js"></script>-->
+  <script src="//unpkg.com/react-force-graph-2d"></script>
+  <!--<script src="../../src/packages/react-force-graph-2d/dist/react-force-graph-2d.js"></script>-->
 
   <script src="../datasets/random-data.js"></script>
 </head>
@@ -15,8 +15,6 @@
   <div id="graph"></div>
 
   <script type="text/jsx">
-    const { ForceGraph2D } = ForceGraph;
-
     class HighlightGraph extends React.Component {
       static NODE_R = 8;
 

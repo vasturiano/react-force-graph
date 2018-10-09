@@ -5,8 +5,8 @@
   <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
   <script src="//unpkg.com/babel-standalone"></script>
 
-  <script src="//unpkg.com/react-force-graph"></script>
-  <!--<script src="../../dist/react-force-graph.js"></script>-->
+  <script src="//unpkg.com/react-force-graph-3d"></script>
+  <!--<script src="../../src/packages/react-force-graph-3d/dist/react-force-graph-3d.js"></script>-->
 </head>
 
 <body>
@@ -14,8 +14,6 @@
 
   <script type="text/jsx">
     fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
-      const { ForceGraph3D } = ForceGraph;
-
       class FocusGraph extends React.Component {
 
         _handleClick = node => {

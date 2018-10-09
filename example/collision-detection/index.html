@@ -5,8 +5,8 @@
   <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
   <script src="//unpkg.com/babel-standalone"></script>
 
-  <script src="//unpkg.com/react-force-graph"></script>
-  <!--<script src="../../dist/react-force-graph.js"></script>-->
+  <script src="//unpkg.com/react-force-graph-2d"></script>
+  <!--<script src="../../src/packages/react-force-graph-2d/dist/react-force-graph-2d.js"></script>-->
 
   <script src="//unpkg.com/d3-quadtree"></script>
   <script src="//unpkg.com/d3-force"></script>
@@ -22,8 +22,6 @@
       vx: (Math.random() * 2) - 1,
       vy: (Math.random() * 2) - 1
     }));
-
-    const { ForceGraph2D } = ForceGraph;
 
     class CollisionDetectionFG extends React.Component {
       componentDidMount() {

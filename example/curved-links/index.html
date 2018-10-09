@@ -5,16 +5,14 @@
   <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
   <script src="//unpkg.com/babel-standalone"></script>
 
-  <script src="//unpkg.com/react-force-graph"></script>
-  <!--<script src="../../dist/react-force-graph.js"></script>-->
+  <script src="//unpkg.com/react-force-graph-vr"></script>
+  <!--<script src="../../src/packages/react-force-graph-vr/dist/react-force-graph-vr.js"></script>-->
 </head>
 
 <body>
   <div id="graph"></div>
 
   <script type="text/jsx">
-    const { ForceGraphVR } = ForceGraph;
-
     const gData = {
       nodes: [...Array(14).keys()].map(i => ({ id: i })),
       links: [
