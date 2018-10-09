@@ -6,11 +6,11 @@ import { name, homepage, version } from './package.json';
 
 export default {
   external: ['react'],
-  input: 'src/index.js',
+  input: 'index.js',
   output: [
     {
       format: 'umd',
-      name: 'ForceGraph',
+      name: 'ForceGraph2D',
       file: `dist/${name}.js`,
       globals: { react: 'React' },
       sourcemap: true,
@@ -19,8 +19,8 @@ export default {
   ],
   plugins: [
     replace({ 'process.env.NODE_ENV': JSON.stringify('development') }), // To fool React in the browser
-    babel({ exclude: '**/node_modules/**' }),
     resolve(),
-    commonJs()
+    commonJs(),
+    babel({ exclude: 'node_modules/**' })
   ]
 };

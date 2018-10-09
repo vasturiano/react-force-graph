@@ -1,6 +1,6 @@
 import fromKapsule from 'react-kapsule';
 import ForceGraph2DKapsule from 'force-graph';
-import { ForceGraph2DPropTypes } from './forcegraph-proptypes';
+import { ForceGraph2DPropTypes } from '../../forcegraph-proptypes';
 
 const ForceGraph2D = fromKapsule(
   ForceGraph2DKapsule,

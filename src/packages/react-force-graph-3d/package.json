@@ -1,0 +1,48 @@
+{
+  "name": "react-force-graph-3d",
+  "version": "1.0.0",
+  "description": "React component for 3D force directed graphs",
+  "unpkg": "dist/react-force-graph-3d.min.js",
+  "main": "dist/react-force-graph-3d.common.js",
+  "module": "dist/react-force-graph-3d.module.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasturiano/react-force-graph.git"
+  },
+  "homepage": "https://github.com/vasturiano/react-force-graph",
+  "keywords": [
+    "react",
+    "force",
+    "graph",
+    "3d",
+    "three",
+    "webgl"
+  ],
+  "author": {
+    "name": "Vasco Asturiano",
+    "url": "http://bl.ocks.org/vasturiano"
+  },
+  "bugs": {
+    "url": "https://github.com/vasturiano/react-force-graph/issues"
+  },
+  "scripts": {
+    "build": "rimraf dist && rollup -c",
+    "watch": "rollup -c -w",
+    "minify": "uglifyjs dist/react-force-graph-3d.js -o dist/react-force-graph-3d.min.js -c -m --comments '/Version/'",
+    "build-module": "rollup -c rollup.config.module.js",
+    "prepublish": "npm run build && npm run minify && npm run build-module"
+  },
+  "dependencies": {
+    "3d-force-graph": "^1.39.0",
+    "prop-types": "^15.6.2",
+    "react-kapsule": "^1.3.0"
+  },
+  "peerDependencies": {
+    "react": "*"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.2",
+    "rollup": "^0.66.2",
+    "uglify-es": "^3.3.9"
+  }
+}
