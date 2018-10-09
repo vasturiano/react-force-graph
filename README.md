@@ -6,6 +6,8 @@ React bindings for the **force-graph** [suite](https://vasturiano.github.io/reac
 
 This module exports 3 React components with identical interfaces: `ForceGraph2D`, `ForceGraph3D` and `ForceGraphVR`. Each can be used to represent a graph data structure in a 2 or 3-dimensional space using a force-directed iterative layout.
 
+For dependency convenience, all of the components are also available as stand-alone packages: `react-force-graph-2d`, `react-force-graph-3d` and `react-force-graph-vr`.
+
 Uses canvas/WebGL for rendering and [d3-force-3d](https://github.com/vasturiano/d3-force-3d) for the underlying physics engine. 
 Supports zooming/panning, node dragging and node/link hover/click interactions.
 
@@ -33,11 +35,15 @@ import { ForceGraph2D, ForceGraph3D, ForceGraphVR } from 'react-force-graph';
 ```
 or
 ```
-var { ForceGraph2D, ForceGraph3D, ForceGraphVR } = require('react-force-graph');
+import ForceGraph2D from 'react-force-graph-2d';
+import ForceGraph3D from 'react-force-graph-3d';
+import ForceGraphVR from 'react-force-graph-vr';
 ```
-or even
+or using a script tag
 ```
-<script src="//unpkg.com/react-force-graph"></script>
+<script src="//unpkg.com/react-force-graph-2d"></script>
+<script src="//unpkg.com/react-force-graph-3d"></script>
+<script src="//unpkg.com/react-force-graph-vr"></script>
 ```
 then
 ```
