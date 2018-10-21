@@ -30,7 +30,7 @@
     "watch": "rollup -c -w",
     "minify": "uglifyjs dist/react-force-graph-vr.js -o dist/react-force-graph-vr.min.js -c -m --comments '/Version/'",
     "build-module": "rollup -c rollup.config.module.js",
-    "prepublish": "npm run build && npm run minify && npm run build-module"
+    "prepublishOnly": "npm run build && npm run minify && npm run build-module"
   },
   "dependencies": {
     "3d-force-graph-vr": "^1.20.0",
