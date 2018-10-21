@@ -127,7 +127,7 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | <b>scene</b> | *-* | Access the internal ThreeJS [Scene](https://threejs.org/docs/#api/scenes/Scene). | | :heavy_check_mark: | |
 | <b>camera</b> | *-* | Access the internal ThreeJS [Camera](https://threejs.org/docs/#api/cameras/PerspectiveCamera). | | :heavy_check_mark: | |
 | <b>renderer</b> | *-* | Access the internal ThreeJS [WebGL renderer](https://threejs.org/docs/#api/renderers/WebGLRenderer). | | :heavy_check_mark: | |
-| <b>tbControls</b> | *-* | Access the internal ThreeJS [Trackball Controls](https://threejs.org/examples/misc_controls_trackball.html). | | :heavy_check_mark: | |
+| <b>controls</b> | *-* | Access the internal ThreeJS controls object. | | :heavy_check_mark: | |
 
 ### Force engine (d3-force) configuration 
 | Prop | Type | Default | Description | 2D | 3D | VR |
@@ -155,6 +155,7 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | <b>onLinkClick</b> | <i>func</i> | *-* | Callback function for link clicks. The link object is included as single argument `onLinkClick(link)`. | :heavy_check_mark: | :heavy_check_mark: | |
 | <b>onLinkHover</b> | <i>func</i> | *-* | Callback function for link mouse over events. The link object (or `null` if there's no link under the mouse line of sight) is included as the first argument, and the previous link object (or null) as second argument: `onLinkHover(link, prevLink)`. | :heavy_check_mark: | :heavy_check_mark: | |
 | <b>linkHoverPrecision</b> | <i>number</i> | 4 | Whether to display the link label when gazing the link closely (low value) or from far away (high value). | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| <b>controlType</b> | <i>str</i> | `trackball` | Which type of control to use to control the camera on 3D mode. Choice between [trackball](https://threejs.org/examples/misc_controls_trackball.html), [orbit](https://threejs.org/examples/#misc_controls_orbit) or [fly](https://threejs.org/examples/misc_controls_fly.html). | | :heavy_check_mark: | |
 | <b>enableZoomPanInteraction</b> | <i>bool</i> | `true` | Whether to enable zooming and panning user interactions on a 2D canvas. | :heavy_check_mark: | | |
 | <b>enableNavigationControls</b> | <i>bool</i> | `true` | Whether to enable the trackball navigation controls used to move the camera using mouse interactions (rotate/zoom/pan). | | :heavy_check_mark: | |
 | <b>enablePointerInteraction</b> | <i>bool</i> | `true` | Whether to enable the mouse tracking events. This activates an internal tracker of the canvas mouse position and enables the functionality of object hover/click and tooltip labels, at the cost of performance. If you're looking for maximum gain in your graph performance it's recommended to switch off this property. | :heavy_check_mark: | :heavy_check_mark: | |

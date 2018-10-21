@@ -79,7 +79,8 @@ export const ForceGraph3DPropTypes = Object.assign({},
   pointerBasedPropTypes,
   threeBasedPropTypes,
   {
-    enableNavigationControls: PropTypes.bool
+    enableNavigationControls: PropTypes.bool,
+    controlType: PropTypes.oneOf(['trackball', 'orbit', 'fly'])
   }
 );
 
@@ -88,6 +89,6 @@ export const ForceGraphVRPropTypes = Object.assign({},
   threeBasedPropTypes,
   {
     nodeDesc: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    linkDesc: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    linkDesc: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
   }
 );

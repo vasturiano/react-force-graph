@@ -12,8 +12,9 @@ const ForceGraph3D = fromKapsule(
     'scene',
     'camera',
     'renderer',
-    'tbControls'
-  ]
+    'controls'
+  ],
+  ['controlType']
 );
 
 ForceGraph3D.displayName = 'ForceGraph3D';
