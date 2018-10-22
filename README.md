@@ -133,6 +133,8 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | Prop | Type | Default | Description | 2D | 3D | VR |
 | --- | :--: | :--: | --- | :--: | :--: | :--: |
 | <b>numDimensions</b> | <i>1</i>, <i>2</i> or <i>3</i> | 3 | Not applicable to 2D mode. Number of dimensions to run the force simulation on. | | :heavy_check_mark: | :heavy_check_mark: |
+| <b>dagMode</b> | <i>str</i> | *-* | Apply layout constraints based on the graph directionality. Only works for [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph) graph structures (without cycles). Choice between `td` (top-down), `bu` (bottom-up), `lr` (left-to-right), `rl` (right-to-left), `zout` (near-to-far), `zin` (far-to-near), `radialout` (outwards-radially) or `radialin` (inwards-radially). | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| <b>dagLevelDistance</b> | <i>num</i> | *auto-derived from the number of nodes* | If `dagMode` is engaged, this specifies the distance between the different graph depths. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>d3AlphaDecay</b> | <i>number</i> | 0.0228 | Sets the [simulation intensity decay](https://github.com/vasturiano/d3-force-3d#simulation_alphaDecay) parameter. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>d3VelocityDecay</b> | <i>number</i> | 0.4 | Nodes' [velocity decay](https://github.com/vasturiano/d3-force-3d#simulation_velocityDecay) that simulates the medium resistance. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>warmupTicks</b> | <i>number</i> | 0 | Number of layout engine cycles to dry-run at ignition before starting to render. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
