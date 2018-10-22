@@ -14,18 +14,18 @@
     { "package": "aframe", "user": "aframevr" }
   ],
   "links": [
-    { "source": "force-graph", "target": "react-force-graph" },
-    { "source": "3d-force-graph", "target": "react-force-graph" },
-    { "source": "3d-force-graph-vr", "target": "react-force-graph" },
-    { "source": "aframe-forcegraph-component", "target": "3d-force-graph-vr" },
-    { "source": "three-forcegraph", "target": "3d-force-graph" },
-    { "source": "three-render-objects", "target": "3d-force-graph" },
-    { "source": "three-forcegraph", "target": "aframe-forcegraph-component" },
-    { "source": "d3-force-3d", "target": "three-forcegraph" },
-    { "source": "ngraph", "target": "three-forcegraph" },
-    { "source": "d3-force", "target": "force-graph" },
-    { "source": "aframe", "target": "3d-force-graph-vr" },
-    { "source": "three.js", "target": "aframe" },
-    { "source": "three.js", "target": "3d-force-graph" }
+    { "target": "force-graph", "source": "react-force-graph" },
+    { "target": "3d-force-graph", "source": "react-force-graph" },
+    { "target": "3d-force-graph-vr", "source": "react-force-graph" },
+    { "target": "aframe-forcegraph-component", "source": "3d-force-graph-vr" },
+    { "target": "three-forcegraph", "source": "3d-force-graph" },
+    { "target": "three-render-objects", "source": "3d-force-graph" },
+    { "target": "three-forcegraph", "source": "aframe-forcegraph-component" },
+    { "target": "d3-force-3d", "source": "three-forcegraph" },
+    { "target": "ngraph", "source": "three-forcegraph" },
+    { "target": "d3-force", "source": "force-graph" },
+    { "target": "aframe", "source": "3d-force-graph-vr" },
+    { "target": "three.js", "source": "aframe" },
+    { "target": "three.js", "source": "3d-force-graph" }
   ]
 }
