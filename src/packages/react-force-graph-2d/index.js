@@ -5,7 +5,14 @@ import { ForceGraph2DPropTypes } from '../../forcegraph-proptypes';
 const ForceGraph2D = fromKapsule(
   ForceGraph2DKapsule,
   undefined,
-  ['d3Force', 'stopAnimation', 'centerAt', 'zoom']  // bind methods
+  [ // bind methods
+    'd3Force',
+    'stopAnimation',
+    'pauseAnimation',
+    'resumeAnimation',
+    'centerAt',
+    'zoom'
+  ]
 );
 
 ForceGraph2D.displayName = 'ForceGraph2D';

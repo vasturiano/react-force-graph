@@ -33,7 +33,7 @@
     "prepublishOnly": "npm run build && npm run minify && npm run build-module"
   },
   "dependencies": {
-    "3d-force-graph": "^1.41.1",
+    "3d-force-graph": "^1.42.2",
     "prop-types": "^15.6.2",
     "react-kapsule": "^1.4.1"
   },
@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "rimraf": "^2.6.2",
-    "rollup": "^0.66.6",
+    "rollup": "^0.67.3",
     "uglify-es": "^3.3.9"
   }
 }

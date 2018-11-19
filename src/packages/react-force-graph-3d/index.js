@@ -8,6 +8,8 @@ const ForceGraph3D = fromKapsule(
   [  // bind methods
     'd3Force',
     'stopAnimation',
+    'pauseAnimation',
+    'resumeAnimation',
     'cameraPosition',
     'scene',
     'camera',
