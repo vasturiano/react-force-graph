@@ -82,7 +82,8 @@ export const ForceGraph3DPropTypes = Object.assign({},
   threeBasedPropTypes,
   {
     enableNavigationControls: PropTypes.bool,
-    controlType: PropTypes.oneOf(['trackball', 'orbit', 'fly'])
+    controlType: PropTypes.oneOf(['trackball', 'orbit', 'fly']),
+    rendererConfig: PropTypes.object
   }
 );
 

@@ -16,7 +16,7 @@ const ForceGraph3D = fromKapsule(
     'renderer',
     'controls'
   ],
-  ['controlType']
+  ['controlType', 'rendererConfig']
 );
 
 ForceGraph3D.displayName = 'ForceGraph3D';
