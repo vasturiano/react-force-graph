@@ -22,6 +22,7 @@ Check out the examples:
 * [Auto-colored nodes/links](https://vasturiano.github.io/react-force-graph/example/auto-colored/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/auto-colored/index.html))
 * [2D Text nodes](https://vasturiano.github.io/react-force-graph/example/text-nodes/index-2d.html) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/text-nodes/index-2d.html))
 * [3D Text nodes](https://vasturiano.github.io/react-force-graph/example/text-nodes/index-3d.html) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/text-nodes/index-3d.html))
+* [Image nodes](https://vasturiano.github.io/react-force-graph/example/img-nodes/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/img-nodes/index.html))
 * [Custom 2D node shapes](https://vasturiano.github.io/react-force-graph/example/custom-node-shape/index-canvas.html) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/custom-node-shape/index-canvas.html))
 * [Custom 3D/VR node geometries](https://vasturiano.github.io/react-force-graph/example/custom-node-shape/index-three.html) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/custom-node-shape/index-three.html))
 * [Curved lines and self links](https://vasturiano.github.io/react-force-graph/example/curved-links/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/curved-links/index.html))
