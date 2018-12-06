@@ -5,7 +5,7 @@ import { ForceGraph3DPropTypes } from '../../forcegraph-proptypes';
 const ForceGraph3D = fromKapsule(
   ForceGraph3DKapsule,
   undefined,
-  [  // bind methods
+  [ // bind methods
     'd3Force',
     'stopAnimation',
     'pauseAnimation',
