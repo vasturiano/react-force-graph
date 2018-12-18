@@ -27,12 +27,16 @@
   "scripts": {
     "build": "rimraf dist && rollup -c",
     "watch": "rollup -c -w",
-    "minify": "uglifyjs dist/react-force-graph-2d.js -o dist/react-force-graph-2d.min.js -c -m --comments '/Version/'",
+    "minify": "terser dist/react-force-graph-2d.js -o dist/react-force-graph-2d.min.js -c -m --comments '/Version/'",
     "build-module": "rollup -c rollup.config.module.js",
     "prepare": "npm run build && npm run minify && npm run build-module"
   },
+  "files": [
+    "index.js",
+    "dist/**/*"
+  ],
   "dependencies": {
-    "force-graph": "^1.12.4",
+    "force-graph": "^1.12.5",
     "prop-types": "^15.6.2",
     "react-kapsule": "^1.4.1"
   },
@@ -41,7 +45,7 @@
   },
   "devDependencies": {
     "rimraf": "^2.6.2",
-    "rollup": "^0.67.4",
-    "uglify-es": "^3.3.9"
+    "rollup": "^0.68.0",
+    "terser": "^3.11.0"
   }
 }

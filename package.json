@@ -31,14 +31,19 @@
   "scripts": {
     "build": "rimraf dist && rollup -c",
     "watch": "rollup -c -w",
-    "minify": "uglifyjs dist/react-force-graph.js -o dist/react-force-graph.min.js -c -m --comments '/Version/'",
+    "minify": "terser dist/react-force-graph.js -o dist/react-force-graph.min.js -c -m --comments '/Version/'",
     "build-module": "rollup -c rollup.config.module.js",
     "prepublishOnly": "npm run build && npm run minify && npm run build-module"
   },
+  "files": [
+    "src/**/*",
+    "dist/**/*",
+    "example/**/*"
+  ],
   "dependencies": {
     "3d-force-graph": "^1.43.2",
-    "3d-force-graph-vr": "^1.22.0",
-    "force-graph": "^1.12.4",
+    "3d-force-graph-vr": "^1.22.1",
+    "force-graph": "^1.12.5",
     "prop-types": "^15.6.2",
     "react-kapsule": "^1.4.1"
   },
@@ -46,18 +51,18 @@
     "react": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.0",
+    "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.1",
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "rimraf": "^2.6.2",
-    "rollup": "^0.67.4",
-    "rollup-plugin-babel": "^4.0.3",
+    "rollup": "^0.68.0",
+    "rollup-plugin-babel": "^4.1.0",
     "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-replace": "^2.1.0",
     "rollup-watch": "^4.3.1",
-    "uglify-es": "^3.3.9"
+    "terser": "^3.11.0"
   }
 }
