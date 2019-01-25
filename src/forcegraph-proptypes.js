@@ -61,6 +61,8 @@ const threeBasedPropTypes = {
   linkResolution: PropTypes.number,
   linkCurveRotation: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
   linkMaterial: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.func]),
+  linkThreeObject: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.func]),
+  linkPositionUpdate: PropTypes.func,
   linkDirectionalArrowResolution: PropTypes.number,
   linkDirectionalParticleResolution: PropTypes.number,
   forceEngine: PropTypes.oneOf(['d3', 'ngraph']),

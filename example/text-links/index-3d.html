@@ -1,0 +1,59 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/babel-standalone"></script>
+
+  <script src="//unpkg.com/three"></script>
+  <script src="//unpkg.com/three-spritetext"></script>
+
+  <script src="//unpkg.com/react-force-graph-3d"></script>
+  <!--<script src="../../src/packages/react-force-graph-3d/dist/react-force-graph-3d.js"></script>-->
+</head>
+
+<body>
+  <div id="graph"></div>
+
+  <script type="text/jsx">
+    fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
+      ReactDOM.render(
+        <ForceGraph3D
+          graphData={data}
+          nodeLabel="id"
+          nodeAutoColorBy="group"
+          linkThreeObject={link => {
+            // create line object
+            const lineObj = new THREE.Line(
+              new THREE.BufferGeometry(),
+              new THREE.MeshLambertMaterial({
+                color: '#f0f0f0',
+                transparent: true,
+                opacity: 0.2
+              })
+            );
+
+            // add text sprite as child
+            const sprite = new SpriteText(`${link.source} > ${link.target}`);
+            sprite.color = 'lightgrey';
+            sprite.textHeight = 1.5;
+            lineObj.add(sprite);
+
+            return lineObj;
+          }}
+          linkPositionUpdate={(obj, { start, end }) => {
+            const middlePos = Object.assign(...['x', 'y', 'z'].map(c => ({
+              [c]: start[c] + (end[c] - start[c]) / 2 // calc middle point
+            })));
+
+            const textSprite = obj.children[0];
+
+            // Position link text
+            Object.assign(textSprite.position, middlePos);
+          }}
+        />,
+        document.getElementById('graph')
+      );
+    });
+  </script>
+</body>
