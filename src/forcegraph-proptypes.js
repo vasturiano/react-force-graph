@@ -74,6 +74,7 @@ export const ForceGraph2DPropTypes = Object.assign({},
   pointerBasedPropTypes,
   {
     nodeCanvasObject: PropTypes.func,
+    linkCanvasObject: PropTypes.func,
     enableZoomPanInteraction: PropTypes.bool
   }
 );
