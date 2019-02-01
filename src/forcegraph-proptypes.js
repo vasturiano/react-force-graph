@@ -43,10 +43,12 @@ const commonPropTypes = {
 
 const pointerBasedPropTypes = {
   onNodeClick: PropTypes.func,
+  onNodeRightClick: PropTypes.func,
   onNodeHover: PropTypes.func,
   onNodeDrag: PropTypes.func,
   onNodeDragEnd: PropTypes.func,
   onLinkClick: PropTypes.func,
+  onLinkRightClick: PropTypes.func,
   onLinkHover: PropTypes.func,
   enablePointerInteraction: PropTypes.bool,
   enableNodeDrag: PropTypes.bool
