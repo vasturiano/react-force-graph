@@ -38,7 +38,7 @@
   ],
   "dependencies": {
     "3d-force-graph-vr": "^1.23.1",
-    "prop-types": "^15.7.0",
+    "prop-types": "^15.7.2",
     "react-kapsule": "^1.4.1"
   },
   "peerDependencies": {
@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "rimraf": "^2.6.3",
-    "rollup": "^1.1.2",
-    "terser": "^3.16.1"
+    "rollup": "^1.6.0",
+    "terser": "^3.17.0"
   }
 }
