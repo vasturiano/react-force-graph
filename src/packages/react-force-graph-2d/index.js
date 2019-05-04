@@ -11,7 +11,8 @@ const ForceGraph2D = fromKapsule(
     'pauseAnimation',
     'resumeAnimation',
     'centerAt',
-    'zoom'
+    'zoom',
+    'refresh'
   ]
 );
 

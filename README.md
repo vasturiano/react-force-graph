@@ -135,6 +135,7 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | <b>camera</b> | *-* | Access the internal ThreeJS [Camera](https://threejs.org/docs/#api/cameras/PerspectiveCamera). | | :heavy_check_mark: | |
 | <b>renderer</b> | *-* | Access the internal ThreeJS [WebGL renderer](https://threejs.org/docs/#api/renderers/WebGLRenderer). | | :heavy_check_mark: | |
 | <b>controls</b> | *-* | Access the internal ThreeJS controls object. | | :heavy_check_mark: | |
+| <b>refresh</b> | *-* | Redraws all the nodes/links and reheats the force simulation engine. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 ### Force engine (d3-force) configuration 
 | Prop | Type | Default | Description | 2D | 3D | VR |

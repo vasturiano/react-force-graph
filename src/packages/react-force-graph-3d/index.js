@@ -14,7 +14,8 @@ const ForceGraph3D = fromKapsule(
     'scene',
     'camera',
     'renderer',
-    'controls'
+    'controls',
+    'refresh'
   ],
   ['controlType', 'rendererConfig']
 );
