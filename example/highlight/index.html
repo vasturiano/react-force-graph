@@ -35,26 +35,19 @@
         });
       };
 
-      _paintNode = (node, ctx) => {
+      _paintRing = (node, ctx) => {
         const { NODE_R } = HighlightGraph;
-        const { highlightNodes } = this.state;
 
-        if (highlightNodes.indexOf(node) !== -1) { // add ring
-          ctx.beginPath();
-          ctx.arc(node.x, node.y, NODE_R * 1.4, 0, 2 * Math.PI, false);
-          ctx.fillStyle = 'red';
-          ctx.fill();
-        }
-
+        // add ring just for highlighted nodes
         ctx.beginPath();
-        ctx.arc(node.x, node.y, NODE_R, 0, 2 * Math.PI, false);
-        ctx.fillStyle = 'midnightblue';
+        ctx.arc(node.x, node.y, NODE_R * 1.4, 0, 2 * Math.PI, false);
+        ctx.fillStyle = 'red';
         ctx.fill();
       };
 
       render() {
         const { NODE_R } = HighlightGraph;
-        const { data, highlightLink } = this.state;
+        const { data, highlightNodes, highlightLink } = this.state;
 
         return <ForceGraph2D
           ref={el => { this.fg = el; }}
@@ -63,7 +56,8 @@
           linkWidth={link => link === highlightLink ? 5 : 1}
           linkDirectionalParticles={4}
           linkDirectionalParticleWidth={link => link === highlightLink ? 4 : 0}
-          nodeCanvasObject={this._paintNode}
+          nodeCanvasObjectMode={node => highlightNodes.indexOf(node) !== -1 ? 'before' : undefined}
+          nodeCanvasObject={this._paintRing}
           onNodeHover={this._handleNodeHover}
           onLinkHover={this._handleLinkHover}
         />;
