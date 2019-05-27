@@ -59,11 +59,13 @@ const threeBasedPropTypes = {
   nodeOpacity: PropTypes.number,
   nodeResolution: PropTypes.number,
   nodeThreeObject: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.func]),
+  nodeThreeObjectExtend: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.func]),
   linkOpacity: PropTypes.number,
   linkResolution: PropTypes.number,
   linkCurveRotation: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
   linkMaterial: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.func]),
   linkThreeObject: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.func]),
+  linkThreeObjectExtend: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.func]),
   linkPositionUpdate: PropTypes.func,
   linkDirectionalArrowResolution: PropTypes.number,
   linkDirectionalParticleResolution: PropTypes.number,
@@ -76,7 +78,9 @@ export const ForceGraph2DPropTypes = Object.assign({},
   pointerBasedPropTypes,
   {
     nodeCanvasObject: PropTypes.func,
+    nodeCanvasObjectMode: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     linkCanvasObject: PropTypes.func,
+    linkCanvasObjectMode: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     enableZoomPanInteraction: PropTypes.bool
   }
 );
