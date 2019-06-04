@@ -33,11 +33,10 @@
     "prepare": "npm run build && npm run minify && npm run build-module"
   },
   "files": [
-    "index.js",
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph": "^1.48.0",
+    "3d-force-graph": "^1.49.1",
     "prop-types": "^15.7.2",
     "react-kapsule": "^1.4.1"
   },
@@ -46,7 +45,7 @@
   },
   "devDependencies": {
     "rimraf": "^2.6.3",
-    "rollup": "^1.12.4",
+    "rollup": "^1.13.1",
     "terser": "^4.0.0"
   }
 }

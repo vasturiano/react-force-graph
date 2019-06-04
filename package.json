@@ -36,14 +36,12 @@
     "prepublishOnly": "npm run build && npm run minify && npm run build-module"
   },
   "files": [
-    "src/**/*",
-    "dist/**/*",
-    "example/**/*"
+    "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph": "^1.48.0",
+    "3d-force-graph": "^1.49.1",
     "3d-force-graph-vr": "^1.25.0",
-    "force-graph": "^1.16.0",
+    "force-graph": "^1.16.1",
     "prop-types": "^15.7.2",
     "react-kapsule": "^1.4.1"
   },
@@ -57,12 +55,11 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "rimraf": "^2.6.3",
-    "rollup": "^1.12.4",
+    "rollup": "^1.13.1",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^10.0.0",
-    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-node-resolve": "^5.0.1",
     "rollup-plugin-replace": "^2.2.0",
-    "rollup-watch": "^4.3.1",
     "terser": "^4.0.0"
   }
 }

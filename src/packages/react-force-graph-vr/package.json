@@ -33,7 +33,6 @@
     "prepare": "npm run build && npm run minify && npm run build-module"
   },
   "files": [
-    "index.js",
     "dist/**/*"
   ],
   "dependencies": {
@@ -46,7 +45,7 @@
   },
   "devDependencies": {
     "rimraf": "^2.6.3",
-    "rollup": "^1.12.4",
+    "rollup": "^1.13.1",
     "terser": "^4.0.0"
   }
 }
