@@ -67,6 +67,7 @@ ReactDOM.render(
 Note that not all props listed below apply to all 3 components. The last 3 columns in these tables indicate the specific component availability of each prop/method.
 
 ### Data input
+
 | Prop | Type | Default | Description | 2D | 3D | VR |
 | --- | :--: | :--: | --- | :--: | :--: | :--: |
 | <b>graphData</b> | <i>object</i> | `{ nodes: [], links: [] }` | Graph data structure (see below for syntax details). Can also be used to apply incremental updates. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -74,7 +75,8 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | <b>linkSource</b> | <i>string</i> | `source` | Link object accessor attribute referring to id of source node. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>linkTarget</b> | <i>string</i> | `target` | Link object accessor attribute referring to id of target node. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-### Container layout 
+### Container layout
+
 | Prop | Type | Default | Description | 2D | 3D | VR |
 | --- | :--: | :--: | --- | :--: | :--: | :--: |
 | <b>width</b> | <i>number</i> | *&lt;window width&gt;* | Canvas width, in px. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -82,7 +84,8 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | <b>backgroundColor</b> | <i>string</i> | (2D - <i>light</i> / 3D - <i>dark</i>)| Chart background color. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>showNavInfo</b> | <i>bool</i> | `true` | Whether to show the navigation controls footer info. | | :heavy_check_mark: | :heavy_check_mark: |
 
-### Node styling 
+### Node styling
+
 | Prop | Type | Default | Description | 2D | 3D | VR |
 | --- | :--: | :--: | --- | :--: | :--: | :--: |
 | <b>nodeRelSize</b> | <i>number</i> | 4 | Ratio of node circle area (square px) [2D] or sphere volume (cubic px) [3D] per value unit. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -98,7 +101,8 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | <b>nodeThreeObject</b> | <i>Object3d</i>, <i>string</i> or <i>func</i> | *default 3D node object is a sphere, sized according to `val` and styled according to `color`.* | Node object accessor function or attribute for generating a custom 3d object to render as graph nodes. Should return an instance of [ThreeJS Object3d](https://threejs.org/docs/index.html#api/core/Object3D). If a <i>falsy</i> value is returned, the default 3d object type will be used instead for that node. | | :heavy_check_mark: | :heavy_check_mark: |
 | <b>nodeThreeObjectExtend</b> | <i>bool</i>, <i>string</i> or <i>func</i> | `false` | Node object accessor function, attribute or a boolean value for whether to replace the default node when using a custom `nodeThreeObject` (`false`) or to extend it (`true`). | | :heavy_check_mark: | :heavy_check_mark: |
 
-### Link styling 
+### Link styling
+
 | Prop | Type | Default | Description | 2D | 3D | VR |
 | --- | :--: | :--: | --- | :--: | :--: | :--: |
 | <b>linkLabel</b> | <i>string</i> or <i>func</i> | `name` | Link object accessor function or attribute for name (shown in label). Supports plain text or HTML content (except in VR). | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -128,6 +132,7 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | <b>linkDirectionalParticleResolution</b> | <i>number</i> | 4 | Geometric resolution of each 3D directional particle, expressed in how many slice segments to divide the circumference. Higher values yield smoother particles. | | :heavy_check_mark: | :heavy_check_mark: |
 
 ### Render control
+
 | Method | Arguments | Description | 2D | 3D | VR |
 | --- | :--: | --- | :--: | :--: | :--: |
 | <b>pauseAnimation</b> | *-* | Pauses the rendering cycle of the component, effectively freezing the current view and cancelling all user interaction. This method can be used to save performance in circumstances when a static image is sufficient. | :heavy_check_mark: | :heavy_check_mark: | |
@@ -141,7 +146,8 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | <b>controls</b> | *-* | Access the internal ThreeJS controls object. | | :heavy_check_mark: | |
 | <b>refresh</b> | *-* | Redraws all the nodes/links and reheats the force simulation engine. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-### Force engine (d3-force) configuration 
+### Force engine (d3-force) configuration
+
 | Prop | Type | Default | Description | 2D | 3D | VR |
 | --- | :--: | :--: | --- | :--: | :--: | :--: |
 | <b>numDimensions</b> | <i>1</i>, <i>2</i> or <i>3</i> | 3 | Not applicable to 2D mode. Number of dimensions to run the force simulation on. | | :heavy_check_mark: | :heavy_check_mark: |
@@ -160,6 +166,7 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | <b>d3Force</b> | (<i>string</i>, [<i>func</i>]) | Access to the internal forces that control the d3 simulation engine. Follows the same interface as `d3-force-3d`'s [simulation.force](https://github.com/vasturiano/d3-force-3d#simulation_force). Three forces are included by default: `'link'` (based on [forceLink](https://github.com/vasturiano/d3-force-3d#forceLink)), `'charge'` (based on [forceManyBody](https://github.com/vasturiano/d3-force-3d#forceManyBody)) and `'center'` (based on [forceCenter](https://github.com/vasturiano/d3-force-3d#forceCenter)). Each of these forces can be reconfigured, or new forces can be added to the system. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 ### Interaction
+
 | Prop | Type | Default | Description | 2D | 3D | VR |
 | --- | :--: | :--: | --- | :--: | :--: | :--: |
 | <b>onNodeClick</b> | <i>func</i> | *-* | Callback function for node (left-button) clicks. The node object is included as single argument `onNodeClick(node)`. | :heavy_check_mark: | :heavy_check_mark: | |
