@@ -1,8 +1,10 @@
-# react-force-graph
+react-force-graph
+=================
+
+[![NPM package][npm-img]][npm-url]
+[![Dependencies][dependencies-img]][dependencies-url]
 
 React bindings for the **force-graph** [suite](https://vasturiano.github.io/react-force-graph/example/forcegraph-dependencies) of components: [3d-force-graph](https://github.com/vasturiano/3d-force-graph) (ThreeJS/WebGL), [3d-force-graph-vr](https://github.com/vasturiano/3d-force-graph-vr) (A-Frame) and [force-graph](https://github.com/vasturiano/force-graph) (2D HTML Canvas).
-
-[![NPM](https://nodei.co/npm/react-force-graph.png?compact=true)](https://nodei.co/npm/react-force-graph/)
 
 <p align="center">
   <a href="https://vasturiano.github.io/react-force-graph/example/large-graph/"><img width="80%" src="http://gist.github.com/vasturiano/02affe306ce445e423f992faeea13521/raw/preview.png"></a>
@@ -219,3 +221,8 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 ## Giving Back
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=L398E7PKP47E8&currency_code=USD&source=url) If this project has helped you and you'd like to contribute back, you can always [buy me a ☕](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=L398E7PKP47E8&currency_code=USD&source=url)!
+
+[npm-img]: https://img.shields.io/npm/v/react-force-graph.svg
+[npm-url]: https://npmjs.org/package/react-force-graph
+[dependencies-img]: https://img.shields.io/david/vasturiano/react-force-graph.svg
+[dependencies-url]: https://david-dm.org/vasturiano/react-force-graph
