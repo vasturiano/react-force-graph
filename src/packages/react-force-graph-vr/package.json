@@ -2,6 +2,7 @@
   "name": "react-force-graph-vr",
   "version": "1.5.2",
   "description": "React component for VR force directed graphs",
+  "license": "MIT",
   "unpkg": "dist/react-force-graph-vr.min.js",
   "main": "dist/react-force-graph-vr.common.js",
   "module": "dist/react-force-graph-vr.module.js",
