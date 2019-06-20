@@ -37,16 +37,16 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph-vr": "^1.25.1",
+    "3d-force-graph-vr": "^1.25.3",
     "prop-types": "^15.7.2",
-    "react-kapsule": "^1.4.1"
+    "react-kapsule": "^1.4.2"
   },
   "peerDependencies": {
     "react": "*"
   },
   "devDependencies": {
     "rimraf": "^2.6.3",
-    "rollup": "^1.14.6",
+    "rollup": "^1.15.6",
     "terser": "^4.0.0"
   }
 }
