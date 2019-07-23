@@ -12,6 +12,7 @@ const commonPropTypes = {
   nodeId: PropTypes.string,
   nodeLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   nodeVal: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  nodeVisibility: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.func]),
   nodeColor: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   nodeAutoColorBy: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   linkSource: PropTypes.string,

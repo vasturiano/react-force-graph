@@ -94,6 +94,7 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | <b>nodeVal</b> | <i>number</i>, <i>string</i> or <i>func</i> | `val` | Node object accessor function, attribute or a numeric constant for the node numeric value (affects node size). | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>nodeLabel</b> | <i>string</i> or <i>func</i> | `name` | Node object accessor function or attribute for name (shown in label). Supports plain text or HTML content (except in VR). | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>nodeDesc</b> | <i>string</i> or <i>func</i> | `desc` | For VR only. Node object accessor function or attribute for description (shown under label). | | | :heavy_check_mark: |
+| <b>nodeVisibility</b>| <i>bool</i>, <i>string</i> or <i>func</i> | `true` | Node object accessor function, attribute or a boolean constant for whether to display the node. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>nodeColor</b> | <i>string</i> or <i>func</i> | `color` | Node object accessor function or attribute for node color. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>nodeAutoColorBy</b> | <i>string</i> or <i>func</i> | | Node object accessor function or attribute to automatically group colors by. Only affects nodes without a color attribute. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>nodeOpacity</b> | <i>number</i> | 0.75 | Nodes sphere opacity, between [0,1]. | | :heavy_check_mark: | :heavy_check_mark: |
