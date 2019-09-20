@@ -15,34 +15,36 @@
   <div id="graph"></div>
 
   <script type="text/jsx">
+    const { useEffect, useRef } = React;
+
     const data = genRandomTree();
     const distance = 1400;
 
-    class CameraOrbit extends React.Component {
-      componentDidMount() {
-        this.fg.cameraPosition({ z: distance });
+    const CameraOrbit = () => {
+      const fgRef = useRef(null);
+
+      useEffect(() => {
+        fgRef.current.cameraPosition({ z: distance });
 
         // camera orbit
         let angle = 0;
         setInterval(() => {
-          this.fg.cameraPosition({
+          fgRef.current.cameraPosition({
             x: distance * Math.sin(angle),
             z: distance * Math.cos(angle)
           });
           angle += Math.PI / 300;
         }, 10);
-      }
+      }, []);
 
-      render() {
-        return <ForceGraph3D
-          ref={el => { this.fg = el; }}
-          graphData={data}
-          enableNodeDrag={false}
-          enableNavigationControls={false}
-          showNavInfo={false}
-        />
-      }
-    }
+      return <ForceGraph3D
+        ref={fgRef}
+        graphData={data}
+        enableNodeDrag={false}
+        enableNavigationControls={false}
+        showNavInfo={false}
+      />;
+    };
 
     ReactDOM.render(
       <CameraOrbit />,

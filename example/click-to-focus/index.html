@@ -13,31 +13,32 @@
   <div id="graph"></div>
 
   <script type="text/jsx">
-    fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
-      class FocusGraph extends React.Component {
+    const { useRef, useCallback } = React;
 
-        _handleClick = node => {
+    fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
+      const FocusGraph = () => {
+        const fgRef = useRef(null);
+
+        const handleClick = useCallback(node => {
           // Aim at node from outside it
           const distance = 40;
           const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
 
-          this.fg.cameraPosition(
+          fgRef.current.cameraPosition(
             { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
             node, // lookAt ({ x, y, z })
             3000  // ms transition duration
           );
-        };
+        }, [fgRef]);
 
-        render() {
-          return <ForceGraph3D
-            ref={el => { this.fg = el; }}
-            graphData={data}
-            nodeLabel="id"
-            nodeAutoColorBy="group"
-            onNodeClick={this._handleClick}
-          />;
-        }
-      }
+        return <ForceGraph3D
+          ref={fgRef}
+          graphData={data}
+          nodeLabel="id"
+          nodeAutoColorBy="group"
+          onNodeClick={handleClick}
+        />;
+      };
 
       ReactDOM.render(
         <FocusGraph />,

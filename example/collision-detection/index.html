@@ -16,22 +16,23 @@
   <div id="graph"></div>
 
   <script type="text/jsx">
-    const N = 80;
-    const nodes = [...Array(N).keys()].map(() => ({
-      // Initial velocity in random direction
-      vx: (Math.random() * 2) - 1,
-      vy: (Math.random() * 2) - 1
-    }));
+    const { useState, useEffect, useRef } = React;
 
-    class CollisionDetectionFG extends React.Component {
-      componentDidMount() {
+    const CollisionDetectionFG = () => {
+      const fgRef = useRef(null);
+
+      const [graphData, setGraphData] = useState({ nodes: [], links: [] });
+
+      useEffect(() => {
+        const fg = fgRef.current;
+
         // Deactivate existing forces
-        this.fg.d3Force('center', null);
-        this.fg.d3Force('charge', null);
+        fg.d3Force('center', null);
+        fg.d3Force('charge', null);
 
         // Add collision and bounding box forces
-        this.fg.d3Force('collide', d3.forceCollide(4));
-        this.fg.d3Force('box', () => {
+        fg.d3Force('collide', d3.forceCollide(4));
+        fg.d3Force('box', () => {
           const SQUARE_HALF_SIDE = N * 2;
 
           nodes.forEach(node => {
@@ -42,18 +43,26 @@
             if (Math.abs(y) > SQUARE_HALF_SIDE) { node.vy *= -1; }
           });
         });
-      }
 
-      render() {
-        return <ForceGraph2D
-          ref={el => this.fg = el}
-          graphData={{ nodes, links: [] }}
-          cooldownTime={Infinity}
-          d3AlphaDecay={0}
-          d3VelocityDecay={0}
-        />;
-      }
-    }
+        // Generate nodes
+        const N = 80;
+        const nodes = [...Array(N).keys()].map(() => ({
+          // Initial velocity in random direction
+          vx: (Math.random() * 2) - 1,
+          vy: (Math.random() * 2) - 1
+        }));
+
+        setGraphData({ nodes, links: [] });
+      }, []);
+
+      return <ForceGraph2D
+        ref={fgRef}
+        graphData={graphData}
+        cooldownTime={Infinity}
+        d3AlphaDecay={0}
+        d3VelocityDecay={0}
+      />;
+    };
 
     ReactDOM.render(
       <CollisionDetectionFG />,

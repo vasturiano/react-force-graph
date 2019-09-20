@@ -13,54 +13,44 @@
   <div id="graph"></div>
 
   <script type="text/jsx">
-    class DynamicGraph extends React.Component {
-      state = {
-        data: {
-          nodes: [{ id: 0 }],
-          links: []
-        }
-      };
+    const { useState, useEffect, useRef, useCallback } = React;
 
-      _handleClick = node => {
-        // Remove node on click
-        this.setState(({ data: { nodes, links } }) => {
-          const newLinks = links.filter(l => l.source !== node && l.target !== node); // Remove links attached to node
-          const newNodes = nodes.slice();
-          newNodes.splice(node.id, 1); // Remove node
-          newNodes.forEach((n, idx) => { n.id = idx; }); // Reset node ids to array index
+    const DynamicGraph = () => {
+      const [data, setData] = useState({ nodes: [{ id: 0 }], links: [] });
+      const fgRef = useRef(null);
 
-          return {
-            data: { nodes: newNodes, links: newLinks }
-          };
-        });
-      };
-
-      componentDidMount() {
+      useEffect(() => {
         setInterval(() => {
           // Add a new connected node every second
-          this.setState(({ data: { nodes, links } }) => {
+          setData(({ nodes, links }) => {
             const id = nodes.length;
             return {
-              data: {
-                nodes: [...nodes, { id }],
-                links: [...links, { source: id, target: Math.round(Math.random() * (id-1)) }]
-              }
+              nodes: [...nodes, { id }],
+              links: [...links, { source: id, target: Math.round(Math.random() * (id-1)) }]
             };
           });
         }, 1000);
-      }
+      }, []);
 
-      render() {
-        const { data } = this.state;
+      const handleClick = useCallback(node => {
+        const { nodes, links } = data;
 
-        return <ForceGraph3D
-          ref={el => { this.fg = el; }}
-          enableNodeDrag={false}
-          onNodeClick={this._handleClick}
-          graphData={data}
-        />;
-      }
-    }
+        // Remove node on click
+        const newLinks = links.filter(l => l.source !== node && l.target !== node); // Remove links attached to node
+        const newNodes = nodes.slice();
+        newNodes.splice(node.id, 1); // Remove node
+        newNodes.forEach((n, idx) => { n.id = idx; }); // Reset node ids to array index
+
+        setData({ nodes: newNodes, links: newLinks });
+      }, [data, setData]);
+
+      return <ForceGraph3D
+        ref={fgRef}
+        enableNodeDrag={false}
+        onNodeClick={handleClick}
+        graphData={data}
+      />;
+    };
 
     ReactDOM.render(
       <DynamicGraph />,
