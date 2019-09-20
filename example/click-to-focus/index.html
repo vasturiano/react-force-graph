@@ -17,7 +17,7 @@
 
     fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
       const FocusGraph = () => {
-        const fgRef = useRef(null);
+        const fgRef = useRef();
 
         const handleClick = useCallback(node => {
           // Aim at node from outside it

@@ -26,7 +26,7 @@
     };
 
     const ForceTree = ({ data }) => {
-      const fgRef = useRef(null);
+      const fgRef = useRef();
 
       const [controls] = useState({ 'DAG Orientation': 'td'});
       const forceUpdate = useForceUpdate();

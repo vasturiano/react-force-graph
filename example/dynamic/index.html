@@ -17,7 +17,7 @@
 
     const DynamicGraph = () => {
       const [data, setData] = useState({ nodes: [{ id: 0 }], links: [] });
-      const fgRef = useRef(null);
+      const fgRef = useRef();
 
       useEffect(() => {
         setInterval(() => {

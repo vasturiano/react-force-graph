@@ -19,7 +19,7 @@
     const { useState, useEffect, useRef } = React;
 
     const CollisionDetectionFG = () => {
-      const fgRef = useRef(null);
+      const fgRef = useRef();
 
       const [graphData, setGraphData] = useState({ nodes: [], links: [] });
 

@@ -21,7 +21,7 @@
     const distance = 1400;
 
     const CameraOrbit = () => {
-      const fgRef = useRef(null);
+      const fgRef = useRef();
 
       useEffect(() => {
         fgRef.current.cameraPosition({ z: distance });
