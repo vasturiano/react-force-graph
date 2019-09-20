@@ -1,6 +1,6 @@
 {
   "name": "react-force-graph",
-  "version": "1.24.1",
+  "version": "1.24.2",
   "description": "React component for 2D, 3D and VR force directed graphs",
   "license": "MIT",
   "unpkg": "dist/react-force-graph.min.js",
