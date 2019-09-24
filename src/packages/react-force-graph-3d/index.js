@@ -7,6 +7,7 @@ const ForceGraph3D = fromKapsule(
   undefined,
   [ // bind methods
     'd3Force',
+    'd3ReheatSimulation',
     'stopAnimation',
     'pauseAnimation',
     'resumeAnimation',

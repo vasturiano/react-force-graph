@@ -151,7 +151,7 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | <b>camera</b> | *-* | Access the internal ThreeJS [Camera](https://threejs.org/docs/#api/cameras/PerspectiveCamera). | | :heavy_check_mark: | |
 | <b>renderer</b> | *-* | Access the internal ThreeJS [WebGL renderer](https://threejs.org/docs/#api/renderers/WebGLRenderer). | | :heavy_check_mark: | |
 | <b>controls</b> | *-* | Access the internal ThreeJS controls object. | | :heavy_check_mark: | |
-| <b>refresh</b> | *-* | Redraws all the nodes/links and reheats the force simulation engine. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| <b>refresh</b> | *-* | Redraws all the nodes/links. | | :heavy_check_mark: | :heavy_check_mark: |
 
 ### Force engine (d3-force) configuration
 
@@ -171,6 +171,7 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | Method | Arguments | Description | 2D | 3D | VR |
 | --- | :--: | --- | :--: | :--: | :--: |
 | <b>d3Force</b> | (<i>string</i>, [<i>func</i>]) | Access to the internal forces that control the d3 simulation engine. Follows the same interface as `d3-force-3d`'s [simulation.force](https://github.com/vasturiano/d3-force-3d#simulation_force). Three forces are included by default: `'link'` (based on [forceLink](https://github.com/vasturiano/d3-force-3d#forceLink)), `'charge'` (based on [forceManyBody](https://github.com/vasturiano/d3-force-3d#forceManyBody)) and `'center'` (based on [forceCenter](https://github.com/vasturiano/d3-force-3d#forceCenter)). Each of these forces can be reconfigured, or new forces can be added to the system. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| <b>d3ReheatSimulation</b> | () | Reheats the force simulation engine, by setting the `alpha` value to `1`. Only applicable if using the d3 simulation engine. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 ### Interaction
 

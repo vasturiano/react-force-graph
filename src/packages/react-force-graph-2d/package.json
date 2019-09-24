@@ -1,6 +1,6 @@
 {
   "name": "react-force-graph-2d",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "description": "React component for 2D force directed graphs",
   "license": "MIT",
   "unpkg": "dist/react-force-graph-2d.min.js",
@@ -36,9 +36,9 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "force-graph": "^1.18.2",
+    "force-graph": "^1.19.0",
     "prop-types": "^15.7.2",
-    "react-kapsule": "^1.4.2"
+    "react-kapsule": "^1.4.3"
   },
   "peerDependencies": {
     "react": "*"

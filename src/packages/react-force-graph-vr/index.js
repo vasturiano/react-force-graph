@@ -7,6 +7,7 @@ const ForceGraphVR = fromKapsule(
   undefined,
   [ // bind methods
     'd3Force',
+    'd3ReheatSimulation',
     'refresh'
   ]
 );

@@ -7,13 +7,13 @@ const ForceGraph2D = fromKapsule(
   undefined,
   [ // bind methods
     'd3Force',
+    'd3ReheatSimulation',
     'stopAnimation',
     'pauseAnimation',
     'resumeAnimation',
     'centerAt',
     'zoom',
-    'onZoom',
-    'refresh'
+    'onZoom'
   ]
 );
 
