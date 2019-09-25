@@ -37,7 +37,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph": "^1.53.0",
+    "3d-force-graph": "^1.54.0",
     "prop-types": "^15.7.2",
     "react-kapsule": "^1.4.3"
   },

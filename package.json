@@ -40,8 +40,8 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph": "^1.53.0",
-    "3d-force-graph-vr": "^1.27.0",
+    "3d-force-graph": "^1.54.0",
+    "3d-force-graph-vr": "^1.28.0",
     "force-graph": "^1.19.0",
     "prop-types": "^15.7.2",
     "react-kapsule": "^1.4.3"
