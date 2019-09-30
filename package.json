@@ -41,7 +41,7 @@
   ],
   "dependencies": {
     "3d-force-graph": "^1.55.1",
-    "3d-force-graph-vr": "^1.29.0",
+    "3d-force-graph-vr": "^1.29.1",
     "force-graph": "^1.21.2",
     "prop-types": "^15.7.2",
     "react-kapsule": "^1.4.3"
