@@ -6,6 +6,7 @@ const ForceGraph3D = fromKapsule(
   ForceGraph3DKapsule,
   undefined,
   [ // bind methods
+    'emitParticle',
     'd3Force',
     'd3ReheatSimulation',
     'stopAnimation',

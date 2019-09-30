@@ -51,6 +51,8 @@ const pointerBasedPropTypes = {
   onLinkClick: PropTypes.func,
   onLinkRightClick: PropTypes.func,
   onLinkHover: PropTypes.func,
+  onBackgroundClick: PropTypes.func,
+  onBackgroundRightClick: PropTypes.func,
   enablePointerInteraction: PropTypes.bool,
   enableNodeDrag: PropTypes.bool
 };

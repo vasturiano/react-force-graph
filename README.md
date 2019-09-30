@@ -35,6 +35,7 @@ Check out the examples:
 * [Click to focus on node](https://vasturiano.github.io/react-force-graph/example/click-to-focus/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/click-to-focus/index.html))
 * [Camera automatic orbitting](https://vasturiano.github.io/react-force-graph/example/camera-auto-orbit/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/camera-auto-orbit/index.html))
 * [Node collision detection](https://vasturiano.github.io/react-force-graph/example/collision-detection/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/collision-detection/index.html))
+* [Emit link particles on demand](https://vasturiano.github.io/react-force-graph/example/emit-particles/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/emit-particles/index.html))
 * [Force-directed tree (DAG mode)](https://vasturiano.github.io/react-force-graph/example/tree/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/tree/index.html))
 
 ## Quick start
@@ -134,6 +135,10 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | <b>linkDirectionalParticleColor</b> | <i>string</i> or <i>func</i> | `color` | Link object accessor function or attribute for the directional particles color. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>linkDirectionalParticleResolution</b> | <i>number</i> | 4 | Geometric resolution of each 3D directional particle, expressed in how many slice segments to divide the circumference. Higher values yield smoother particles. | | :heavy_check_mark: | :heavy_check_mark: |
 
+| Method | Arguments | Description | 2D | 3D | VR |
+| --- | :--: | --- | :--: | :--: | :--: |
+| <b>emitParticle</b> | (<i>link</i>) | An alternative mechanism for generating particles, this method emits a non-cyclical single particle within a specific link. The emitted particle shares the styling (speed, width, color) of the regular particle props. A valid `link` object that is included in `graphData` should be passed as a single parameter. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+
 ### Render control
 
 | Prop | Type | Default | Description |
@@ -185,6 +190,8 @@ Note that not all props listed below apply to all 3 components. The last 3 colum
 | <b>onLinkClick</b> | <i>func</i> | *-* | Callback function for link (left-button) clicks. The link object is included as single argument `onLinkClick(link)`. | :heavy_check_mark: | :heavy_check_mark: | |
 | <b>onLinkRightClick</b> | <i>func</i> | *-* | Callback function for link right-clicks. The link object is included as single argument `onLinkRightClick(link)`. | :heavy_check_mark: | :heavy_check_mark: | |
 | <b>onLinkHover</b> | <i>func</i> | *-* | Callback function for link mouse over events. The link object (or `null` if there's no link under the mouse line of sight) is included as the first argument, and the previous link object (or null) as second argument: `onLinkHover(link, prevLink)`. | :heavy_check_mark: | :heavy_check_mark: | |
+| <b>onBackgroundClick</b> | <i>func</i> | *-* | Callback function for click events on the empty space between the nodes and links. | :heavy_check_mark: | :heavy_check_mark: | |
+| <b>onBackgroundRightClick</b> | <i>func</i> | *-* | Callback function for right-click events on the empty space between the nodes and links. | :heavy_check_mark: | :heavy_check_mark: | |
 | <b>linkHoverPrecision</b> | <i>number</i> | 4 | Whether to display the link label when gazing the link closely (low value) or from far away (high value). | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>onZoom</b> | <i>func</i> | *-* | Callback function for zoom/pan events. The current zoom transform is included as single argument `onZoom({ k, x, y })`. Note that `onZoom` is triggered by user interaction as well as programmatic zooming/panning with `zoom()` and `centerAt()`. | :heavy_check_mark: | | |
 | <b>controlType</b> | <i>string</i> | `trackball` | Which type of control to use to control the camera on 3D mode. Choice between [trackball](https://threejs.org/examples/misc_controls_trackball.html), [orbit](https://threejs.org/examples/#misc_controls_orbit) or [fly](https://threejs.org/examples/misc_controls_fly.html). | | :heavy_check_mark: | |
