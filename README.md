@@ -33,6 +33,7 @@ Check out the examples:
 * [Larger graph](https://vasturiano.github.io/react-force-graph/example/large-graph/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/large-graph/index.html))
 * [Dynamic data changes](https://vasturiano.github.io/react-force-graph/example/dynamic/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/dynamic/index.html))
 * [Click to focus on node](https://vasturiano.github.io/react-force-graph/example/click-to-focus/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/click-to-focus/index.html))
+* [Click to expand/collapse nodes](https://vasturiano.github.io/react-force-graph/example/expandable-nodes/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/expandable-nodes/index.html))
 * [Camera automatic orbitting](https://vasturiano.github.io/react-force-graph/example/camera-auto-orbit/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/camera-auto-orbit/index.html))
 * [Node collision detection](https://vasturiano.github.io/react-force-graph/example/collision-detection/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/collision-detection/index.html))
 * [Emit link particles on demand](https://vasturiano.github.io/react-force-graph/example/emit-particles/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/emit-particles/index.html))
