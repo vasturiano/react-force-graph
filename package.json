@@ -40,9 +40,9 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph": "^1.55.12",
+    "3d-force-graph": "^1.56.2",
     "3d-force-graph-vr": "^1.29.1",
-    "force-graph": "^1.21.8",
+    "force-graph": "^1.22.0",
     "prop-types": "^15.7.2",
     "react-kapsule": "^1.4.3"
   },
@@ -56,11 +56,11 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "rimraf": "^3.0.0",
-    "rollup": "^1.23.1",
+    "rollup": "^1.25.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "^2.2.0",
-    "terser": "^4.3.8"
+    "terser": "^4.3.9"
   }
 }
