@@ -4,12 +4,13 @@ import { ForceGraphVRPropTypes } from '../../forcegraph-proptypes';
 
 const ForceGraphVR = fromKapsule(
   ForceGraphVRKapsule,
-  undefined,
-  [ // bind methods
-    'd3Force',
-    'd3ReheatSimulation',
-    'refresh'
-  ]
+  {
+    methodNames: [ // bind methods
+      'd3Force',
+      'd3ReheatSimulation',
+      'refresh'
+    ]
+  }
 );
 
 ForceGraphVR.displayName = 'ForceGraphVR';

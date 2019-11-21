@@ -4,22 +4,23 @@ import { ForceGraph3DPropTypes } from '../../forcegraph-proptypes';
 
 const ForceGraph3D = fromKapsule(
   ForceGraph3DKapsule,
-  undefined,
-  [ // bind methods
-    'emitParticle',
-    'd3Force',
-    'd3ReheatSimulation',
-    'stopAnimation',
-    'pauseAnimation',
-    'resumeAnimation',
-    'cameraPosition',
-    'scene',
-    'camera',
-    'renderer',
-    'controls',
-    'refresh'
-  ],
-  ['controlType', 'rendererConfig']
+  {
+    methodNames: [ // bind methods
+      'emitParticle',
+      'd3Force',
+      'd3ReheatSimulation',
+      'stopAnimation',
+      'pauseAnimation',
+      'resumeAnimation',
+      'cameraPosition',
+      'scene',
+      'camera',
+      'renderer',
+      'controls',
+      'refresh'
+    ],
+    initPropNames: ['controlType', 'rendererConfig']
+  }
 );
 
 ForceGraph3D.displayName = 'ForceGraph3D';

@@ -40,14 +40,14 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph": "^1.56.3",
+    "3d-force-graph": "^1.56.4",
     "3d-force-graph-vr": "^1.29.2",
     "force-graph": "^1.22.2",
     "prop-types": "^15.7.2",
-    "react-kapsule": "^1.4.3"
+    "react-kapsule": "^2.0.0"
   },
   "peerDependencies": {
-    "react": "*"
+    "react": ">=16.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
@@ -56,7 +56,7 @@
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
     "rimraf": "^3.0.0",
-    "rollup": "^1.27.0",
+    "rollup": "^1.27.3",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",

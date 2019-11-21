@@ -38,14 +38,14 @@
   "dependencies": {
     "force-graph": "^1.22.2",
     "prop-types": "^15.7.2",
-    "react-kapsule": "^1.4.3"
+    "react-kapsule": "^2.0.0"
   },
   "peerDependencies": {
-    "react": "*"
+    "react": ">=16.8.0"
   },
   "devDependencies": {
     "rimraf": "^3.0.0",
-    "rollup": "^1.27.0",
+    "rollup": "^1.27.3",
     "terser": "^4.4.0"
   }
 }
