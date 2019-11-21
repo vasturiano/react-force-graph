@@ -44,10 +44,10 @@
     "3d-force-graph-vr": "^1.29.2",
     "force-graph": "^1.22.2",
     "prop-types": "^15.7.2",
-    "react-kapsule": "^2.0.0"
+    "react-kapsule": "^2.1.1"
   },
   "peerDependencies": {
-    "react": ">=16.8.0"
+    "react": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
