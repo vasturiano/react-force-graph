@@ -1,0 +1,38 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/babel-standalone"></script>
+
+  <script src="//aframe.io/releases/0.9.2/aframe.min.js"></script>
+  <script src="//unpkg.com/ar.js/aframe/build/aframe-ar.min.js"></script>
+
+  <script src="//unpkg.com/react-force-graph-ar"></script>
+  <!--<script src="../../src/packages/react-force-graph-ar/dist/react-force-graph-ar.js"></script>-->
+
+  <script src="../datasets/random-data.js"></script>
+</head>
+
+<body>
+  <div id="graph"></div>
+
+  <script type="text/jsx">
+    fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
+      ReactDOM.render(
+        <ForceGraphAR
+          glScale={160}
+          yOffset={1.8}
+          graphData={data}
+          nodeAutoColorBy="group"
+          nodeRelSize={5}
+          linkWidth={1.5}
+          nodeOpacity={0.9}
+          linkOpacity={0.3}
+          linkColor={() => 'darkgrey'}
+        />,
+        document.getElementById('graph')
+      );
+    });
+  </script>
+</body>
