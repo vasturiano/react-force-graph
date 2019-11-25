@@ -45,16 +45,16 @@ Check out the examples:
 ## Quick start
 
 ```
-import { ForceGraph2D, ForceGraph3D, ForceGraphVR, ForceGraphAR } from 'react-force-graph';
+import ForceGraph2D from 'react-force-graph-2d';
+import ForceGraph3D from 'react-force-graph-3d';
+import ForceGraphVR from 'react-force-graph-vr';
+import ForceGraphAR from 'react-force-graph-ar';
 ```
 
 or
 
 ```
-import ForceGraph2D from 'react-force-graph-2d';
-import ForceGraph3D from 'react-force-graph-3d';
-import ForceGraphVR from 'react-force-graph-vr';
-import ForceGraphAR from 'react-force-graph-ar';
+import { ForceGraph2D, ForceGraph3D, ForceGraphVR, ForceGraphAR } from 'react-force-graph';
 ```
 
 or using a script tag
