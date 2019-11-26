@@ -38,9 +38,9 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph-ar": "^1.0.0",
+    "3d-force-graph-ar": "^1.0.1",
     "prop-types": "^15.7.2",
-    "react-kapsule": "^2.1.1"
+    "react-kapsule": "^2.1.2"
   },
   "peerDependencies": {
     "react": "*"
