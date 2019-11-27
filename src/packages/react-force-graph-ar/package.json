@@ -29,7 +29,7 @@
   },
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "watch": "rollup -c -w",
+    "dev": "rollup -c -w",
     "minify": "terser dist/react-force-graph-ar.js -o dist/react-force-graph-ar.min.js -c -m --comments '/Version/'",
     "build-module": "rollup -c rollup.config.module.js",
     "prepare": "npm run build && npm run minify && npm run build-module"
