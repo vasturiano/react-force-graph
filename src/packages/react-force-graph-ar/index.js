@@ -6,6 +6,7 @@ const ForceGraphAR = fromKapsule(
   ForceGraphARKapsule,
   {
     methodNames: [ // bind methods
+      'emitParticle',
       'd3Force',
       'd3ReheatSimulation',
       'refresh'

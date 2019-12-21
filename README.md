@@ -152,7 +152,7 @@ Note that not all props listed below apply to all 4 components. The last 4 colum
 
 | Method | Arguments | Description | 2D | 3D | VR | AR |
 | --- | :--: | --- | :--: | :--: | :--: | :--: |
-| <b>emitParticle</b> | (<i>link</i>) | An alternative mechanism for generating particles, this method emits a non-cyclical single particle within a specific link. The emitted particle shares the styling (speed, width, color) of the regular particle props. A valid `link` object that is included in `graphData` should be passed as a single parameter. | :heavy_check_mark: | :heavy_check_mark: | | |
+| <b>emitParticle</b> | (<i>link</i>) | An alternative mechanism for generating particles, this method emits a non-cyclical single particle within a specific link. The emitted particle shares the styling (speed, width, color) of the regular particle props. A valid `link` object that is included in `graphData` should be passed as a single parameter. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 ### Render control
 
