@@ -104,7 +104,9 @@ export const ForceGraphVRPropTypes = Object.assign({},
   threeBasedPropTypes,
   {
     nodeDesc: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    linkDesc: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+    linkDesc: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    onNodeCenterHover: PropTypes.func,
+    onLinkCenterHover: PropTypes.func
   }
 );
 
@@ -115,7 +117,7 @@ export const ForceGraphARPropTypes = Object.assign({},
     markerAttrs: PropTypes.object,
     yOffset: PropTypes.number,
     glScale: PropTypes.number,
-    nodeDesc: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    linkDesc: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+    onNodeCenterHover: PropTypes.func,
+    onLinkCenterHover: PropTypes.func,
   }
 );
