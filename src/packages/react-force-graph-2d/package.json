@@ -36,16 +36,16 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "force-graph": "^1.22.3",
+    "force-graph": "^1.24.0",
     "prop-types": "^15.7.2",
-    "react-kapsule": "^2.1.3"
+    "react-kapsule": "^2.1.4"
   },
   "peerDependencies": {
     "react": "*"
   },
   "devDependencies": {
     "rimraf": "^3.0.0",
-    "rollup": "^1.27.13",
-    "terser": "^4.4.3"
+    "rollup": "^1.29.1",
+    "terser": "^4.6.3"
   }
 }
