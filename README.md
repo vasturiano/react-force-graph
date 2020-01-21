@@ -218,6 +218,13 @@ Note that not all props listed below apply to all 4 components. The last 4 colum
 | <b>enablePointerInteraction</b> | <i>bool</i> | `true` | Whether to enable the mouse tracking events. This activates an internal tracker of the canvas mouse position and enables the functionality of object hover/click and tooltip labels, at the cost of performance. If you're looking for maximum gain in your graph performance it's recommended to switch off this property. | :heavy_check_mark: | :heavy_check_mark: | | |
 | <b>enableNodeDrag</b> | <i>bool</i> | `true` | Whether to enable the user interaction to drag nodes by click-dragging. If enabled, every time a node is dragged the simulation is re-heated so the other nodes react to the changes. Only applicable if enablePointerInteraction is `true`. | :heavy_check_mark: | :heavy_check_mark: | | |
 
+###  Utility
+
+| Method | Arguments | Description | 2D | 3D | VR | AR |
+| --- | :--: | --- | :--: | :--: | :--: | :--: |
+| <b>screen2GraphCoords</b> | (<i>x</i>, <i>y</i>) | Utility method to translate viewport coordinates to the graph domain. Given a pair of `x`,`y` screen coordinates, returns the current equivalent `{x, y}` in the domain of graph node coordinates. | :heavy_check_mark: | | | |
+| <b>graph2ScreenCoords</b> | (<i>x</i>, <i>y</i>[, <i>z</i>]) | Utility method to translate node coordinates to the viewport domain. Given a set of `x`,`y`(,`z`) graph coordinates, returns the current equivalent `{x, y}` in viewport coordinates. | :heavy_check_mark: | :heavy_check_mark: | | |
+
 ### Input JSON syntax
 
 ```

@@ -13,7 +13,9 @@ const ForceGraph2D = fromKapsule(
       'pauseAnimation',
       'resumeAnimation',
       'centerAt',
-      'zoom'
+      'zoom',
+      'screen2GraphCoords',
+      'graph2ScreenCoords'
     ]
   }
 );
