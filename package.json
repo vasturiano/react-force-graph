@@ -41,10 +41,10 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph": "^1.58.0",
+    "3d-force-graph": "^1.59.0",
     "3d-force-graph-ar": "^1.2.0",
     "3d-force-graph-vr": "^1.31.0",
-    "force-graph": "^1.24.0",
+    "force-graph": "^1.25.0",
     "prop-types": "^15.7.2",
     "react-kapsule": "^2.1.4"
   },
@@ -52,17 +52,17 @@
     "react": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.3",
+    "@babel/core": "^7.8.6",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-env": "^7.8.6",
     "@babel/preset-react": "^7.8.3",
-    "rimraf": "^3.0.0",
-    "rollup": "^1.29.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^1.32.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "^2.2.0",
-    "terser": "^4.6.3"
+    "terser": "^4.6.4"
   }
 }
