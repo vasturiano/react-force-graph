@@ -1,6 +1,6 @@
 {
   "name": "react-force-graph-ar",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "React component for AR force directed graphs",
   "license": "MIT",
   "unpkg": "dist/react-force-graph-ar.min.js",
