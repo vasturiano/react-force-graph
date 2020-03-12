@@ -1,5 +1,5 @@
-import resolve from 'rollup-plugin-node-resolve';
-import commonJs from 'rollup-plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import commonJs from '@rollup/plugin-commonjs';
 import replace from 'rollup-plugin-replace';
 import babel from 'rollup-plugin-babel';
 import { name, homepage, version } from './package.json';
