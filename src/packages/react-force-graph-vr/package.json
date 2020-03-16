@@ -6,6 +6,7 @@
   "unpkg": "dist/react-force-graph-vr.min.js",
   "main": "dist/react-force-graph-vr.common.js",
   "module": "dist/react-force-graph-vr.module.js",
+  "types": "dist/react-force-graph-vr.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vasturiano/react-force-graph.git"
@@ -28,16 +29,14 @@
   },
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "watch": "rollup -c -w",
-    "minify": "terser dist/react-force-graph-vr.js -o dist/react-force-graph-vr.min.js -c -m --comments '/Version/'",
-    "build-module": "rollup -c rollup.config.module.js",
-    "prepare": "npm run build && npm run minify && npm run build-module"
+    "dev": "rollup -w -c rollup.config.dev.js",
+    "prepare": "npm run build"
   },
   "files": [
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph-vr": "^1.31.2",
+    "3d-force-graph-vr": "^1.31.4",
     "prop-types": "^15.7.2",
     "react-kapsule": "^2.1.5"
   },
@@ -46,7 +45,6 @@
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
-    "rollup": "^2.0.6",
-    "terser": "^4.6.6"
+    "rollup": "^2.0.6"
   }
 }

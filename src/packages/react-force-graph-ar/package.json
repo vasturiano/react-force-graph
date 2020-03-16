@@ -6,6 +6,7 @@
   "unpkg": "dist/react-force-graph-ar.min.js",
   "main": "dist/react-force-graph-ar.common.js",
   "module": "dist/react-force-graph-ar.module.js",
+  "types": "dist/react-force-graph-ar.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vasturiano/react-force-graph.git"
@@ -29,16 +30,14 @@
   },
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "dev": "rollup -c -w",
-    "minify": "terser dist/react-force-graph-ar.js -o dist/react-force-graph-ar.min.js -c -m --comments '/Version/'",
-    "build-module": "rollup -c rollup.config.module.js",
-    "prepare": "npm run build && npm run minify && npm run build-module"
+    "dev": "rollup -w -c rollup.config.dev.js",
+    "prepare": "npm run build"
   },
   "files": [
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph-ar": "^1.2.1",
+    "3d-force-graph-ar": "^1.2.2",
     "prop-types": "^15.7.2",
     "react-kapsule": "^2.1.5"
   },
@@ -47,7 +46,6 @@
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
-    "rollup": "^2.0.6",
-    "terser": "^4.6.6"
+    "rollup": "^2.0.6"
   }
 }
