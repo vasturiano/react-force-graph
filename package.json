@@ -41,12 +41,12 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph": "^1.60.1",
-    "3d-force-graph-ar": "^1.2.0",
-    "3d-force-graph-vr": "^1.31.0",
+    "3d-force-graph": "^1.60.2",
+    "3d-force-graph-ar": "^1.2.1",
+    "3d-force-graph-vr": "^1.31.2",
     "force-graph": "^1.26.3",
     "prop-types": "^15.7.2",
-    "react-kapsule": "^2.1.4"
+    "react-kapsule": "^2.1.5"
   },
   "peerDependencies": {
     "react": "*"
@@ -60,7 +60,7 @@
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "rimraf": "^3.0.2",
-    "rollup": "^2.0.5",
+    "rollup": "^2.0.6",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-replace": "^2.2.0",
     "terser": "^4.6.6"
