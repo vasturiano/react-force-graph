@@ -80,6 +80,7 @@ export const ForceGraph2DPropTypes = Object.assign({},
   commonPropTypes,
   pointerBasedPropTypes,
   {
+    linkLineDash: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.number), PropTypes.string, PropTypes.func]),
     nodeCanvasObject: PropTypes.func,
     nodeCanvasObjectMode: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     linkCanvasObject: PropTypes.func,

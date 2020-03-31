@@ -38,13 +38,13 @@
   "dependencies": {
     "3d-force-graph-vr": "^1.31.4",
     "prop-types": "^15.7.2",
-    "react-kapsule": "^2.1.5"
+    "react-kapsule": "^2.1.7"
   },
   "peerDependencies": {
     "react": "*"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
-    "rollup": "^2.0.6"
+    "rollup": "^2.3.1"
   }
 }

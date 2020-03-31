@@ -62,6 +62,7 @@ interface ForceGraphProps {
   linkVisibility?: LinkAccessor<boolean>;
   linkColor?: LinkAccessor<string>;
   linkAutoColorBy?: LinkAccessor<string | null>;
+  linkLineDash?: LinkAccessor<number[] | null>;
   linkWidth?: LinkAccessor<number>;
   linkCurvature?: LinkAccessor<number>;
   linkCanvasObject?: CanvasCustomRenderFn<LinkObject>;
