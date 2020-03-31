@@ -42,7 +42,7 @@ type Coords = { x: number; y: number; z: number; }
 
 type LinkPositionUpdateFn = (obj: Object3D, coords: { start: Coords, end: Coords }, link: LinkObject) => null | boolean;
 
-interface ForceGraphProps extends ConfigOptions {
+export interface ForceGraphProps extends ConfigOptions {
   // Data input
   graphData?: GraphData;
   nodeId?: string;
@@ -107,7 +107,7 @@ interface ForceGraphProps extends ConfigOptions {
   onLinkCenterHover?: (link: LinkObject | null, previousLink: LinkObject | null) => void;
 }
 
-interface ForceGraphMethods {
+export interface ForceGraphMethods {
   // Link styling
   emitParticle(link: LinkObject): ForceGraphKapsuleInstance;
 
@@ -120,8 +120,8 @@ interface ForceGraphMethods {
   refresh(): ForceGraphKapsuleInstance;
 }
 
-declare const ForceGraph: React.ForwardRefRenderFunction<ForceGraphMethods, ForceGraphProps>;
-// declare const ForceGraph: React.FC<ForceGraphProps & Partial<ForceGraphMethods>>;
-// declare class ForceGraph extends React.Component<ForceGraphProps & Partial<ForceGraphMethods>> {}
+type FCwithRef<P = {}, R = {}> = React.FunctionComponent<P & { ref?: React.MutableRefObject<R> }>;
+
+declare const ForceGraph: FCwithRef<ForceGraphProps, ForceGraphMethods>;
 
 export default ForceGraph;

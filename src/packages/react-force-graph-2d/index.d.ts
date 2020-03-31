@@ -35,7 +35,7 @@ interface ForceFn {
   initialize?: (nodes: NodeObject[]) => void;
 }
 
-interface ForceGraphProps {
+export interface ForceGraphProps {
   // Data input
   graphData?: GraphData;
   nodeId?: string;
@@ -105,7 +105,7 @@ interface ForceGraphProps {
   enablePointerInteraction?: boolean;
 }
 
-interface ForceGraphMethods {
+export interface ForceGraphMethods {
   // Link styling
   emitParticle(link: LinkObject): ForceGraphKapsuleInstance;
 
@@ -127,8 +127,8 @@ interface ForceGraphMethods {
   graph2ScreenCoords(x: number, y: number): { x: number, y: number };
 }
 
-declare const ForceGraph: React.ForwardRefRenderFunction<ForceGraphMethods, ForceGraphProps>;
-// declare const ForceGraph: React.FC<ForceGraphProps & Partial<ForceGraphMethods>>;
-// declare class ForceGraph extends React.Component<ForceGraphProps & Partial<ForceGraphMethods>> {}
+type FCwithRef<P = {}, R = {}> = React.FunctionComponent<P & { ref?: React.MutableRefObject<R> }>;
+
+declare const ForceGraph: FCwithRef<ForceGraphProps, ForceGraphMethods>;
 
 export default ForceGraph;
