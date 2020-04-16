@@ -78,6 +78,7 @@ export interface ForceGraphProps {
   // Force engine (d3-force) configuration
   dagMode?: DagMode;
   dagLevelDistance?: number | null;
+  d3AlphaMin?: number;
   d3AlphaDecay?: number;
   d3VelocityDecay?: number;
   warmupTicks?: number;

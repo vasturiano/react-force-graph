@@ -98,6 +98,7 @@ export interface ForceGraphProps extends ConfigOptions {
   numDimensions?: 1 | 2 | 3;
   dagMode?: DagMode;
   dagLevelDistance?: number | null;
+  d3AlphaMin?: number;
   d3AlphaDecay?: number;
   d3VelocityDecay?: number;
   warmupTicks?: number;
