@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Object3D, Material } from 'three';
-import { ConfigOptions, ForceGraphARInstance as ForceGraphKapsuleInstance } from '3d-force-graph-ar';
+import { ConfigOptions, ForceGraphVRInstance as ForceGraphKapsuleInstance } from '3d-force-graph-vr';
 
 export interface GraphData {
   nodes: NodeObject[];
@@ -121,7 +121,7 @@ export interface ForceGraphMethods {
   refresh(): ForceGraphKapsuleInstance;
 }
 
-type FCwithRef<P = {}, R = {}> = React.FunctionComponent<P & { ref?: React.MutableRefObject<R> }>;
+type FCwithRef<P = {}, R = {}> = React.FunctionComponent<P & { ref?: React.MutableRefObject<R | undefined> }>;
 
 declare const ForceGraph: FCwithRef<ForceGraphProps, ForceGraphMethods>;
 

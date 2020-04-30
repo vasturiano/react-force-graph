@@ -153,7 +153,7 @@ export interface ForceGraphMethods {
   screen2GraphCoords(x: number, y: number): { x: number, y: number };
 }
 
-type FCwithRef<P = {}, R = {}> = React.FunctionComponent<P & { ref?: React.MutableRefObject<R> }>;
+type FCwithRef<P = {}, R = {}> = React.FunctionComponent<P & { ref?: React.MutableRefObject<R | undefined> }>;
 
 declare const ForceGraph: FCwithRef<ForceGraphProps, ForceGraphMethods>;
 
