@@ -122,8 +122,10 @@ export interface ForceGraphMethods {
   centerAt(x?: number, y?: number, durationMs?: number): ForceGraphKapsuleInstance;
   zoom(): number;
   zoom(scale: number, durationMs?: number): ForceGraphKapsuleInstance;
+  zoomToFit(durationMs?: number, padding?: number): ForceGraphKapsuleInstance;
 
   // Utility
+  getGraphBbox(): { x: [number, number], y: [number, number] };
   screen2GraphCoords(x: number, y: number): { x: number, y: number };
   graph2ScreenCoords(x: number, y: number): { x: number, y: number };
 }

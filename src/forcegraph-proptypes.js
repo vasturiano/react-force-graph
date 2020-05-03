@@ -87,6 +87,8 @@ export const ForceGraph2DPropTypes = Object.assign({},
     linkCanvasObject: PropTypes.func,
     linkCanvasObjectMode: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     enableZoomPanInteraction: PropTypes.bool,
+    zoomToFit: PropTypes.func,
+    getGraphBbox: PropTypes.func,
     onZoom: PropTypes.func,
     onZoomEnd: PropTypes.func
   }

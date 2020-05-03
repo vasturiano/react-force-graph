@@ -14,6 +14,8 @@ const ForceGraph2D = fromKapsule(
       'resumeAnimation',
       'centerAt',
       'zoom',
+      'zoomToFit',
+      'getGraphBbox',
       'screen2GraphCoords',
       'graph2ScreenCoords'
     ]
