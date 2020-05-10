@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Scene, Camera, WebGLRenderer, Object3D, Material } from 'three';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { ConfigOptions, ForceGraph3DInstance as ForceGraphKapsuleInstance } from '3d-force-graph';
 
 export interface GraphData {
@@ -41,11 +42,6 @@ interface ForceFn {
 type Coords = { x: number; y: number; z: number; }
 
 type LinkPositionUpdateFn = (obj: Object3D, coords: { start: Coords, end: Coords }, link: LinkObject) => null | boolean;
-
-interface EffectComposer {
-  // simplified version of
-  render(): void;
-}
 
 export interface ForceGraphProps extends ConfigOptions {
   // Data input
@@ -125,9 +121,6 @@ export interface ForceGraphProps extends ConfigOptions {
   enableNodeDrag?: boolean;
   enableNavigationControls?: boolean;
   enablePointerInteraction?: boolean;
-
-  // Render control
-  postProcessingComposer?: EffectComposer;
 }
 
 export interface ForceGraphMethods {
@@ -143,6 +136,7 @@ export interface ForceGraphMethods {
   pauseAnimation(): ForceGraphKapsuleInstance;
   resumeAnimation(): ForceGraphKapsuleInstance;
   cameraPosition(position: Partial<Coords>, lookAt?: Coords, transitionMs?: number): ForceGraphKapsuleInstance;
+  postProcessingComposer(): EffectComposer;
   scene(): Scene;
   camera(): Camera;
   renderer(): WebGLRenderer;
