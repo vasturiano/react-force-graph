@@ -119,6 +119,9 @@ export interface ForceGraphMethods {
 
   // Render control
   refresh(): ForceGraphKapsuleInstance;
+
+  // Utility
+  getGraphBbox(): { x: [number, number], y: [number, number], z: [number, number] };
 }
 
 type FCwithRef<P = {}, R = {}> = React.FunctionComponent<P & { ref?: React.MutableRefObject<R | undefined> }>;

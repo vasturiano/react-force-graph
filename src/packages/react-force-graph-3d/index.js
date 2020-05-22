@@ -13,6 +13,8 @@ const ForceGraph3D = fromKapsule(
       'pauseAnimation',
       'resumeAnimation',
       'cameraPosition',
+      'zoomToFit',
+      'getGraphBbox',
       'graph2ScreenCoords',
       'postProcessingComposer',
       'scene',

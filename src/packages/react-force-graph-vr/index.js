@@ -6,6 +6,7 @@ const ForceGraphVR = fromKapsule(
   ForceGraphVRKapsule,
   {
     methodNames: [ // bind methods
+      'getGraphBbox',
       'emitParticle',
       'd3Force',
       'd3ReheatSimulation',

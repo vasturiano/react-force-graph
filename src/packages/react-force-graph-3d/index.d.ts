@@ -136,6 +136,7 @@ export interface ForceGraphMethods {
   pauseAnimation(): ForceGraphKapsuleInstance;
   resumeAnimation(): ForceGraphKapsuleInstance;
   cameraPosition(position: Partial<Coords>, lookAt?: Coords, transitionMs?: number): ForceGraphKapsuleInstance;
+  zoomToFit(durationMs?: number, padding?: number): ForceGraphKapsuleInstance;
   postProcessingComposer(): EffectComposer;
   scene(): Scene;
   camera(): Camera;
@@ -144,7 +145,8 @@ export interface ForceGraphMethods {
   refresh(): ForceGraphKapsuleInstance;
 
   // Utility
-  screen2GraphCoords(x: number, y: number): { x: number, y: number };
+  getGraphBbox(): { x: [number, number], y: [number, number], z: [number, number] };
+  graph2ScreenCoords(x: number, y: number, z: number): Coords;
 }
 
 type FCwithRef<P = {}, R = {}> = React.FunctionComponent<P & { ref?: React.MutableRefObject<R | undefined> }>;

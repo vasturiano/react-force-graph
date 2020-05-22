@@ -40,10 +40,12 @@ const commonPropTypes = {
   cooldownTicks: PropTypes.number,
   cooldownTime: PropTypes.number,
   onEngineTick: PropTypes.func,
-  onEngineStop: PropTypes.func
+  onEngineStop: PropTypes.func,
+  getGraphBbox: PropTypes.func
 };
 
 const pointerBasedPropTypes = {
+  zoomToFit: PropTypes.func,
   onNodeClick: PropTypes.func,
   onNodeRightClick: PropTypes.func,
   onNodeHover: PropTypes.func,
@@ -87,8 +89,6 @@ export const ForceGraph2DPropTypes = Object.assign({},
     linkCanvasObject: PropTypes.func,
     linkCanvasObjectMode: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     enableZoomPanInteraction: PropTypes.bool,
-    zoomToFit: PropTypes.func,
-    getGraphBbox: PropTypes.func,
     onZoom: PropTypes.func,
     onZoomEnd: PropTypes.func
   }
