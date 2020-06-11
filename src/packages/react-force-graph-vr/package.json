@@ -45,6 +45,6 @@
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
-    "rollup": "^2.10.7"
+    "rollup": "^2.15.0"
   }
 }
