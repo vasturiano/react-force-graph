@@ -136,7 +136,7 @@ export interface ForceGraphMethods {
   pauseAnimation(): ForceGraphKapsuleInstance;
   resumeAnimation(): ForceGraphKapsuleInstance;
   cameraPosition(position: Partial<Coords>, lookAt?: Coords, transitionMs?: number): ForceGraphKapsuleInstance;
-  zoomToFit(durationMs?: number, padding?: number): ForceGraphKapsuleInstance;
+  zoomToFit(durationMs?: number, padding?: number, nodeFilter?: (node: NodeObject) => boolean): ForceGraphKapsuleInstance;
   postProcessingComposer(): EffectComposer;
   scene(): Scene;
   camera(): Camera;
@@ -145,7 +145,7 @@ export interface ForceGraphMethods {
   refresh(): ForceGraphKapsuleInstance;
 
   // Utility
-  getGraphBbox(): { x: [number, number], y: [number, number], z: [number, number] };
+  getGraphBbox(nodeFilter?: (node: NodeObject) => boolean): { x: [number, number], y: [number, number], z: [number, number] };
   graph2ScreenCoords(x: number, y: number, z: number): Coords;
 }
 

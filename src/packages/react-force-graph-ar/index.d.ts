@@ -125,7 +125,7 @@ export interface ForceGraphMethods {
   refresh(): ForceGraphKapsuleInstance;
 
   // Utility
-  getGraphBbox(): { x: [number, number], y: [number, number], z: [number, number] };
+  getGraphBbox(nodeFilter?: (node: NodeObject) => boolean): { x: [number, number], y: [number, number], z: [number, number] };
 }
 
 type FCwithRef<P = {}, R = {}> = React.FunctionComponent<P & { ref?: React.MutableRefObject<R | undefined> }>;
