@@ -36,6 +36,7 @@ const commonPropTypes = {
   d3AlphaMin: PropTypes.number,
   d3AlphaDecay: PropTypes.number,
   d3VelocityDecay: PropTypes.number,
+  ngraphPhysics: PropTypes.object,
   warmupTicks: PropTypes.number,
   cooldownTicks: PropTypes.number,
   cooldownTime: PropTypes.number,

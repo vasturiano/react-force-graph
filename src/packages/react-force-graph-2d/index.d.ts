@@ -81,6 +81,7 @@ export interface ForceGraphProps {
   d3AlphaMin?: number;
   d3AlphaDecay?: number;
   d3VelocityDecay?: number;
+  ngraphPhysics?: object;
   warmupTicks?: number;
   cooldownTicks?: number;
   cooldownTime?: number;
