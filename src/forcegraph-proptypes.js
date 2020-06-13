@@ -36,7 +36,6 @@ const commonPropTypes = {
   d3AlphaMin: PropTypes.number,
   d3AlphaDecay: PropTypes.number,
   d3VelocityDecay: PropTypes.number,
-  ngraphPhysics: PropTypes.object,
   warmupTicks: PropTypes.number,
   cooldownTicks: PropTypes.number,
   cooldownTime: PropTypes.number,
@@ -77,6 +76,7 @@ const threeBasedPropTypes = {
   linkDirectionalArrowResolution: PropTypes.number,
   linkDirectionalParticleResolution: PropTypes.number,
   forceEngine: PropTypes.oneOf(['d3', 'ngraph']),
+  ngraphPhysics: PropTypes.object,
   numDimensions: PropTypes.oneOf([1, 2, 3])
 };
 
