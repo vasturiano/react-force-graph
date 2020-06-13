@@ -177,16 +177,18 @@ Note that not all props listed below apply to all 4 components. The last 4 colum
 | <b>controls</b> | *-* | Access the internal ThreeJS controls object. | | :heavy_check_mark: | | |
 | <b>refresh</b> | *-* | Redraws all the nodes/links. | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-### Force engine (d3-force) configuration
+### Force engine configuration
 
 | Prop | Type | Default | Description | 2D | 3D | VR | AR |
 | --- | :--: | :--: | --- | :--: | :--: | :--: | :--: |
 | <b>numDimensions</b> | <i>1</i>, <i>2</i> or <i>3</i> | 3 | Not applicable to 2D mode. Number of dimensions to run the force simulation on. | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| <b>forceEngine</b> | <i>string</i> | `'d3'` | Which force-simulation engine to use: ([*d3*](https://github.com/vasturiano/d3-force-3d) or [*ngraph*](https://github.com/anvaka/ngraph.forcelayout)). | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>dagMode</b> | <i>string</i> | *-* | Apply layout constraints based on the graph directionality. Only works for [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph) graph structures (without cycles). Choice between `td` (top-down), `bu` (bottom-up), `lr` (left-to-right), `rl` (right-to-left), `zout` (near-to-far), `zin` (far-to-near), `radialout` (outwards-radially) or `radialin` (inwards-radially). | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>dagLevelDistance</b> | <i>number</i> | *auto-derived from the number of nodes* | If `dagMode` is engaged, this specifies the distance between the different graph depths. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| <b>d3AlphaMin</b> | <i>number</i> | 0 | Sets the [simulation alpha min](https://github.com/vasturiano/d3-force-3d#simulation_alphaMin) parameter. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| <b>d3AlphaDecay</b> | <i>number</i> | 0.0228 | Sets the [simulation intensity decay](https://github.com/vasturiano/d3-force-3d#simulation_alphaDecay) parameter. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| <b>d3VelocityDecay</b> | <i>number</i> | 0.4 | Nodes' [velocity decay](https://github.com/vasturiano/d3-force-3d#simulation_velocityDecay) that simulates the medium resistance. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| <b>d3AlphaMin</b> | <i>number</i> | 0 | Sets the [simulation alpha min](https://github.com/vasturiano/d3-force-3d#simulation_alphaMin) parameter. Only applicable if using the d3 simulation engine. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| <b>d3AlphaDecay</b> | <i>number</i> | 0.0228 | Sets the [simulation intensity decay](https://github.com/vasturiano/d3-force-3d#simulation_alphaDecay) parameter. Only applicable if using the d3 simulation engine. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| <b>d3VelocityDecay</b> | <i>number</i> | 0.4 | Nodes' [velocity decay](https://github.com/vasturiano/d3-force-3d#simulation_velocityDecay) that simulates the medium resistance. Only applicable if using the d3 simulation engine. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| <b>ngraphPhysics</b> | <i>object</i> | *-* | | Specify custom physics configuration for ngraph, according to its [configuration object](https://github.com/anvaka/ngraph.forcelayout#configuring-physics) syntax. Only applicable if using the ngraph simulation engine. | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>warmupTicks</b> | <i>number</i> | 0 | Number of layout engine cycles to dry-run at ignition before starting to render. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>cooldownTicks</b> | <i>number</i> | Infinity | How many build-in frames to render before stopping and freezing the layout engine. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>cooldownTime</b> | <i>number</i> | 15000 | How long (ms) to render for before stopping and freezing the layout engine. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -195,7 +197,7 @@ Note that not all props listed below apply to all 4 components. The last 4 colum
 
 | Method | Arguments | Description | 2D | 3D | VR | AR |
 | --- | :--: | --- | :--: | :--: | :--: | :--: |
-| <b>d3Force</b> | (<i>string</i>, [<i>func</i>]) | Access to the internal forces that control the d3 simulation engine. Follows the same interface as `d3-force-3d`'s [simulation.force](https://github.com/vasturiano/d3-force-3d#simulation_force). Three forces are included by default: `'link'` (based on [forceLink](https://github.com/vasturiano/d3-force-3d#forceLink)), `'charge'` (based on [forceManyBody](https://github.com/vasturiano/d3-force-3d#forceManyBody)) and `'center'` (based on [forceCenter](https://github.com/vasturiano/d3-force-3d#forceCenter)). Each of these forces can be reconfigured, or new forces can be added to the system. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| <b>d3Force</b> | (<i>string</i>, [<i>func</i>]) | Access to the internal forces that control the d3 simulation engine. Follows the same interface as `d3-force-3d`'s [simulation.force](https://github.com/vasturiano/d3-force-3d#simulation_force). Three forces are included by default: `'link'` (based on [forceLink](https://github.com/vasturiano/d3-force-3d#forceLink)), `'charge'` (based on [forceManyBody](https://github.com/vasturiano/d3-force-3d#forceManyBody)) and `'center'` (based on [forceCenter](https://github.com/vasturiano/d3-force-3d#forceCenter)). Each of these forces can be reconfigured, or new forces can be added to the system. Only applicable if using the d3 simulation engine. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | <b>d3ReheatSimulation</b> | () | Reheats the force simulation engine, by setting the `alpha` value to `1`. Only applicable if using the d3 simulation engine. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 ### Interaction
