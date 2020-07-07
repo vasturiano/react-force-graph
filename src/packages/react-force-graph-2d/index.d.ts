@@ -78,6 +78,8 @@ export interface ForceGraphProps {
   // Force engine (d3-force) configuration
   dagMode?: DagMode;
   dagLevelDistance?: number | null;
+  dagNodeFilter?: (node: NodeObject) => boolean;
+  onDagError?: ((loopNodeIds: (string | number)[]) => void) | undefined;
   d3AlphaMin?: number;
   d3AlphaDecay?: number;
   d3VelocityDecay?: number;

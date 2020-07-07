@@ -33,6 +33,8 @@ const commonPropTypes = {
   linkDirectionalParticleColor: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   dagMode: PropTypes.oneOf(['td', 'bu', 'lr', 'rl', 'zin', 'zout', 'radialin', 'radialout']),
   dagLevelDistance: PropTypes.number,
+  dagNodeFilter: PropTypes.func,
+  onDagError: PropTypes.func,
   d3AlphaMin: PropTypes.number,
   d3AlphaDecay: PropTypes.number,
   d3VelocityDecay: PropTypes.number,
