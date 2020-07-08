@@ -40,10 +40,10 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph": "^1.66.1",
+    "3d-force-graph": "^1.66.2",
     "3d-force-graph-ar": "^1.6.1",
     "3d-force-graph-vr": "^1.35.1",
-    "force-graph": "^1.31.2",
+    "force-graph": "^1.32.0",
     "prop-types": "^15.7.2",
     "react-kapsule": "^2.1.9"
   },
@@ -60,7 +60,7 @@
     "@rollup/plugin-node-resolve": "^8.1.0",
     "@types/react": "^16.9.41",
     "rimraf": "^3.0.2",
-    "rollup": "^2.20.0",
+    "rollup": "^2.21.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-dts": "^1.4.7",
     "rollup-plugin-replace": "^2.2.0",
