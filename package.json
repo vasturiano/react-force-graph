@@ -40,7 +40,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph": "^1.66.3",
+    "3d-force-graph": "^1.66.4",
     "3d-force-graph-ar": "^1.6.1",
     "3d-force-graph-vr": "^1.35.1",
     "force-graph": "^1.32.2",
@@ -58,7 +58,7 @@
     "@babel/preset-react": "^7.10.4",
     "@rollup/plugin-commonjs": "^13.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
-    "@types/react": "^16.9.41",
+    "@types/react": "^16.9.42",
     "rimraf": "^3.0.2",
     "rollup": "^2.21.0",
     "rollup-plugin-babel": "^4.4.0",
