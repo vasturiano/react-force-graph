@@ -18,7 +18,7 @@
   <div id="graph"></div>
 
   <script type="text/jsx">
-    const { useRef, useEffect, useCallback } = React;
+    const { useRef, useEffect } = React;
 
     fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
       const FocusGraph = () => {
