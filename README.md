@@ -42,6 +42,7 @@ Check out the examples:
 * [Node collision detection](https://vasturiano.github.io/react-force-graph/example/collision-detection/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/collision-detection/index.html))
 * [Emit link particles on demand](https://vasturiano.github.io/react-force-graph/example/emit-particles/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/emit-particles/index.html))
 * [Force-directed tree (DAG mode)](https://vasturiano.github.io/react-force-graph/example/tree/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/tree/index.html))
+* [Bloom Post-Processing Effect](https://vasturiano.github.io/react-force-graph/example/bloom-effect/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/bloom-effect/index.html))
 
 ## Quick start
 

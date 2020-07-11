@@ -1,0 +1,49 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/babel-standalone"></script>
+
+  <script type="module">
+    import { UnrealBloomPass } from '//unpkg.com/three/examples/jsm/postprocessing/UnrealBloomPass.js';
+    window.UnrealBloomPass = UnrealBloomPass;
+  </script>
+
+  <script src="//unpkg.com/react-force-graph-3d"></script>
+  <!--<script src="../../src/packages/react-force-graph-3d/dist/react-force-graph-3d.js"></script>-->
+</head>
+
+<body>
+  <div id="graph"></div>
+
+  <script type="text/jsx">
+    const { useRef, useEffect, useCallback } = React;
+
+    fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
+      const FocusGraph = () => {
+        const fgRef = useRef();
+
+        useEffect(() => {
+          const bloomPass = new UnrealBloomPass();
+          bloomPass.strength = 3;
+          bloomPass.radius = 1;
+          bloomPass.threshold = 0.1;
+          fgRef.current.postProcessingComposer().addPass(bloomPass);
+        }, []);
+
+        return <ForceGraph3D
+          ref={fgRef}
+          graphData={data}
+          nodeLabel="id"
+          nodeAutoColorBy="group"
+        />;
+      };
+
+      ReactDOM.render(
+        <FocusGraph />,
+        document.getElementById('graph')
+      );
+    });
+  </script>
+</body>
