@@ -35,15 +35,15 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "force-graph": "^1.32.2",
+    "force-graph": "^1.32.3",
     "prop-types": "^15.7.2",
-    "react-kapsule": "^2.1.9"
+    "react-kapsule": "^2.2.0"
   },
   "peerDependencies": {
     "react": "*"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
-    "rollup": "^2.21.0"
+    "rollup": "^2.23.0"
   }
 }
