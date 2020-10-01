@@ -75,6 +75,10 @@ export interface ForceGraphProps {
   linkDirectionalParticleWidth?: LinkAccessor<number>;
   linkDirectionalParticleColor?: LinkAccessor<string>;
 
+  // Render control
+  onRenderFramePre?: (canvasContext: CanvasRenderingContext2D, globalScale: number) => void;
+  onRenderFramePost?: (canvasContext: CanvasRenderingContext2D, globalScale: number) => void;
+
   // Force engine (d3-force) configuration
   dagMode?: DagMode;
   dagLevelDistance?: number | null;
