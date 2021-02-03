@@ -36,7 +36,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph": "^1.67.0",
+    "3d-force-graph": "^1.67.8",
     "prop-types": "^15.7.2",
     "react-kapsule": "^2.2.1"
   },
@@ -45,6 +45,6 @@
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
-    "rollup": "^2.30.0"
+    "rollup": "^2.38.4"
   }
 }
