@@ -32,6 +32,13 @@
             ctx.textBaseline = 'middle';
             ctx.fillStyle = node.color;
             ctx.fillText(label, node.x, node.y);
+
+            node.__bckgDimensions = bckgDimensions; // to re-use in nodePointerAreaPaint
+          }}
+          nodePointerAreaPaint={(node, color, ctx) => {
+            ctx.fillStyle = color;
+            const bckgDimensions = node.__bckgDimensions;
+            bckgDimensions && ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
           }}
         />,
         document.getElementById('graph')

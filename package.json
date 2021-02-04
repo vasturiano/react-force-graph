@@ -43,7 +43,7 @@
     "3d-force-graph": "^1.67.8",
     "3d-force-graph-ar": "^1.6.2",
     "3d-force-graph-vr": "^1.35.2",
-    "force-graph": "^1.35.2",
+    "force-graph": "^1.36.2",
     "prop-types": "^15.7.2",
     "react-kapsule": "^2.2.1"
   },

@@ -25,8 +25,9 @@ type Accessor<In, Out> = Out | string | ((obj: In) => Out);
 type NodeAccessor<T> = Accessor<NodeObject, T>;
 type LinkAccessor<T> = Accessor<LinkObject, T>;
 
-type CanvasCustomRenderFn<T> = (obj: T, canvasContext: CanvasRenderingContext2D, globalScale: number, isShadow?: boolean) => void;
 type CanvasCustomRenderMode = 'replace' | 'before' | 'after';
+type CanvasCustomRenderFn<T> = (obj: T, canvasContext: CanvasRenderingContext2D, globalScale: number) => void;
+type CanvasPointerAreaPaintFn<T> = (obj: T, paintColor: string, canvasContext: CanvasRenderingContext2D, globalScale: number) => void;
 
 type DagMode = 'td' | 'bu' | 'lr' | 'rl' | 'radialout' | 'radialin';
 
@@ -54,8 +55,9 @@ export interface ForceGraphProps {
   nodeVisibility?: NodeAccessor<boolean>;
   nodeColor?: NodeAccessor<string>;
   nodeAutoColorBy?: NodeAccessor<string | null>;
-  nodeCanvasObject?: CanvasCustomRenderFn<NodeObject>;
   nodeCanvasObjectMode?: string | ((obj: NodeObject) => CanvasCustomRenderMode);
+  nodeCanvasObject?: CanvasCustomRenderFn<NodeObject>;
+  nodePointerAreaPaint?: CanvasPointerAreaPaintFn<NodeObject>;
 
   // Link styling
   linkLabel?: LinkAccessor<string>;
