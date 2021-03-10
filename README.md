@@ -162,6 +162,7 @@ Note that not all props listed below apply to all 4 components. The last 4 colum
 | Prop | Type | Default | Description | 2D | 3D | VR | AR |
 | --- | :--: | :--: | --- | :--: | :--: | :--: | :--: |
 | <b>rendererConfig</b> | <i>object</i> | `{ antialias: true, alpha: true }` | Configuration parameters to pass to the [ThreeJS WebGLRenderer](https://threejs.org/docs/#api/en/renderers/WebGLRenderer) constructor. This prop only has an effect on component mount. | | :heavy_check_mark: | | |
+| <b>extraRenderers</b> | <i>array</i> | `[]` | If you wish to include custom objects that require a dedicated renderer besides `WebGL`, such as [CSS3DRenderer](https://threejs.org/docs/#examples/en/renderers/CSS3DRenderer), include in this array those extra renderer instances. | | :heavy_check_mark: | | |
 | <b>onRenderFramePre</b> | <i>func</i> | *-* | Callback function to invoke at every frame, immediately before any node/link is rendered to the canvas. This can be used to draw additional external items on the canvas. The canvas context and the current global scale are included as parameters: `.onRenderFramePre(<canvas context>, <global scale>)`. | :heavy_check_mark: | | | |
 | <b>onRenderFramePost</b> | <i>func</i> | *-* | Callback function to invoke at every frame, immediately after the last node/link is rendered to the canvas. This can be used to draw additional external items on the canvas. The canvas context and the current global scale are included as parameters: `.onRenderFramePre(<canvas context>, <global scale>)`. | :heavy_check_mark: | | | |
 

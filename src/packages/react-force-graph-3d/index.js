@@ -23,7 +23,7 @@ const ForceGraph3D = fromKapsule(
       'controls',
       'refresh'
     ],
-    initPropNames: ['controlType', 'rendererConfig']
+    initPropNames: ['controlType', 'rendererConfig', 'extraRenderers']
   }
 );
 
