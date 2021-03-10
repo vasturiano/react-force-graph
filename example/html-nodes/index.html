@@ -1,0 +1,50 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/babel-standalone"></script>
+
+  <script src="//unpkg.com/three"></script>
+  <script src="//unpkg.com/three/examples/js/renderers/CSS2DRenderer.js"></script>
+
+  <script src="//unpkg.com/react-force-graph-3d"></script>
+<!--  <script src="../../src/packages/react-force-graph-3d/dist/react-force-graph-3d.js"></script>-->
+
+  <style>
+    .node-label {
+      font-size: 12px;
+      padding: 1px 4px;
+      border-radius: 4px;
+      background-color: rgba(0,0,0,0.5);
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="graph"></div>
+
+  <script type="text/jsx">
+    const extraRenderers = [new THREE.CSS2DRenderer()];
+
+    fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
+      ReactDOM.render(
+        <ForceGraph3D
+          extraRenderers={extraRenderers}
+          graphData={data}
+          nodeAutoColorBy="group"
+          nodeThreeObject={node => {
+            const nodeEl = document.createElement('div');
+            nodeEl.textContent = node.id;
+            nodeEl.style.color = node.color;
+            nodeEl.className = 'node-label';
+            return new THREE.CSS2DObject(nodeEl);
+          }}
+          nodeThreeObjectExtend={true}
+        />,
+        document.getElementById('graph')
+      );
+    });
+  </script>
+</body>
