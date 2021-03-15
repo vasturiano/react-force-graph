@@ -86,6 +86,7 @@
       return <ForceGraph2D
         graphData={data}
         nodeRelSize={NODE_R}
+        autoPauseRedraw={false}
         linkWidth={link => highlightLinks.has(link) ? 5 : 1}
         linkDirectionalParticles={4}
         linkDirectionalParticleWidth={link => highlightLinks.has(link) ? 4 : 0}

@@ -78,6 +78,9 @@ export interface ForceGraphProps {
   linkDirectionalParticleColor?: LinkAccessor<string>;
 
   // Render control
+  autoPauseRedraw?: boolean;
+  minZoom?: number;
+  maxZoom?: number;
   onRenderFramePre?: (canvasContext: CanvasRenderingContext2D, globalScale: number) => void;
   onRenderFramePost?: (canvasContext: CanvasRenderingContext2D, globalScale: number) => void;
 
