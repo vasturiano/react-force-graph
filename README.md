@@ -242,7 +242,7 @@ Note that not all props listed below apply to all 4 components. The last 4 colum
 | Method | Arguments | Description | 2D | 3D | VR | AR |
 | --- | :--: | --- | :--: | :--: | :--: | :--: |
 | <b>getGraphBbox</b> | ([<i>nodeFilterFn</i>]) | Returns the current bounding box of the nodes in the graph, formatted as `{ x: [<num>, <num>], y: [<num>, <num>], z: [<num>, <num>] }`. If no nodes are found, returns `null`. Accepts an optional argument to define a custom node filter: `node => <boolean>`, which should return a truthy value if the node is to be included. This can be useful to calculate the bounding box of a portion of the graph. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| <b>screen2GraphCoords</b> | (<i>x</i>, <i>y</i>) | Utility method to translate viewport coordinates to the graph domain. Given a pair of `x`,`y` screen coordinates, returns the current equivalent `{x, y}` in the domain of graph node coordinates. | :heavy_check_mark: | | | |
+| <b>screen2GraphCoords</b> | (<i>x</i>, <i>y</i>[, <i>distance</i>]) | Utility method to translate viewport coordinates to the graph domain. Given a pair of `x`,`y` screen coordinates, and optionally distance from camera for 3D mode, returns the current equivalent `{x, y (, z)}` in the domain of graph node coordinates. | :heavy_check_mark: | :heavy_check_mark: | | |
 | <b>graph2ScreenCoords</b> | (<i>x</i>, <i>y</i>[, <i>z</i>]) | Utility method to translate node coordinates to the viewport domain. Given a set of `x`,`y`(,`z`) graph coordinates, returns the current equivalent `{x, y}` in viewport coordinates. | :heavy_check_mark: | :heavy_check_mark: | | |
 
 ### Input JSON syntax

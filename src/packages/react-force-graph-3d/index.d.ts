@@ -149,6 +149,7 @@ export interface ForceGraphMethods {
 
   // Utility
   getGraphBbox(nodeFilter?: (node: NodeObject) => boolean): { x: [number, number], y: [number, number], z: [number, number] };
+  screen2GraphCoords(x: number, y: number, distance: number): Coords;
   graph2ScreenCoords(x: number, y: number, z: number): Coords;
 }
 
