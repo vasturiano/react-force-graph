@@ -29,6 +29,10 @@
             node, // lookAt ({ x, y, z })
             3000  // ms transition duration
           );
+
+          console.log(fgRef.current.graph2ScreenCoords(300, 300, 300));
+          console.log(fgRef.current);
+          console.log(fgRef.current.screen2GraphCoords(300, 300, 300));
         }, [fgRef]);
 
         return <ForceGraph3D
