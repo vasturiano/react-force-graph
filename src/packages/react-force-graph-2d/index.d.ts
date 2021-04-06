@@ -76,6 +76,7 @@ export interface ForceGraphProps {
   linkDirectionalParticleSpeed?: LinkAccessor<number>;
   linkDirectionalParticleWidth?: LinkAccessor<number>;
   linkDirectionalParticleColor?: LinkAccessor<string>;
+  linkPointerAreaPaint?: CanvasPointerAreaPaintFn<LinkObject>;
 
   // Render control
   autoPauseRedraw?: boolean;
