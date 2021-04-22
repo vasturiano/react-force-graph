@@ -37,6 +37,7 @@ type ForceEngine = 'd3' | 'ngraph';
 interface ForceFn {
   (alpha: number): void;
   initialize?: (nodes: NodeObject[]) => void;
+  [key: string]: any;
 }
 
 type Coords = { x: number; y: number; z: number; }

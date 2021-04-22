@@ -34,6 +34,7 @@ type DagMode = 'td' | 'bu' | 'lr' | 'rl' | 'radialout' | 'radialin';
 interface ForceFn {
   (alpha: number): void;
   initialize?: (nodes: NodeObject[]) => void;
+  [key: string]: any;
 }
 
 export interface ForceGraphProps {
