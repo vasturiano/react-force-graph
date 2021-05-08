@@ -15,11 +15,12 @@ const commonPropTypes = {
   nodeVisibility: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.func]),
   nodeColor: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   nodeAutoColorBy: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  onNodeHover: PropTypes.func,
+  onNodeClick: PropTypes.func,
   linkSource: PropTypes.string,
   linkTarget: PropTypes.string,
   linkLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   linkVisibility: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.func]),
-  linkHoverPrecision: PropTypes.number,
   linkColor: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   linkAutoColorBy: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   linkWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
@@ -31,6 +32,8 @@ const commonPropTypes = {
   linkDirectionalParticleSpeed: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
   linkDirectionalParticleWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
   linkDirectionalParticleColor: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  onLinkHover: PropTypes.func,
+  onLinkClick: PropTypes.func,
   dagMode: PropTypes.oneOf(['td', 'bu', 'lr', 'rl', 'zin', 'zout', 'radialin', 'radialout']),
   dagLevelDistance: PropTypes.number,
   dagNodeFilter: PropTypes.func,
@@ -48,14 +51,11 @@ const commonPropTypes = {
 
 const pointerBasedPropTypes = {
   zoomToFit: PropTypes.func,
-  onNodeClick: PropTypes.func,
   onNodeRightClick: PropTypes.func,
-  onNodeHover: PropTypes.func,
   onNodeDrag: PropTypes.func,
   onNodeDragEnd: PropTypes.func,
-  onLinkClick: PropTypes.func,
   onLinkRightClick: PropTypes.func,
-  onLinkHover: PropTypes.func,
+  linkHoverPrecision: PropTypes.number,
   onBackgroundClick: PropTypes.func,
   onBackgroundRightClick: PropTypes.func,
   enablePointerInteraction: PropTypes.bool,
@@ -122,9 +122,7 @@ export const ForceGraphVRPropTypes = Object.assign({},
   threeBasedPropTypes,
   {
     nodeDesc: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    linkDesc: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    onNodeCenterHover: PropTypes.func,
-    onLinkCenterHover: PropTypes.func
+    linkDesc: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
   }
 );
 
@@ -134,8 +132,6 @@ export const ForceGraphARPropTypes = Object.assign({},
   {
     markerAttrs: PropTypes.object,
     yOffset: PropTypes.number,
-    glScale: PropTypes.number,
-    onNodeCenterHover: PropTypes.func,
-    onLinkCenterHover: PropTypes.func,
+    glScale: PropTypes.number
   }
 );

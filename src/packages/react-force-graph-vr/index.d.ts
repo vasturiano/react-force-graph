@@ -57,6 +57,8 @@ export interface ForceGraphProps extends ConfigOptions {
   glScale?: number;
 
   // Node styling
+  nodeLabel?: NodeAccessor<string>;
+  nodeDesc?: NodeAccessor<string>;
   nodeRelSize?: number;
   nodeVal?: NodeAccessor<number>;
   nodeVisibility?: NodeAccessor<boolean>;
@@ -68,6 +70,8 @@ export interface ForceGraphProps extends ConfigOptions {
   nodeThreeObjectExtend?: NodeAccessor<boolean>;
 
   // Link styling
+  linkLabel?: LinkAccessor<string>;
+  linkDesc?: LinkAccessor<string>;
   linkVisibility?: LinkAccessor<boolean>;
   linkColor?: LinkAccessor<string>;
   linkAutoColorBy?: LinkAccessor<string | null>;
@@ -108,8 +112,10 @@ export interface ForceGraphProps extends ConfigOptions {
   onEngineStop?: () => void;
 
   // Interaction
-  onNodeCenterHover?: (node: NodeObject | null, previousNode: NodeObject | null) => void;
-  onLinkCenterHover?: (link: LinkObject | null, previousLink: LinkObject | null) => void;
+  onNodeHover?: (node: NodeObject | null, previousNode: NodeObject | null) => void;
+  onNodeClick?: (link: LinkObject) => void;
+  onLinkHover?: (link: LinkObject | null, previousLink: LinkObject | null) => void;
+  onLinkClick?: (link: LinkObject) => void;
 }
 
 export interface ForceGraphMethods {
