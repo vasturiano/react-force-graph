@@ -28,7 +28,6 @@
           nodeAutoColorBy="user"
           linkDirectionalParticles={2}
           linkDirectionalParticleWidth={0.5}
-          onNodeHover={node => elem.style.cursor = node ? 'pointer' : null}
           onNodeClick={node => window.open(`https://github.com/${node.user}/${node.package}`, '_blank')}
           nodeThreeObject={node => {
             const sprite = new SpriteText(node.package);
