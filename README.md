@@ -72,12 +72,9 @@ or using a script tag
 then
 
 ```
-ReactDOM.render(
-  <ForceGraph3D
-    graphData={myData}
-  />, 
-  myDOMElement
-);
+<ForceGraph3D
+  graphData={myData}
+/>
 ```
 
 ## API reference
