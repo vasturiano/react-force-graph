@@ -33,7 +33,7 @@ type DagMode = 'td' | 'bu' | 'lr' | 'rl' | 'radialout' | 'radialin';
 
 interface ForceFn {
   (alpha: number): void;
-  initialize?: (nodes: NodeObject[]) => void;
+  initialize?: (nodes: NodeObject[], ...args: any[]) => void;
   [key: string]: any;
 }
 
