@@ -36,7 +36,7 @@ type ForceEngine = 'd3' | 'ngraph';
 
 interface ForceFn {
   (alpha: number): void;
-  initialize?: (nodes: NodeObject[]) => void;
+  initialize?: (nodes: NodeObject[], ...args: any[]) => void;
   [key: string]: any;
 }
 
