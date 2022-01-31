@@ -72,12 +72,9 @@ or using a script tag
 then
 
 ```
-ReactDOM.render(
-  <ForceGraph3D
-    graphData={myData}
-  />, 
-  myDOMElement
-);
+<ForceGraph3D
+  graphData={myData}
+/>
 ```
 
 ## API reference
@@ -168,7 +165,7 @@ Note that not all props listed below apply to all 4 components. The last 4 colum
 | <b>minZoom</b> | <i>number</i> | 0.01 | Lowest zoom out level permitted on the 2D canvas. | :heavy_check_mark: | | | |
 | <b>maxZoom</b> | <i>number</i> | 1000 | Highest zoom in level permitted on the 2D canvas. | :heavy_check_mark: | | | |
 | <b>onRenderFramePre</b> | <i>func</i> | *-* | Callback function to invoke at every frame, immediately before any node/link is rendered to the canvas. This can be used to draw additional external items on the canvas. The canvas context and the current global scale are included as parameters: `.onRenderFramePre(<canvas context>, <global scale>)`. | :heavy_check_mark: | | | |
-| <b>onRenderFramePost</b> | <i>func</i> | *-* | Callback function to invoke at every frame, immediately after the last node/link is rendered to the canvas. This can be used to draw additional external items on the canvas. The canvas context and the current global scale are included as parameters: `.onRenderFramePre(<canvas context>, <global scale>)`. | :heavy_check_mark: | | | |
+| <b>onRenderFramePost</b> | <i>func</i> | *-* | Callback function to invoke at every frame, immediately after the last node/link is rendered to the canvas. This can be used to draw additional external items on the canvas. The canvas context and the current global scale are included as parameters: `.onRenderFramePost(<canvas context>, <global scale>)`. | :heavy_check_mark: | | | |
 
 | Method | Arguments | Description | 2D | 3D | VR | AR |
 | --- | :--: | --- | :--: | :--: | :--: | :--: |
