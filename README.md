@@ -2,7 +2,7 @@ react-force-graph
 =================
 
 [![NPM package][npm-img]][npm-url]
-[![Dependencies][dependencies-img]][dependencies-url]
+[![NPM Downloads][npm-downloads-img]][npm-downloads-url]
 
 React bindings for the **force-graph** [suite](https://vasturiano.github.io/react-force-graph/example/forcegraph-dependencies) of components: [force-graph](https://github.com/vasturiano/force-graph) (2D HTML Canvas), [3d-force-graph](https://github.com/vasturiano/3d-force-graph) (ThreeJS/WebGL), [3d-force-graph-vr](https://github.com/vasturiano/3d-force-graph-vr) (A-Frame) and [3d-force-graph-ar](https://github.com/vasturiano/3d-force-graph-ar) (AR.js).
 
@@ -47,7 +47,7 @@ Check out the examples:
 
 ## Quick start
 
-```
+```js
 import ForceGraph2D from 'react-force-graph-2d';
 import ForceGraph3D from 'react-force-graph-3d';
 import ForceGraphVR from 'react-force-graph-vr';
@@ -56,13 +56,13 @@ import ForceGraphAR from 'react-force-graph-ar';
 
 or
 
-```
+```js
 import { ForceGraph2D, ForceGraph3D, ForceGraphVR, ForceGraphAR } from 'react-force-graph';
 ```
 
 or using a script tag
 
-```
+```html
 <script src="//unpkg.com/react-force-graph-2d"></script>
 <script src="//unpkg.com/react-force-graph-3d"></script>
 <script src="//unpkg.com/react-force-graph-vr"></script>
@@ -71,7 +71,7 @@ or using a script tag
 
 then
 
-```
+```jsx
 <ForceGraph3D
   graphData={myData}
 />
@@ -100,7 +100,7 @@ Note that not all props listed below apply to all 4 components. The last 4 colum
 | <b>showNavInfo</b> | <i>bool</i> | `true` | Whether to show the navigation controls footer info. | | :heavy_check_mark: | :heavy_check_mark: | |
 | <b>yOffset</b> | <i>number</i> | 1.5 | In AR mode, defines the offset distance above the marker where to place the center coordinates `<0,0,0>` of the force directed graph. Measured in terms of marker width units. | | | | :heavy_check_mark: |
 | <b>glScale</b> | <i>number</i> | 200 | In AR mode, defines the translation scale between real world distances and WebGL units, determining the overall size of the graph. Defined in terms of how many GL units fit in a full marker width. | | | | :heavy_check_mark: |
-| <b>markerAttrs</b> | <i>object</i> | `{ preset: 'hiro' }` | Set of attributes that define the marker where the AR force directed graph is mounted, according to the [a-marker specification](https://github.com/jeromeetienne/AR.js/tree/master/aframe#a-marker). This prop only has an effect on component mount. | | | | :heavy_check_mark: |
+| <b>markerAttrs</b> | <i>object</i> | `{ preset: 'hiro' }` | Set of attributes that define the marker where the AR force directed graph is mounted, according to the [a-marker specification](https://ar-js-org.github.io/AR.js-Docs/marker-based/). This prop only has an effect on component mount. | | | | :heavy_check_mark: |
 
 ### Node styling
 
@@ -243,7 +243,7 @@ Note that not all props listed below apply to all 4 components. The last 4 colum
 
 ### Input JSON syntax
 
-```
+```json
 {
     "nodes": [ 
         { 
@@ -256,14 +256,14 @@ Note that not all props listed below apply to all 4 components. The last 4 colum
           "name": "name2",
           "val": 10 
         },
-        (...)
+        ...
     ],
     "links": [
         {
             "source": "id1",
             "target": "id2"
         },
-        (...)
+        ...
     ]
 }
 ```
@@ -272,7 +272,7 @@ Note that not all props listed below apply to all 4 components. The last 4 colum
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=L398E7PKP47E8&currency_code=USD&source=url) If this project has helped you and you'd like to contribute back, you can always [buy me a ☕](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=L398E7PKP47E8&currency_code=USD&source=url)!
 
-[npm-img]: https://img.shields.io/npm/v/react-force-graph.svg
+[npm-img]: https://img.shields.io/npm/v/react-force-graph
 [npm-url]: https://npmjs.org/package/react-force-graph
-[dependencies-img]: https://img.shields.io/david/vasturiano/react-force-graph.svg
-[dependencies-url]: https://david-dm.org/vasturiano/react-force-graph
+[npm-downloads-img]: https://img.shields.io/npm/dt/react-force-graph
+[npm-downloads-url]: https://www.npmtrends.com/react-force-graph
