@@ -7,6 +7,7 @@
   "main": "dist/react-force-graph-vr.common.js",
   "module": "dist/react-force-graph-vr.module.js",
   "types": "dist/react-force-graph-vr.d.ts",
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vasturiano/react-force-graph.git"
