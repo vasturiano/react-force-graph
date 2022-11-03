@@ -30,7 +30,7 @@
   },
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "dev": "rollup -w -c rollup.config.dev.js",
+    "dev": "rollup -w -c rollup.config.dev.mjs",
     "prepare": "npm run build"
   },
   "files": [
@@ -46,6 +46,6 @@
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
-    "rollup": "^2.78.0"
+    "rollup": "^3.2.5"
   }
 }

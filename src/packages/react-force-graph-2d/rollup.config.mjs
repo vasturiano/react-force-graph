@@ -4,11 +4,13 @@ import replace from '@rollup/plugin-replace';
 import babel from '@rollup/plugin-babel';
 import { terser } from "rollup-plugin-terser";
 import dts from 'rollup-plugin-dts';
-import { name, homepage, version, dependencies, peerDependencies } from './package.json';
+
+import pkg from './package.json' assert { type: 'json' };
+const { name, homepage, version, dependencies, peerDependencies } = pkg;
 
 const umdConf = {
   format: 'umd',
-  name: 'ForceGraph3D',
+  name: 'ForceGraph2D',
   globals: { react: 'React' },
   banner: `// Version ${version} ${name} - ${homepage}`
 };

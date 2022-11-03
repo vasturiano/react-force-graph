@@ -4,11 +4,13 @@ import replace from '@rollup/plugin-replace';
 import babel from '@rollup/plugin-babel';
 import { terser } from "rollup-plugin-terser";
 import dts from 'rollup-plugin-dts';
-import { name, homepage, version, dependencies, peerDependencies } from './package.json';
+
+import pkg from './package.json' assert { type: 'json' };
+const { name, homepage, version, dependencies, peerDependencies } = pkg;
 
 const umdConf = {
   format: 'umd',
-  name: 'ForceGraph',
+  name: 'ForceGraph3D',
   globals: { react: 'React' },
   banner: `// Version ${version} ${name} - ${homepage}`
 };
@@ -16,7 +18,7 @@ const umdConf = {
 export default [
   {
     external: ['react'],
-    input: 'src/index.js',
+    input: 'index.js',
     output: [
       {
         ...umdConf,
@@ -33,13 +35,13 @@ export default [
     ],
     plugins: [
       replace({ 'process.env.NODE_ENV': JSON.stringify('development') }), // To fool React in the browser
-      babel({ exclude: '**/node_modules/**' }),
       resolve(),
-      commonJs()
+      commonJs(),
+      babel({ exclude: 'node_modules/**' })
     ]
   },
   { // commonJs and ES modules
-    input: 'src/index.js',
+    input: 'index.js',
     output: [
       {
         format: 'cjs',
@@ -57,7 +59,7 @@ export default [
     ]
   },
   { // expose TS declarations
-    input: 'src/index.d.ts',
+    input: 'index.d.ts',
     output: [{
       file: `dist/${name}.d.ts`,
       format: 'es'
