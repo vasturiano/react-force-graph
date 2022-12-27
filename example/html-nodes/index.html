@@ -3,11 +3,9 @@
 
   <script src="//unpkg.com/react/umd/react.production.min.js"></script>
   <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
-  <script src="//unpkg.com/babel-standalone"></script>
+  <script src="//unpkg.com/@babel/standalone"></script>
 
   <script src="//unpkg.com/three"></script>
-  <script src="//unpkg.com/three/examples/js/renderers/CSS2DRenderer.js"></script>
-
   <script src="//unpkg.com/react-force-graph-3d"></script>
 <!--  <script src="../../src/packages/react-force-graph-3d/dist/react-force-graph-3d.js"></script>-->
 
@@ -25,8 +23,11 @@
 <body>
   <div id="graph"></div>
 
-  <script type="text/jsx">
-    const extraRenderers = [new THREE.CSS2DRenderer()];
+  <script type="importmap">{ "imports": { "three": "https://unpkg.com/three/build/three.module.js" }}</script>
+  <script type="text/jsx" data-type="module">
+    import { CSS2DRenderer, CSS2DObject } from '//unpkg.com/three/examples/jsm/renderers/CSS2DRenderer.js';
+
+    const extraRenderers = [new CSS2DRenderer()];
 
     fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
       ReactDOM.render(
@@ -39,7 +40,7 @@
             nodeEl.textContent = node.id;
             nodeEl.style.color = node.color;
             nodeEl.className = 'node-label';
-            return new THREE.CSS2DObject(nodeEl);
+            return new CSS2DObject(nodeEl);
           }}
           nodeThreeObjectExtend={true}
         />,

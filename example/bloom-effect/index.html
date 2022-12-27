@@ -3,14 +3,9 @@
 
   <script src="//unpkg.com/react/umd/react.production.min.js"></script>
   <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
-  <script src="//unpkg.com/babel-standalone"></script>
+  <script src="//unpkg.com/@babel/standalone"></script>
 
   <script src="//unpkg.com/three"></script>
-  <script src="//unpkg.com/three/examples/js/postprocessing/Pass.js"></script>
-  <script src="//unpkg.com/three/examples/js/shaders/CopyShader.js"></script>
-  <script src="//unpkg.com/three/examples/js/shaders/LuminosityHighPassShader.js"></script>
-  <script src="//unpkg.com/three/examples/js/postprocessing/UnrealBloomPass.js"></script>
-
   <script src="//unpkg.com/react-force-graph-3d"></script>
   <!--<script src="../../src/packages/react-force-graph-3d/dist/react-force-graph-3d.js"></script>-->
 </head>
@@ -18,7 +13,10 @@
 <body>
   <div id="graph"></div>
 
-  <script type="text/jsx">
+  <script type="importmap">{ "imports": { "three": "https://unpkg.com/three/build/three.module.js" }}</script>
+  <script type="text/jsx" data-type="module">
+    import { UnrealBloomPass } from '//unpkg.com/three/examples/jsm/postprocessing/UnrealBloomPass.js';
+
     const { useRef, useEffect } = React;
 
     fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
@@ -26,7 +24,7 @@
         const fgRef = useRef();
 
         useEffect(() => {
-          const bloomPass = new THREE.UnrealBloomPass();
+          const bloomPass = new UnrealBloomPass();
           bloomPass.strength = 3;
           bloomPass.radius = 1;
           bloomPass.threshold = 0.1;
