@@ -56,7 +56,7 @@ export interface ForceGraphProps {
   nodeVisibility?: NodeAccessor<boolean>;
   nodeColor?: NodeAccessor<string>;
   nodeAutoColorBy?: NodeAccessor<string | null>;
-  nodeCanvasObjectMode?: string | ((obj: NodeObject) => CanvasCustomRenderMode);
+  nodeCanvasObjectMode?: string | ((obj: NodeObject) => CanvasCustomRenderMode | any);
   nodeCanvasObject?: CanvasCustomRenderFn<NodeObject>;
   nodePointerAreaPaint?: CanvasPointerAreaPaintFn<NodeObject>;
 
@@ -69,7 +69,7 @@ export interface ForceGraphProps {
   linkWidth?: LinkAccessor<number>;
   linkCurvature?: LinkAccessor<number>;
   linkCanvasObject?: CanvasCustomRenderFn<LinkObject>;
-  linkCanvasObjectMode?: string | ((obj: LinkObject) => CanvasCustomRenderMode);
+  linkCanvasObjectMode?: string | ((obj: LinkObject) => CanvasCustomRenderMode | any);
   linkDirectionalArrowLength?: LinkAccessor<number>;
   linkDirectionalArrowColor?: LinkAccessor<string>;
   linkDirectionalArrowRelPos?: LinkAccessor<number>;
