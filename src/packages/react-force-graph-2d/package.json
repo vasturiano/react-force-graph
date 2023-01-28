@@ -44,7 +44,7 @@
     "react": "*"
   },
   "devDependencies": {
-    "rimraf": "^3.0.2",
-    "rollup": "^3.8.1"
+    "rimraf": "^4.1.2",
+    "rollup": "^3.12.0"
   }
 }
