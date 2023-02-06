@@ -60,7 +60,7 @@ or
 import { ForceGraph2D, ForceGraph3D, ForceGraphVR, ForceGraphAR } from 'react-force-graph';
 ```
 
-or using a script tag
+or using a *script* tag
 
 ```html
 <script src="//unpkg.com/react-force-graph-2d"></script>
