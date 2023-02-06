@@ -46,10 +46,10 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph": "^1.70",
-    "3d-force-graph-ar": "^1.7",
-    "3d-force-graph-vr": "^2.0",
-    "force-graph": "^1.42",
+    "3d-force-graph": "^1.71",
+    "3d-force-graph-ar": "^1.8",
+    "3d-force-graph-vr": "^2.1",
+    "force-graph": "^1.43",
     "prop-types": "^15.8",
     "react-kapsule": "^2.2"
   },
@@ -67,9 +67,9 @@
     "@rollup/plugin-terser": "^0.4.0",
     "@types/react": "^18.0.27",
     "rimraf": "^4.1.2",
-    "rollup": "^3.12.0",
+    "rollup": "^3.14.0",
     "rollup-plugin-dts": "^5.1.1",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.5"
   },
   "engines": {
     "node": ">=12"
