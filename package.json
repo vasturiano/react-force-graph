@@ -1,6 +1,6 @@
 {
   "name": "react-force-graph",
-  "version": "1.41.20",
+  "version": "1.42.0",
   "description": "React component for 2D, 3D, VR and AR force directed graphs",
   "license": "MIT",
   "type": "module",
