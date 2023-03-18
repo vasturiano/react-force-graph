@@ -10,7 +10,8 @@
   "types": "dist/react-force-graph-3d.d.ts",
   "exports": {
     "umd": "./dist/react-force-graph-3d.min.js",
-    "default": "./dist/react-force-graph-3d.mjs"
+    "default": "./dist/react-force-graph-3d.mjs",
+    "types": "./dist/react-force-graph-3d.d.ts"
   },
   "sideEffects": false,
   "repository": {

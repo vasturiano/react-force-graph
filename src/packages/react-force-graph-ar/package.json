@@ -10,7 +10,8 @@
   "types": "dist/react-force-graph-ar.d.ts",
   "exports": {
     "umd": "./dist/react-force-graph-ar.min.js",
-    "default": "./dist/react-force-graph-ar.mjs"
+    "default": "./dist/react-force-graph-ar.mjs",
+    "types": "./dist/react-force-graph-ar.d.ts"
   },
   "sideEffects": false,
   "repository": {
