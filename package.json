@@ -11,7 +11,7 @@
   "exports": {
     "umd": "./dist/react-force-graph.min.js",
     "default": "./dist/react-force-graph.mjs",
-    "types": "./dist/react-force-graph-2d.d.ts"
+    "types": "./dist/react-force-graph.d.ts"
   },
   "sideEffects": false,
   "repository": {
