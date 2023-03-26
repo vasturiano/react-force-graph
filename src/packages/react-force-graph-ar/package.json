@@ -9,9 +9,9 @@
   "module": "dist/react-force-graph-ar.mjs",
   "types": "dist/react-force-graph-ar.d.ts",
   "exports": {
+    "types": "./dist/react-force-graph-ar.d.ts",
     "umd": "./dist/react-force-graph-ar.min.js",
-    "default": "./dist/react-force-graph-ar.mjs",
-    "types": "./dist/react-force-graph-ar.d.ts"
+    "default": "./dist/react-force-graph-ar.mjs"
   },
   "sideEffects": false,
   "repository": {

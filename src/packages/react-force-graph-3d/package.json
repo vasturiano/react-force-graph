@@ -9,9 +9,9 @@
   "module": "dist/react-force-graph-3d.mjs",
   "types": "dist/react-force-graph-3d.d.ts",
   "exports": {
+    "types": "./dist/react-force-graph-3d.d.ts",
     "umd": "./dist/react-force-graph-3d.min.js",
-    "default": "./dist/react-force-graph-3d.mjs",
-    "types": "./dist/react-force-graph-3d.d.ts"
+    "default": "./dist/react-force-graph-3d.mjs"
   },
   "sideEffects": false,
   "repository": {

@@ -9,9 +9,9 @@
   "module": "dist/react-force-graph-vr.mjs",
   "types": "dist/react-force-graph-vr.d.ts",
   "exports": {
+    "types": "./dist/react-force-graph-vr.d.ts",
     "umd": "./dist/react-force-graph-vr.min.js",
-    "default": "./dist/react-force-graph-vr.mjs",
-    "types": "./dist/react-force-graph-vr.d.ts"
+    "default": "./dist/react-force-graph-vr.mjs"
   },
   "sideEffects": false,
   "repository": {
