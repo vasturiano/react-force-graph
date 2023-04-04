@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { ForceGraphInstance as ForceGraphKapsuleInstance } from 'force-graph';
 
-export interface GraphData {
-  nodes: NodeObject[];
-  links: LinkObject[];
+export interface GraphData<Node extends NodeObject, Link extends LinkObject<Node>> {
+  nodes: Node[];
+  links: Link[];
 }
 
-export type NodeObject = object & {
+export type NodeObject = {
   id?: string | number;
   x?: number;
   y?: number;
@@ -16,14 +16,12 @@ export type NodeObject = object & {
   fy?: number;
 };
 
-export type LinkObject = object & {
-  source?: string | number | NodeObject;
-  target?: string | number | NodeObject;
+export type LinkObject<Node extends NodeObject = NodeObject> = {
+  source?: string | number | Node;
+  target?: string | number | Node;
 };
 
 type Accessor<In, Out> = Out | string | ((obj: In) => Out);
-type NodeAccessor<T> = Accessor<NodeObject, T>;
-type LinkAccessor<T> = Accessor<LinkObject, T>;
 
 type CanvasCustomRenderMode = 'replace' | 'before' | 'after';
 type CanvasCustomRenderFn<T> = (obj: T, canvasContext: CanvasRenderingContext2D, globalScale: number) => void;
@@ -31,15 +29,18 @@ type CanvasPointerAreaPaintFn<T> = (obj: T, paintColor: string, canvasContext: C
 
 type DagMode = 'td' | 'bu' | 'lr' | 'rl' | 'radialout' | 'radialin';
 
-interface ForceFn {
+interface ForceFn<Node extends NodeObject> {
   (alpha: number): void;
-  initialize?: (nodes: NodeObject[], ...args: any[]) => void;
+  initialize?: (nodes: Node[], ...args: any[]) => void;
   [key: string]: any;
 }
 
-export interface ForceGraphProps {
+export interface ForceGraphProps<
+  Node extends NodeObject,
+  Link extends LinkObject<Node>
+> {
   // Data input
-  graphData?: GraphData;
+  graphData?: GraphData<Node, Link>;
   nodeId?: string;
   linkSource?: string;
   linkTarget?: string;
@@ -51,33 +52,33 @@ export interface ForceGraphProps {
 
   // Node styling
   nodeRelSize?: number;
-  nodeVal?: NodeAccessor<number>;
-  nodeLabel?: NodeAccessor<string>;
-  nodeVisibility?: NodeAccessor<boolean>;
-  nodeColor?: NodeAccessor<string>;
-  nodeAutoColorBy?: NodeAccessor<string | null>;
-  nodeCanvasObjectMode?: string | ((obj: NodeObject) => CanvasCustomRenderMode | any);
-  nodeCanvasObject?: CanvasCustomRenderFn<NodeObject>;
-  nodePointerAreaPaint?: CanvasPointerAreaPaintFn<NodeObject>;
+  nodeVal?: Accessor<Node, number>;
+  nodeLabel?: Accessor<Node, string>;
+  nodeVisibility?: Accessor<Node, boolean>;
+  nodeColor?: Accessor<Node, string>;
+  nodeAutoColorBy?: Accessor<Node, string | null>;
+  nodeCanvasObjectMode?: string | ((obj: Node) => CanvasCustomRenderMode | any);
+  nodeCanvasObject?: CanvasCustomRenderFn<Node>;
+  nodePointerAreaPaint?: CanvasPointerAreaPaintFn<Node>;
 
   // Link styling
-  linkLabel?: LinkAccessor<string>;
-  linkVisibility?: LinkAccessor<boolean>;
-  linkColor?: LinkAccessor<string>;
-  linkAutoColorBy?: LinkAccessor<string | null>;
-  linkLineDash?: LinkAccessor<number[] | null>;
-  linkWidth?: LinkAccessor<number>;
-  linkCurvature?: LinkAccessor<number>;
-  linkCanvasObject?: CanvasCustomRenderFn<LinkObject>;
-  linkCanvasObjectMode?: string | ((obj: LinkObject) => CanvasCustomRenderMode | any);
-  linkDirectionalArrowLength?: LinkAccessor<number>;
-  linkDirectionalArrowColor?: LinkAccessor<string>;
-  linkDirectionalArrowRelPos?: LinkAccessor<number>;
-  linkDirectionalParticles?: LinkAccessor<number>;
-  linkDirectionalParticleSpeed?: LinkAccessor<number>;
-  linkDirectionalParticleWidth?: LinkAccessor<number>;
-  linkDirectionalParticleColor?: LinkAccessor<string>;
-  linkPointerAreaPaint?: CanvasPointerAreaPaintFn<LinkObject>;
+  linkLabel?: Accessor<Link, string>;
+  linkVisibility?: Accessor<Link, boolean>;
+  linkColor?: Accessor<Link, string>;
+  linkAutoColorBy?: Accessor<Link, string | null>;
+  linkLineDash?: Accessor<Link, number[] | null>;
+  linkWidth?: Accessor<Link, number>;
+  linkCurvature?: Accessor<Link, number>;
+  linkCanvasObject?: CanvasCustomRenderFn<Link>;
+  linkCanvasObjectMode?: string | ((obj: Link) => CanvasCustomRenderMode | any);
+  linkDirectionalArrowLength?: Accessor<Link, number>;
+  linkDirectionalArrowColor?: Accessor<Link, string>;
+  linkDirectionalArrowRelPos?: Accessor<Link, number>;
+  linkDirectionalParticles?: Accessor<Link, number>;
+  linkDirectionalParticleSpeed?: Accessor<Link, number>;
+  linkDirectionalParticleWidth?: Accessor<Link, number>;
+  linkDirectionalParticleColor?: Accessor<Link, string>;
+  linkPointerAreaPaint?: CanvasPointerAreaPaintFn<Link>;
 
   // Render control
   autoPauseRedraw?: boolean;
@@ -89,7 +90,7 @@ export interface ForceGraphProps {
   // Force engine (d3-force) configuration
   dagMode?: DagMode;
   dagLevelDistance?: number | null;
-  dagNodeFilter?: (node: NodeObject) => boolean;
+  dagNodeFilter?: (node: Node) => boolean;
   onDagError?: ((loopNodeIds: (string | number)[]) => void) | undefined;
   d3AlphaMin?: number;
   d3AlphaDecay?: number;
@@ -102,14 +103,14 @@ export interface ForceGraphProps {
   onEngineStop?: () => void;
 
   // Interaction
-  onNodeClick?: (node: NodeObject, event: MouseEvent) => void;
-  onNodeRightClick?: (node: NodeObject, event: MouseEvent) => void;
-  onNodeHover?: (node: NodeObject | null, previousNode: NodeObject | null) => void;
-  onNodeDrag?: (node: NodeObject, translate: { x: number, y: number }) => void;
-  onNodeDragEnd?: (node: NodeObject, translate: { x: number, y: number }) => void;
-  onLinkClick?: (link: LinkObject, event: MouseEvent) => void;
-  onLinkRightClick?: (link: LinkObject, event: MouseEvent) => void;
-  onLinkHover?: (link: LinkObject | null, previousLink: LinkObject | null) => void;
+  onNodeClick?: (node: Node, event: MouseEvent) => void;
+  onNodeRightClick?: (node: Node, event: MouseEvent) => void;
+  onNodeHover?: (node: Node | null, previousNode: Node | null) => void;
+  onNodeDrag?: (node: Node, translate: { x: number, y: number }) => void;
+  onNodeDragEnd?: (node: Node, translate: { x: number, y: number }) => void;
+  onLinkClick?: (link: Link, event: MouseEvent) => void;
+  onLinkRightClick?: (link: Link, event: MouseEvent) => void;
+  onLinkHover?: (link: Link | null, previousLink: Link | null) => void;
   linkHoverPrecision?: number;
   onBackgroundClick?: (event: MouseEvent) => void;
   onBackgroundRightClick?: (event: MouseEvent) => void;
@@ -121,13 +122,16 @@ export interface ForceGraphProps {
   enablePointerInteraction?: boolean;
 }
 
-export interface ForceGraphMethods {
+export interface ForceGraphMethods<
+  Node extends NodeObject,
+  Link extends LinkObject<Node>
+> {
   // Link styling
-  emitParticle(link: LinkObject): ForceGraphKapsuleInstance;
+  emitParticle(link: Link): ForceGraphKapsuleInstance;
 
   // Force engine (d3-force) configuration
-  d3Force(forceName: 'link' | 'charge' | 'center' | string): ForceFn | undefined;
-  d3Force(forceName: 'link' | 'charge' | 'center' | string, forceFn: ForceFn): ForceGraphKapsuleInstance;
+  d3Force(forceName: 'link' | 'charge' | 'center' | string): ForceFn<Node> | undefined;
+  d3Force(forceName: 'link' | 'charge' | 'center' | string, forceFn: ForceFn<Node>): ForceGraphKapsuleInstance;
   d3ReheatSimulation(): ForceGraphKapsuleInstance;
 
   // Render control
@@ -137,16 +141,16 @@ export interface ForceGraphMethods {
   centerAt(x?: number, y?: number, durationMs?: number): ForceGraphKapsuleInstance;
   zoom(): number;
   zoom(scale: number, durationMs?: number): ForceGraphKapsuleInstance;
-  zoomToFit(durationMs?: number, padding?: number, nodeFilter?: (node: NodeObject) => boolean): ForceGraphKapsuleInstance;
+  zoomToFit(durationMs?: number, padding?: number, nodeFilter?: (node: Node) => boolean): ForceGraphKapsuleInstance;
 
   // Utility
-  getGraphBbox(nodeFilter?: (node: NodeObject) => boolean): { x: [number, number], y: [number, number] };
+  getGraphBbox(nodeFilter?: (node: Node) => boolean): { x: [number, number], y: [number, number] };
   screen2GraphCoords(x: number, y: number): { x: number, y: number };
   graph2ScreenCoords(x: number, y: number): { x: number, y: number };
 }
 
-type FCwithRef<P = {}, R = {}> = React.FunctionComponent<P & { ref?: React.MutableRefObject<R | undefined> }>;
+type FCwithRef = <Node extends NodeObject, Link extends LinkObject<Node>>(props: ForceGraphProps<Node, Link> & { ref?: React.MutableRefObject<ForceGraphMethods<Node, Link> | undefined>; }) => React.ReactElement;
 
-declare const ForceGraph: FCwithRef<ForceGraphProps, ForceGraphMethods>;
+declare const ForceGraph: FCwithRef;
 
 export default ForceGraph;
