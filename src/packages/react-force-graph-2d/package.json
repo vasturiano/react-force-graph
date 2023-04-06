@@ -9,6 +9,7 @@
   "module": "dist/react-force-graph-2d.mjs",
   "types": "dist/react-force-graph-2d.d.ts",
   "exports": {
+    "types": "./dist/react-force-graph-2d.d.ts",
     "umd": "./dist/react-force-graph-2d.min.js",
     "default": "./dist/react-force-graph-2d.mjs"
   },
