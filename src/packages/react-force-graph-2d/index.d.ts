@@ -16,7 +16,7 @@ export type NodeObject = {
   fy?: number;
 };
 
-export type LinkObject<NodeType extends NodeObject = NodeObject> = {
+export type LinkObject<NodeType extends NodeObject> = {
   source?: string | number | NodeType;
   target?: string | number | NodeType;
 };
