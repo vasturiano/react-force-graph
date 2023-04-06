@@ -45,14 +45,14 @@
   "dependencies": {
     "3d-force-graph": "^1.71",
     "prop-types": "^15.8",
-    "react-kapsule": "^2.2"
+    "react-kapsule": "^2.4"
   },
   "peerDependencies": {
     "react": "*"
   },
   "devDependencies": {
-    "rimraf": "^4.1.2",
-    "rollup": "^3.14.0"
+    "rimraf": "^4.4.1",
+    "rollup": "^3.20.2"
   },
   "engines": {
     "node": ">=12"
