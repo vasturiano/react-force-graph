@@ -2,12 +2,12 @@ import * as React from 'react';
 import { Object3D, Material } from 'three';
 import { ConfigOptions, ForceGraphVRInstance as ForceGraphKapsuleInstance } from '3d-force-graph-vr';
 
-export interface GraphData {
-  nodes: NodeObject[];
-  links: LinkObject[];
+export interface GraphData<NodeType extends NodeObject, LinkType extends LinkObject<NodeType>> {
+  nodes: NodeType[];
+  links: LinkType[];
 }
 
-export type NodeObject = object & {
+export type NodeObject = {
   id?: string | number;
   x?: number;
   y?: number;
@@ -20,32 +20,33 @@ export type NodeObject = object & {
   fz?: number;
 };
 
-export type LinkObject = object & {
-  source?: string | number | NodeObject;
-  target?: string | number | NodeObject;
+export type LinkObject<NodeType extends NodeObject> = {
+  source?: string | number | NodeType;
+  target?: string | number | NodeType;
 };
 
 type Accessor<In, Out> = Out | string | ((obj: In) => Out);
-type NodeAccessor<T> = Accessor<NodeObject, T>;
-type LinkAccessor<T> = Accessor<LinkObject, T>;
 
 type DagMode = 'td' | 'bu' | 'lr' | 'rl' | 'zout' | 'zin' | 'radialout' | 'radialin';
 
 type ForceEngine = 'd3' | 'ngraph';
 
-interface ForceFn {
+interface ForceFn<NodeType extends NodeObject> {
   (alpha: number): void;
-  initialize?: (nodes: NodeObject[], ...args: any[]) => void;
+  initialize?: (nodes: NodeType[], ...args: any[]) => void;
   [key: string]: any;
 }
 
 type Coords = { x: number; y: number; z: number; }
 
-type LinkPositionUpdateFn = (obj: Object3D, coords: { start: Coords, end: Coords }, link: LinkObject) => void | null | boolean;
+type LinkPositionUpdateFn = <NodeType extends NodeObject, LinkType extends LinkObject<NodeType>>(obj: Object3D, coords: { start: Coords, end: Coords }, link: LinkType) => void | null | boolean;
 
-export interface ForceGraphProps extends ConfigOptions {
+export interface ForceGraphProps<
+  NodeType extends NodeObject,
+  LinkType extends LinkObject<NodeType>
+> extends ConfigOptions {
   // Data input
-  graphData?: GraphData;
+  graphData?: GraphData<NodeType, LinkType>;
   nodeId?: string;
   linkSource?: string;
   linkTarget?: string;
@@ -57,41 +58,41 @@ export interface ForceGraphProps extends ConfigOptions {
   glScale?: number;
 
   // Node styling
-  nodeLabel?: NodeAccessor<string>;
-  nodeDesc?: NodeAccessor<string>;
+  nodeLabel?: Accessor<NodeType, string>;
+  nodeDesc?: Accessor<NodeType, string>;
   nodeRelSize?: number;
-  nodeVal?: NodeAccessor<number>;
-  nodeVisibility?: NodeAccessor<boolean>;
-  nodeColor?: NodeAccessor<string>;
-  nodeAutoColorBy?: NodeAccessor<string | null>;
+  nodeVal?: Accessor<NodeType, number>;
+  nodeVisibility?: Accessor<NodeType, boolean>;
+  nodeColor?: Accessor<NodeType, string>;
+  nodeAutoColorBy?: Accessor<NodeType, string | null>;
   nodeOpacity?: number;
   nodeResolution?: number;
-  nodeThreeObject?: NodeAccessor<Object3D>;
-  nodeThreeObjectExtend?: NodeAccessor<boolean>;
+  nodeThreeObject?: Accessor<NodeType, Object3D>;
+  nodeThreeObjectExtend?: Accessor<NodeType, boolean>;
 
   // Link styling
-  linkLabel?: LinkAccessor<string>;
-  linkDesc?: LinkAccessor<string>;
-  linkVisibility?: LinkAccessor<boolean>;
-  linkColor?: LinkAccessor<string>;
-  linkAutoColorBy?: LinkAccessor<string | null>;
-  linkWidth?: LinkAccessor<number>;
+  linkLabel?: Accessor<LinkType, string>;
+  linkDesc?: Accessor<LinkType, string>;
+  linkVisibility?: Accessor<LinkType, boolean>;
+  linkColor?: Accessor<LinkType, string>;
+  linkAutoColorBy?: Accessor<LinkType, string | null>;
+  linkWidth?: Accessor<LinkType, number>;
   linkOpacity?: number;
   linkResolution?: number;
-  linkCurvature?: LinkAccessor<number>;
-  linkCurveRotation?: LinkAccessor<number>;
-  linkMaterial?: LinkAccessor<Material | boolean | null>;
-  linkThreeObject?: LinkAccessor<Object3D>;
-  linkThreeObjectExtend?: LinkAccessor<boolean>;
+  linkCurvature?: Accessor<LinkType, number>;
+  linkCurveRotation?: Accessor<LinkType, number>;
+  linkMaterial?: Accessor<LinkType, Material | boolean | null>;
+  linkThreeObject?: Accessor<LinkType, Object3D>;
+  linkThreeObjectExtend?: Accessor<LinkType, boolean>;
   linkPositionUpdate?: LinkPositionUpdateFn | null;
-  linkDirectionalArrowLength?: LinkAccessor<number>;
-  linkDirectionalArrowColor?: LinkAccessor<string>;
-  linkDirectionalArrowRelPos?: LinkAccessor<number>;
+  linkDirectionalArrowLength?: Accessor<LinkType, number>;
+  linkDirectionalArrowColor?: Accessor<LinkType, string>;
+  linkDirectionalArrowRelPos?: Accessor<LinkType, number>;
   linkDirectionalArrowResolution?: number;
-  linkDirectionalParticles?: LinkAccessor<number>;
-  linkDirectionalParticleSpeed?: LinkAccessor<number>;
-  linkDirectionalParticleWidth?: LinkAccessor<number>;
-  linkDirectionalParticleColor?: LinkAccessor<string>;
+  linkDirectionalParticles?: Accessor<LinkType, number>;
+  linkDirectionalParticleSpeed?: Accessor<LinkType, number>;
+  linkDirectionalParticleWidth?: Accessor<LinkType, number>;
+  linkDirectionalParticleColor?: Accessor<LinkType, string>;
   linkDirectionalParticleResolution?: number;
 
   // Force engine (d3-force) configuration
@@ -99,7 +100,7 @@ export interface ForceGraphProps extends ConfigOptions {
   numDimensions?: 1 | 2 | 3;
   dagMode?: DagMode;
   dagLevelDistance?: number | null;
-  dagNodeFilter?: (node: NodeObject) => boolean;
+  dagNodeFilter?: (node: NodeType) => boolean;
   onDagError?: ((loopNodeIds: (string | number)[]) => void) | undefined;
   d3AlphaMin?: number;
   d3AlphaDecay?: number;
@@ -112,30 +113,33 @@ export interface ForceGraphProps extends ConfigOptions {
   onEngineStop?: () => void;
 
   // Interaction
-  onNodeHover?: (node: NodeObject | null, previousNode: NodeObject | null) => void;
-  onNodeClick?: (link: LinkObject) => void;
-  onLinkHover?: (link: LinkObject | null, previousLink: LinkObject | null) => void;
-  onLinkClick?: (link: LinkObject) => void;
+  onNodeHover?: (node: NodeType | null, previousNode: NodeType | null) => void;
+  onNodeClick?: (link: LinkType) => void;
+  onLinkHover?: (link: LinkType | null, previousLink: LinkType | null) => void;
+  onLinkClick?: (link: LinkType) => void;
 }
 
-export interface ForceGraphMethods {
+export interface ForceGraphMethods<
+  NodeType extends NodeObject,
+  LinkType extends LinkObject<NodeType>
+> {
   // Link styling
-  emitParticle(link: LinkObject): ForceGraphKapsuleInstance;
+  emitParticle(link: LinkType): ForceGraphKapsuleInstance;
 
   // Force engine (d3-force) configuration
-  d3Force(forceName: 'link' | 'charge' | 'center' | string): ForceFn | undefined;
-  d3Force(forceName: 'link' | 'charge' | 'center' | string, forceFn: ForceFn): ForceGraphKapsuleInstance;
+  d3Force(forceName: 'link' | 'charge' | 'center' | string): ForceFn<NodeType> | undefined;
+  d3Force(forceName: 'link' | 'charge' | 'center' | string, forceFn: ForceFn<NodeType>): ForceGraphKapsuleInstance;
   d3ReheatSimulation(): ForceGraphKapsuleInstance;
 
   // Render control
   refresh(): ForceGraphKapsuleInstance;
 
   // Utility
-  getGraphBbox(nodeFilter?: (node: NodeObject) => boolean): { x: [number, number], y: [number, number], z: [number, number] };
+  getGraphBbox(nodeFilter?: (node: NodeType) => boolean): { x: [number, number], y: [number, number], z: [number, number] };
 }
 
-type FCwithRef<P = {}, R = {}> = React.FunctionComponent<P & { ref?: React.MutableRefObject<R | undefined> }>;
+type FCwithRef = <NodeType extends NodeObject, LinkType extends LinkObject<NodeType>>(props: ForceGraphProps<NodeType, LinkType> & { ref?: React.MutableRefObject<ForceGraphMethods<NodeType, LinkType> | undefined>; }) => React.ReactElement;
 
-declare const ForceGraph: FCwithRef<ForceGraphProps, ForceGraphMethods>;
+declare const ForceGraph: FCwithRef;
 
 export default ForceGraph;
