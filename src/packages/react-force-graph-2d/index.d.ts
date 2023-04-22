@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { ForceGraphInstance as ForceGraphKapsuleInstance } from 'force-graph';
 
-export interface GraphData<NodeType extends NodeObject, LinkType extends LinkObject<NodeType>> {
-  nodes: NodeType[];
-  links: LinkType[];
+export interface GraphData<NodeType, LinkType> {
+  nodes: NodeObjectIntersection<NodeType>[];
+  links: LinkObjectIntersection<NodeType, LinkType>[];
 }
 
 export type NodeObject = {
@@ -16,10 +16,14 @@ export type NodeObject = {
   fy?: number;
 };
 
-export type LinkObject<NodeType extends NodeObject> = {
-  source?: string | number | NodeType;
-  target?: string | number | NodeType;
+type NodeObjectIntersection<NodeType> = NodeType & NodeObject;
+
+export type LinkObject<NodeType> = {
+  source?: string | number | NodeObjectIntersection<NodeType>;
+  target?: string | number | NodeObjectIntersection<NodeType>;
 };
+
+type LinkObjectIntersection<NodeType, LinkType> = LinkType & LinkObject<NodeType>;
 
 type Accessor<In, Out> = Out | string | ((obj: In) => Out);
 
@@ -29,18 +33,18 @@ type CanvasPointerAreaPaintFn<T> = (obj: T, paintColor: string, canvasContext: C
 
 type DagMode = 'td' | 'bu' | 'lr' | 'rl' | 'radialout' | 'radialin';
 
-interface ForceFn<NodeType extends NodeObject> {
+interface ForceFn<NodeType> {
   (alpha: number): void;
-  initialize?: (nodes: NodeType[], ...args: any[]) => void;
+  initialize?: (nodes: NodeObjectIntersection<NodeType>[], ...args: any[]) => void;
   [key: string]: any;
 }
 
 export interface ForceGraphProps<
-  NodeType extends NodeObject,
-  LinkType extends LinkObject<NodeType>
+  NodeType,
+  LinkType
 > {
   // Data input
-  graphData?: GraphData<NodeType, LinkType>;
+  graphData?: GraphData<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>>;
   nodeId?: string;
   linkSource?: string;
   linkTarget?: string;
@@ -52,33 +56,33 @@ export interface ForceGraphProps<
 
   // Node styling
   nodeRelSize?: number;
-  nodeVal?: Accessor<NodeType, number>;
-  nodeLabel?: Accessor<NodeType, string>;
-  nodeVisibility?: Accessor<NodeType, boolean>;
-  nodeColor?: Accessor<NodeType, string>;
-  nodeAutoColorBy?: Accessor<NodeType, string | null>;
-  nodeCanvasObjectMode?: string | ((obj: NodeType) => CanvasCustomRenderMode | any);
-  nodeCanvasObject?: CanvasCustomRenderFn<NodeType>;
-  nodePointerAreaPaint?: CanvasPointerAreaPaintFn<NodeType>;
+  nodeVal?: Accessor<NodeObjectIntersection<NodeType>, number>;
+  nodeLabel?: Accessor<NodeObjectIntersection<NodeType>, string>;
+  nodeVisibility?: Accessor<NodeObjectIntersection<NodeType>, boolean>;
+  nodeColor?: Accessor<NodeObjectIntersection<NodeType>, string>;
+  nodeAutoColorBy?: Accessor<NodeObjectIntersection<NodeType>, string | null>;
+  nodeCanvasObjectMode?: string | ((obj: NodeObjectIntersection<NodeType>) => CanvasCustomRenderMode | any);
+  nodeCanvasObject?: CanvasCustomRenderFn<NodeObjectIntersection<NodeType>>;
+  nodePointerAreaPaint?: CanvasPointerAreaPaintFn<NodeObjectIntersection<NodeType>>;
 
   // Link styling
-  linkLabel?: Accessor<LinkType, string>;
-  linkVisibility?: Accessor<LinkType, boolean>;
-  linkColor?: Accessor<LinkType, string>;
-  linkAutoColorBy?: Accessor<LinkType, string | null>;
-  linkLineDash?: Accessor<LinkType, number[] | null>;
-  linkWidth?: Accessor<LinkType, number>;
-  linkCurvature?: Accessor<LinkType, number>;
-  linkCanvasObject?: CanvasCustomRenderFn<LinkType>;
-  linkCanvasObjectMode?: string | ((obj: LinkType) => CanvasCustomRenderMode | any);
-  linkDirectionalArrowLength?: Accessor<LinkType, number>;
-  linkDirectionalArrowColor?: Accessor<LinkType, string>;
-  linkDirectionalArrowRelPos?: Accessor<LinkType, number>;
-  linkDirectionalParticles?: Accessor<LinkType, number>;
-  linkDirectionalParticleSpeed?: Accessor<LinkType, number>;
-  linkDirectionalParticleWidth?: Accessor<LinkType, number>;
-  linkDirectionalParticleColor?: Accessor<LinkType, string>;
-  linkPointerAreaPaint?: CanvasPointerAreaPaintFn<LinkType>;
+  linkLabel?: Accessor<LinkObjectIntersection<NodeType, LinkType>, string>;
+  linkVisibility?: Accessor<LinkObjectIntersection<NodeType, LinkType>, boolean>;
+  linkColor?: Accessor<LinkObjectIntersection<NodeType, LinkType>, string>;
+  linkAutoColorBy?: Accessor<LinkObjectIntersection<NodeType, LinkType>, string | null>;
+  linkLineDash?: Accessor<LinkObjectIntersection<NodeType, LinkType>, number[] | null>;
+  linkWidth?: Accessor<LinkObjectIntersection<NodeType, LinkType>, number>;
+  linkCurvature?: Accessor<LinkObjectIntersection<NodeType, LinkType>, number>;
+  linkCanvasObject?: CanvasCustomRenderFn<LinkObjectIntersection<NodeType, LinkType>>;
+  linkCanvasObjectMode?: string | ((obj: LinkObjectIntersection<NodeType, LinkType>) => CanvasCustomRenderMode | any);
+  linkDirectionalArrowLength?: Accessor<LinkObjectIntersection<NodeType, LinkType>, number>;
+  linkDirectionalArrowColor?: Accessor<LinkObjectIntersection<NodeType, LinkType>, string>;
+  linkDirectionalArrowRelPos?: Accessor<LinkObjectIntersection<NodeType, LinkType>, number>;
+  linkDirectionalParticles?: Accessor<LinkObjectIntersection<NodeType, LinkType>, number>;
+  linkDirectionalParticleSpeed?: Accessor<LinkObjectIntersection<NodeType, LinkType>, number>;
+  linkDirectionalParticleWidth?: Accessor<LinkObjectIntersection<NodeType, LinkType>, number>;
+  linkDirectionalParticleColor?: Accessor<LinkObjectIntersection<NodeType, LinkType>, string>;
+  linkPointerAreaPaint?: CanvasPointerAreaPaintFn<LinkObjectIntersection<NodeType, LinkType>>;
 
   // Render control
   autoPauseRedraw?: boolean;
@@ -90,7 +94,7 @@ export interface ForceGraphProps<
   // Force engine (d3-force) configuration
   dagMode?: DagMode;
   dagLevelDistance?: number | null;
-  dagNodeFilter?: (node: NodeType) => boolean;
+  dagNodeFilter?: (node: NodeObjectIntersection<NodeType>) => boolean;
   onDagError?: ((loopNodeIds: (string | number)[]) => void) | undefined;
   d3AlphaMin?: number;
   d3AlphaDecay?: number;
@@ -103,14 +107,14 @@ export interface ForceGraphProps<
   onEngineStop?: () => void;
 
   // Interaction
-  onNodeClick?: (node: NodeType, event: MouseEvent) => void;
-  onNodeRightClick?: (node: NodeType, event: MouseEvent) => void;
-  onNodeHover?: (node: NodeType | null, previousNode: NodeType | null) => void;
-  onNodeDrag?: (node: NodeType, translate: { x: number, y: number }) => void;
-  onNodeDragEnd?: (node: NodeType, translate: { x: number, y: number }) => void;
-  onLinkClick?: (link: LinkType, event: MouseEvent) => void;
-  onLinkRightClick?: (link: LinkType, event: MouseEvent) => void;
-  onLinkHover?: (link: LinkType | null, previousLink: LinkType | null) => void;
+  onNodeClick?: (node: NodeObjectIntersection<NodeType>, event: MouseEvent) => void;
+  onNodeRightClick?: (node: NodeObjectIntersection<NodeType>, event: MouseEvent) => void;
+  onNodeHover?: (node: NodeObjectIntersection<NodeType> | null, previousNode: NodeObjectIntersection<NodeType> | null) => void;
+  onNodeDrag?: (node: NodeObjectIntersection<NodeType>, translate: { x: number, y: number }) => void;
+  onNodeDragEnd?: (node: NodeObjectIntersection<NodeType>, translate: { x: number, y: number }) => void;
+  onLinkClick?: (link: LinkObjectIntersection<NodeType, LinkType>, event: MouseEvent) => void;
+  onLinkRightClick?: (link: LinkObjectIntersection<NodeType, LinkType>, event: MouseEvent) => void;
+  onLinkHover?: (link: LinkObjectIntersection<NodeType, LinkType> | null, previousLink: LinkObjectIntersection<NodeType, LinkType> | null) => void;
   linkHoverPrecision?: number;
   onBackgroundClick?: (event: MouseEvent) => void;
   onBackgroundRightClick?: (event: MouseEvent) => void;
@@ -123,15 +127,15 @@ export interface ForceGraphProps<
 }
 
 export interface ForceGraphMethods<
-  NodeType extends NodeObject,
-  LinkType extends LinkObject<NodeType>
+  NodeType,
+  LinkType
 > {
   // Link styling
-  emitParticle(link: LinkType): ForceGraphKapsuleInstance;
+  emitParticle(link: LinkObjectIntersection<NodeType, LinkType>): ForceGraphKapsuleInstance;
 
   // Force engine (d3-force) configuration
-  d3Force(forceName: 'link' | 'charge' | 'center' | string): ForceFn<NodeType> | undefined;
-  d3Force(forceName: 'link' | 'charge' | 'center' | string, forceFn: ForceFn<NodeType>): ForceGraphKapsuleInstance;
+  d3Force(forceName: 'link' | 'charge' | 'center' | string): ForceFn<NodeObjectIntersection<NodeType>> | undefined;
+  d3Force(forceName: 'link' | 'charge' | 'center' | string, forceFn: ForceFn<NodeObjectIntersection<NodeType>>): ForceGraphKapsuleInstance;
   d3ReheatSimulation(): ForceGraphKapsuleInstance;
 
   // Render control
@@ -141,15 +145,15 @@ export interface ForceGraphMethods<
   centerAt(x?: number, y?: number, durationMs?: number): ForceGraphKapsuleInstance;
   zoom(): number;
   zoom(scale: number, durationMs?: number): ForceGraphKapsuleInstance;
-  zoomToFit(durationMs?: number, padding?: number, nodeFilter?: (node: NodeType) => boolean): ForceGraphKapsuleInstance;
+  zoomToFit(durationMs?: number, padding?: number, nodeFilter?: (node: NodeObjectIntersection<NodeType>) => boolean): ForceGraphKapsuleInstance;
 
   // Utility
-  getGraphBbox(nodeFilter?: (node: NodeType) => boolean): { x: [number, number], y: [number, number] };
+  getGraphBbox(nodeFilter?: (node: NodeObjectIntersection<NodeType>) => boolean): { x: [number, number], y: [number, number] };
   screen2GraphCoords(x: number, y: number): { x: number, y: number };
   graph2ScreenCoords(x: number, y: number): { x: number, y: number };
 }
 
-type FCwithRef = <NodeType extends NodeObject, LinkType extends LinkObject<NodeType>>(props: ForceGraphProps<NodeType, LinkType> & { ref?: React.MutableRefObject<ForceGraphMethods<NodeType, LinkType> | undefined>; }) => React.ReactElement;
+type FCwithRef = <NodeType, LinkType>(props: ForceGraphProps<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>> & { ref?: React.MutableRefObject<ForceGraphMethods<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>> | undefined>; }) => React.ReactElement;
 
 declare const ForceGraph: FCwithRef;
 
