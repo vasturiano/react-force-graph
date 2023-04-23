@@ -16,14 +16,14 @@ export type NodeObject = {
   fy?: number;
 };
 
-type NodeObjectIntersection<NodeType> = NodeType & NodeObject;
+type NodeObjectIntersection<NodeType> = NodeType & NodeObject & { [others: string]: any; };
 
 export type LinkObject<NodeType = {}> = {
   source?: string | number | NodeObjectIntersection<NodeType>;
   target?: string | number | NodeObjectIntersection<NodeType>;
 };
 
-type LinkObjectIntersection<NodeType, LinkType> = LinkType & LinkObject<NodeType>;
+type LinkObjectIntersection<NodeType, LinkType> = LinkType & LinkObject<NodeType> & { [others: string]: any; };
 
 type Accessor<In, Out> = Out | string | ((obj: In) => Out);
 
