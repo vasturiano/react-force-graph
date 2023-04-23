@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Object3D, Material } from 'three';
 import { ConfigOptions, ForceGraphVRInstance as ForceGraphKapsuleInstance } from '3d-force-graph-vr';
 
-export interface GraphData<NodeType, LinkType> {
+export interface GraphData<NodeType = {}, LinkType = LinkObject<no>> {
   nodes: NodeObjectIntersection<NodeType>[];
   links: LinkObjectIntersection<NodeType, LinkType>[];
 }
@@ -27,7 +27,7 @@ export type LinkObject<NodeType> = {
   target?: string | number | NodeObjectIntersection<NodeType>;
 };
 
-type LinkObjectIntersection<NodeType, LinkType> = LinkType & LinkObject<NodeType>;
+type LinkObjectIntersection<NodeType = {}, LinkType = {}> = LinkType & LinkObject<NodeType>;
 
 type Accessor<In, Out> = Out | string | ((obj: In) => Out);
 
@@ -35,7 +35,7 @@ type DagMode = 'td' | 'bu' | 'lr' | 'rl' | 'zout' | 'zin' | 'radialout' | 'radia
 
 type ForceEngine = 'd3' | 'ngraph';
 
-interface ForceFn<NodeType> {
+interface ForceFn<NodeType = {}> {
   (alpha: number): void;
   initialize?: (nodes: NodeObjectIntersection<NodeType>[], ...args: any[]) => void;
   [key: string]: any;
@@ -43,11 +43,11 @@ interface ForceFn<NodeType> {
 
 type Coords = { x: number; y: number; z: number; }
 
-type LinkPositionUpdateFn = <NodeType, LinkType>(obj: Object3D, coords: { start: Coords, end: Coords }, link: LinkObjectIntersection<NodeType, LinkType>) => void | null | boolean;
+type LinkPositionUpdateFn = <NodeType = {}, LinkType = {}>(obj: Object3D, coords: { start: Coords, end: Coords }, link: LinkObjectIntersection<NodeType, LinkType>) => void | null | boolean;
 
 export interface ForceGraphProps<
-  NodeType,
-  LinkType
+  NodeType = {},
+  LinkType = {}
 > extends ConfigOptions {
   // Data input
   graphData?: GraphData<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>>;
@@ -124,8 +124,8 @@ export interface ForceGraphProps<
 }
 
 export interface ForceGraphMethods<
-  NodeType,
-  LinkType
+  NodeType = {},
+  LinkType = {}
 > {
   // Link styling
   emitParticle(link: LinkObjectIntersection<NodeType, LinkType>): ForceGraphKapsuleInstance;
@@ -142,7 +142,7 @@ export interface ForceGraphMethods<
   getGraphBbox(nodeFilter?: (node: NodeObjectIntersection<NodeType>) => boolean): { x: [number, number], y: [number, number], z: [number, number] };
 }
 
-type FCwithRef = <NodeType, LinkType>(props: ForceGraphProps<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>> & { ref?: React.MutableRefObject<ForceGraphMethods<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>> | undefined>; }) => React.ReactElement;
+type FCwithRef = <NodeType = {}, LinkType = {}>(props: ForceGraphProps<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>> & { ref?: React.MutableRefObject<ForceGraphMethods<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>> | undefined>; }) => React.ReactElement;
 
 declare const ForceGraph: FCwithRef;
 

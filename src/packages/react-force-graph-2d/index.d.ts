@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ForceGraphInstance as ForceGraphKapsuleInstance } from 'force-graph';
 
-export interface GraphData<NodeType, LinkType> {
+export interface GraphData<NodeType = {}, LinkType = {}> {
   nodes: NodeObjectIntersection<NodeType>[];
   links: LinkObjectIntersection<NodeType, LinkType>[];
 }
@@ -18,7 +18,7 @@ export type NodeObject = {
 
 type NodeObjectIntersection<NodeType> = NodeType & NodeObject;
 
-export type LinkObject<NodeType> = {
+export type LinkObject<NodeType = {}> = {
   source?: string | number | NodeObjectIntersection<NodeType>;
   target?: string | number | NodeObjectIntersection<NodeType>;
 };
@@ -33,15 +33,15 @@ type CanvasPointerAreaPaintFn<T> = (obj: T, paintColor: string, canvasContext: C
 
 type DagMode = 'td' | 'bu' | 'lr' | 'rl' | 'radialout' | 'radialin';
 
-interface ForceFn<NodeType> {
+interface ForceFn<NodeType = {}> {
   (alpha: number): void;
   initialize?: (nodes: NodeObjectIntersection<NodeType>[], ...args: any[]) => void;
   [key: string]: any;
 }
 
 export interface ForceGraphProps<
-  NodeType,
-  LinkType
+  NodeType = {},
+  LinkType = {}
 > {
   // Data input
   graphData?: GraphData<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>>;
@@ -127,8 +127,8 @@ export interface ForceGraphProps<
 }
 
 export interface ForceGraphMethods<
-  NodeType,
-  LinkType
+  NodeType = {},
+  LinkType = {}
 > {
   // Link styling
   emitParticle(link: LinkObjectIntersection<NodeType, LinkType>): ForceGraphKapsuleInstance;
@@ -153,7 +153,7 @@ export interface ForceGraphMethods<
   graph2ScreenCoords(x: number, y: number): { x: number, y: number };
 }
 
-type FCwithRef = <NodeType, LinkType>(props: ForceGraphProps<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>> & { ref?: React.MutableRefObject<ForceGraphMethods<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>> | undefined>; }) => React.ReactElement;
+type FCwithRef = <NodeType = {}, LinkType = {}>(props: ForceGraphProps<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>> & { ref?: React.MutableRefObject<ForceGraphMethods<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>> | undefined>; }) => React.ReactElement;
 
 declare const ForceGraph: FCwithRef;
 
