@@ -5,7 +5,7 @@ import { ConfigOptions, ForceGraph3DInstance as ForceGraphKapsuleInstance } from
 
 export interface GraphData<NodeType = {}, LinkType = {}> {
   nodes: NodeObjectIntersection<NodeType>[];
-  links: LinkType[];
+  links: LinkObjectIntersection<NodeType, LinkType>[];
 }
 
 export type NodeObject = {
