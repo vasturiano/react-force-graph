@@ -4,11 +4,11 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { ConfigOptions, ForceGraph3DInstance as ForceGraphKapsuleInstance } from '3d-force-graph';
 
 export interface GraphData<NodeType = {}, LinkType = {}> {
-  nodes: NodeObjectIntersection<NodeType>[];
-  links: LinkObjectIntersection<NodeType, LinkType>[];
+  nodes: NodeObject<NodeType>[];
+  links: LinkObject<NodeType, LinkType>[];
 }
 
-export type NodeObject = {
+export type NodeObject<NodeType = {}> = NodeType & {
   id?: string | number;
   x?: number;
   y?: number;
@@ -19,16 +19,14 @@ export type NodeObject = {
   fx?: number;
   fy?: number;
   fz?: number;
+  [others: string]: any;
 };
 
-type NodeObjectIntersection<NodeType> = NodeType & NodeObject & { [others: string]: any; };
-
-export type LinkObject<NodeType = {}> = {
-  source?: string | number | NodeObjectIntersection<NodeType>;
-  target?: string | number | NodeObjectIntersection<NodeType>;
+export type LinkObject<NodeType = {}, LinkType = {}> = LinkType & {
+  source?: string | number | NodeObject<NodeType>;
+  target?: string | number | NodeObject<NodeType>;
+  [others: string]: any;
 };
-
-type LinkObjectIntersection<NodeType, LinkType> = LinkType & LinkObject<NodeType> & { [others: string]: any; };
 
 type Accessor<In, Out> = Out | string | ((obj: In) => Out);
 
@@ -38,20 +36,20 @@ type ForceEngine = 'd3' | 'ngraph';
 
 interface ForceFn<NodeType = {}> {
   (alpha: number): void;
-  initialize?: (nodes: NodeObjectIntersection<NodeType>[], ...args: any[]) => void;
+  initialize?: (nodes: NodeObject<NodeType>[], ...args: any[]) => void;
   [key: string]: any;
 }
 
 type Coords = { x: number; y: number; z: number; }
 
-type LinkPositionUpdateFn = <NodeType = {}, LinkType = {}>(obj: Object3D, coords: { start: Coords, end: Coords }, link: LinkObjectIntersection<NodeType, LinkType>) => void | null | boolean;
+type LinkPositionUpdateFn = <NodeType = {}, LinkType = {}>(obj: Object3D, coords: { start: Coords, end: Coords }, link: LinkObject<NodeType, LinkType>) => void | null | boolean;
 
 export interface ForceGraphProps<
   NodeType = {},
   LinkType = {}
 > extends ConfigOptions {
   // Data input
-  graphData?: GraphData<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>>;
+  graphData?: GraphData<NodeObject<NodeType>, LinkObject<NodeType, LinkType>>;
   nodeId?: string;
   linkSource?: string;
   linkTarget?: string;
@@ -64,15 +62,15 @@ export interface ForceGraphProps<
 
   // Node styling
   nodeRelSize?: number;
-  nodeVal?: Accessor<NodeObjectIntersection<NodeType>, number>;
-  nodeLabel?: Accessor<NodeObjectIntersection<NodeType>, string>;
-  nodeVisibility?: Accessor<NodeObjectIntersection<NodeType>, boolean>;
-  nodeColor?: Accessor<NodeObjectIntersection<NodeType>, string>;
-  nodeAutoColorBy?: Accessor<NodeObjectIntersection<NodeType>, string | null>;
+  nodeVal?: Accessor<NodeObject<NodeType>, number>;
+  nodeLabel?: Accessor<NodeObject<NodeType>, string>;
+  nodeVisibility?: Accessor<NodeObject<NodeType>, boolean>;
+  nodeColor?: Accessor<NodeObject<NodeType>, string>;
+  nodeAutoColorBy?: Accessor<NodeObject<NodeType>, string | null>;
   nodeOpacity?: number;
   nodeResolution?: number;
-  nodeThreeObject?: Accessor<NodeObjectIntersection<NodeType>, Object3D>;
-  nodeThreeObjectExtend?: Accessor<NodeObjectIntersection<NodeType>, boolean>;
+  nodeThreeObject?: Accessor<NodeObject<NodeType>, Object3D>;
+  nodeThreeObjectExtend?: Accessor<NodeObject<NodeType>, boolean>;
 
   // Link styling
   linkLabel?: Accessor<LinkType, string>;
@@ -103,7 +101,7 @@ export interface ForceGraphProps<
   numDimensions?: 1 | 2 | 3;
   dagMode?: DagMode;
   dagLevelDistance?: number | null;
-  dagNodeFilter?: (node: NodeObjectIntersection<NodeType>) => boolean;
+  dagNodeFilter?: (node: NodeObject<NodeType>) => boolean;
   onDagError?: ((loopNodeIds: (string | number)[]) => void) | undefined;
   d3AlphaMin?: number;
   d3AlphaDecay?: number;
@@ -116,11 +114,11 @@ export interface ForceGraphProps<
   onEngineStop?: () => void;
 
   // Interaction
-  onNodeClick?: (node: NodeObjectIntersection<NodeType>, event: MouseEvent) => void;
-  onNodeRightClick?: (node: NodeObjectIntersection<NodeType>, event: MouseEvent) => void;
-  onNodeHover?: (node: NodeObjectIntersection<NodeType> | null, previousNode: NodeObjectIntersection<NodeType> | null) => void;
-  onNodeDrag?: (node: NodeObjectIntersection<NodeType>, translate: { x: number, y: number }) => void;
-  onNodeDragEnd?: (node: NodeObjectIntersection<NodeType>, translate: { x: number, y: number }) => void;
+  onNodeClick?: (node: NodeObject<NodeType>, event: MouseEvent) => void;
+  onNodeRightClick?: (node: NodeObject<NodeType>, event: MouseEvent) => void;
+  onNodeHover?: (node: NodeObject<NodeType> | null, previousNode: NodeObject<NodeType> | null) => void;
+  onNodeDrag?: (node: NodeObject<NodeType>, translate: { x: number, y: number }) => void;
+  onNodeDragEnd?: (node: NodeObject<NodeType>, translate: { x: number, y: number }) => void;
   onLinkClick?: (link: LinkType, event: MouseEvent) => void;
   onLinkRightClick?: (link: LinkType, event: MouseEvent) => void;
   onLinkHover?: (link: LinkType | null, previousLink: LinkType | null) => void;
@@ -140,15 +138,15 @@ export interface ForceGraphMethods<
   emitParticle(link: LinkType): ForceGraphKapsuleInstance;
 
   // Force engine (d3-force) configuration
-  d3Force(forceName: 'link' | 'charge' | 'center' | string): ForceFn<NodeObjectIntersection<NodeType>> | undefined;
-  d3Force(forceName: 'link' | 'charge' | 'center' | string, forceFn: ForceFn<NodeObjectIntersection<NodeType>>): ForceGraphKapsuleInstance;
+  d3Force(forceName: 'link' | 'charge' | 'center' | string): ForceFn<NodeObject<NodeType>> | undefined;
+  d3Force(forceName: 'link' | 'charge' | 'center' | string, forceFn: ForceFn<NodeObject<NodeType>>): ForceGraphKapsuleInstance;
   d3ReheatSimulation(): ForceGraphKapsuleInstance;
 
   // Render control
   pauseAnimation(): ForceGraphKapsuleInstance;
   resumeAnimation(): ForceGraphKapsuleInstance;
   cameraPosition(position: Partial<Coords>, lookAt?: Coords, transitionMs?: number): ForceGraphKapsuleInstance;
-  zoomToFit(durationMs?: number, padding?: number, nodeFilter?: (node: NodeObjectIntersection<NodeType>) => boolean): ForceGraphKapsuleInstance;
+  zoomToFit(durationMs?: number, padding?: number, nodeFilter?: (node: NodeObject<NodeType>) => boolean): ForceGraphKapsuleInstance;
   postProcessingComposer(): EffectComposer;
   scene(): Scene;
   camera(): Camera;
@@ -157,12 +155,12 @@ export interface ForceGraphMethods<
   refresh(): ForceGraphKapsuleInstance;
 
   // Utility
-  getGraphBbox(nodeFilter?: (node: NodeObjectIntersection<NodeType>) => boolean): { x: [number, number], y: [number, number], z: [number, number] };
+  getGraphBbox(nodeFilter?: (node: NodeObject<NodeType>) => boolean): { x: [number, number], y: [number, number], z: [number, number] };
   screen2GraphCoords(x: number, y: number, distance: number): Coords;
   graph2ScreenCoords(x: number, y: number, z: number): Coords;
 }
 
-type FCwithRef = <NodeType = {}, LinkType = {}>(props: ForceGraphProps<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>> & { ref?: React.MutableRefObject<ForceGraphMethods<NodeObjectIntersection<NodeType>, LinkObjectIntersection<NodeType, LinkType>> | undefined>; }) => React.ReactElement;
+type FCwithRef = <NodeType = {}, LinkType = {}>(props: ForceGraphProps<NodeObject<NodeType>, LinkObject<NodeType, LinkType>> & { ref?: React.MutableRefObject<ForceGraphMethods<NodeObject<NodeType>, LinkObject<NodeType, LinkType>> | undefined>; }) => React.ReactElement;
 
 declare const ForceGraph: FCwithRef;
 
