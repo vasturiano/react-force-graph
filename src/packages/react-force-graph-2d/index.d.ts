@@ -24,6 +24,8 @@ export type LinkObject<NodeType = {}, LinkType = {}> = LinkType & {
 };
 
 type Accessor<In, Out> = Out | string | ((obj: In) => Out);
+type NodeAccessor<NodeType, T> = Accessor<NodeObject<NodeType>, T>;
+type LinkAccessor<NodeType, LinkType, T> = Accessor<LinkObject<NodeType, LinkType>, T>;
 
 type CanvasCustomRenderMode = 'replace' | 'before' | 'after';
 type CanvasCustomRenderFn<T> = (obj: T, canvasContext: CanvasRenderingContext2D, globalScale: number) => void;
@@ -54,32 +56,32 @@ export interface ForceGraphProps<
 
   // Node styling
   nodeRelSize?: number;
-  nodeVal?: Accessor<NodeObject<NodeType>, number>;
-  nodeLabel?: Accessor<NodeObject<NodeType>, string>;
-  nodeVisibility?: Accessor<NodeObject<NodeType>, boolean>;
-  nodeColor?: Accessor<NodeObject<NodeType>, string>;
-  nodeAutoColorBy?: Accessor<NodeObject<NodeType>, string | null>;
+  nodeVal?: NodeAccessor<NodeType, number>;
+  nodeLabel?: NodeAccessor<NodeType, string>;
+  nodeVisibility?: NodeAccessor<NodeType, boolean>;
+  nodeColor?: NodeAccessor<NodeType, string>;
+  nodeAutoColorBy?: NodeAccessor<NodeType, string | null>;
   nodeCanvasObjectMode?: string | ((obj: NodeObject<NodeType>) => CanvasCustomRenderMode | any);
   nodeCanvasObject?: CanvasCustomRenderFn<NodeObject<NodeType>>;
   nodePointerAreaPaint?: CanvasPointerAreaPaintFn<NodeObject<NodeType>>;
 
   // Link styling
-  linkLabel?: Accessor<LinkObject<NodeType, LinkType>, string>;
-  linkVisibility?: Accessor<LinkObject<NodeType, LinkType>, boolean>;
-  linkColor?: Accessor<LinkObject<NodeType, LinkType>, string>;
-  linkAutoColorBy?: Accessor<LinkObject<NodeType, LinkType>, string | null>;
-  linkLineDash?: Accessor<LinkObject<NodeType, LinkType>, number[] | null>;
-  linkWidth?: Accessor<LinkObject<NodeType, LinkType>, number>;
-  linkCurvature?: Accessor<LinkObject<NodeType, LinkType>, number>;
+  linkLabel?: LinkAccessor<NodeType, LinkType, string>;
+  linkVisibility?: LinkAccessor<NodeType, LinkType, boolean>;
+  linkColor?: LinkAccessor<NodeType, LinkType, string>;
+  linkAutoColorBy?: LinkAccessor<NodeType, LinkType, string | null>;
+  linkLineDash?: LinkAccessor<NodeType, LinkType, number[] | null>;
+  linkWidth?: LinkAccessor<NodeType, LinkType, number>;
+  linkCurvature?: LinkAccessor<NodeType, LinkType, number>;
   linkCanvasObject?: CanvasCustomRenderFn<LinkObject<NodeType, LinkType>>;
   linkCanvasObjectMode?: string | ((obj: LinkObject<NodeType, LinkType>) => CanvasCustomRenderMode | any);
-  linkDirectionalArrowLength?: Accessor<LinkObject<NodeType, LinkType>, number>;
-  linkDirectionalArrowColor?: Accessor<LinkObject<NodeType, LinkType>, string>;
-  linkDirectionalArrowRelPos?: Accessor<LinkObject<NodeType, LinkType>, number>;
-  linkDirectionalParticles?: Accessor<LinkObject<NodeType, LinkType>, number>;
-  linkDirectionalParticleSpeed?: Accessor<LinkObject<NodeType, LinkType>, number>;
-  linkDirectionalParticleWidth?: Accessor<LinkObject<NodeType, LinkType>, number>;
-  linkDirectionalParticleColor?: Accessor<LinkObject<NodeType, LinkType>, string>;
+  linkDirectionalArrowLength?: LinkAccessor<NodeType, LinkType, number>;
+  linkDirectionalArrowColor?: LinkAccessor<NodeType, LinkType, string>;
+  linkDirectionalArrowRelPos?: LinkAccessor<NodeType, LinkType, number>;
+  linkDirectionalParticles?: LinkAccessor<NodeType, LinkType, number>;
+  linkDirectionalParticleSpeed?: LinkAccessor<NodeType, LinkType, number>;
+  linkDirectionalParticleWidth?: LinkAccessor<NodeType, LinkType, number>;
+  linkDirectionalParticleColor?: LinkAccessor<NodeType, LinkType, string>;
   linkPointerAreaPaint?: CanvasPointerAreaPaintFn<LinkObject<NodeType, LinkType>>;
 
   // Render control

@@ -28,6 +28,8 @@ export type LinkObject<NodeType = {}, LinkType = {}> = LinkType & {
 };
 
 type Accessor<In, Out> = Out | string | ((obj: In) => Out);
+type NodeAccessor<NodeType, T> = Accessor<NodeObject<NodeType>, T>;
+type LinkAccessor<NodeType, LinkType, T> = Accessor<LinkObject<NodeType, LinkType>, T>;
 
 type DagMode = 'td' | 'bu' | 'lr' | 'rl' | 'zout' | 'zin' | 'radialout' | 'radialin';
 
@@ -60,41 +62,41 @@ export interface ForceGraphProps<
   glScale?: number;
 
   // Node styling
-  nodeLabel?: Accessor<NodeObject<NodeType>, string>;
-  nodeDesc?: Accessor<NodeObject<NodeType>, string>;
+  nodeLabel?: NodeAccessor<NodeType, string>;
+  nodeDesc?: NodeAccessor<NodeType, string>;
   nodeRelSize?: number;
-  nodeVal?: Accessor<NodeObject<NodeType>, number>;
-  nodeVisibility?: Accessor<NodeObject<NodeType>, boolean>;
-  nodeColor?: Accessor<NodeObject<NodeType>, string>;
-  nodeAutoColorBy?: Accessor<NodeObject<NodeType>, string | null>;
+  nodeVal?: NodeAccessor<NodeType, number>;
+  nodeVisibility?: NodeAccessor<NodeType, boolean>;
+  nodeColor?: NodeAccessor<NodeType, string>;
+  nodeAutoColorBy?: NodeAccessor<NodeType, string | null>;
   nodeOpacity?: number;
   nodeResolution?: number;
-  nodeThreeObject?: Accessor<NodeObject<NodeType>, Object3D>;
-  nodeThreeObjectExtend?: Accessor<NodeObject<NodeType>, boolean>;
+  nodeThreeObject?: NodeAccessor<NodeType, Object3D>;
+  nodeThreeObjectExtend?: NodeAccessor<NodeType, boolean>;
 
   // Link styling
-  linkLabel?: Accessor<LinkObject<NodeType, LinkType>, string>;
-  linkDesc?: Accessor<LinkObject<NodeType, LinkType>, string>;
-  linkVisibility?: Accessor<LinkObject<NodeType, LinkType>, boolean>;
-  linkColor?: Accessor<LinkObject<NodeType, LinkType>, string>;
-  linkAutoColorBy?: Accessor<LinkObject<NodeType, LinkType>, string | null>;
-  linkWidth?: Accessor<LinkObject<NodeType, LinkType>, number>;
+  linkLabel?: LinkAccessor<NodeType, LinkType, string>;
+  linkDesc?: LinkAccessor<NodeType, LinkType, string>;
+  linkVisibility?: LinkAccessor<NodeType, LinkType, boolean>;
+  linkColor?: LinkAccessor<NodeType, LinkType, string>;
+  linkAutoColorBy?: LinkAccessor<NodeType, LinkType, string | null>;
+  linkWidth?: LinkAccessor<NodeType, LinkType, number>;
   linkOpacity?: number;
   linkResolution?: number;
-  linkCurvature?: Accessor<LinkObject<NodeType, LinkType>, number>;
-  linkCurveRotation?: Accessor<LinkObject<NodeType, LinkType>, number>;
-  linkMaterial?: Accessor<LinkObject<NodeType, LinkType>, Material | boolean | null>;
-  linkThreeObject?: Accessor<LinkObject<NodeType, LinkType>, Object3D>;
-  linkThreeObjectExtend?: Accessor<LinkObject<NodeType, LinkType>, boolean>;
+  linkCurvature?: LinkAccessor<NodeType, LinkType, number>;
+  linkCurveRotation?: LinkAccessor<NodeType, LinkType, number>;
+  linkMaterial?: LinkAccessor<NodeType, LinkType, Material | boolean | null>;
+  linkThreeObject?: LinkAccessor<NodeType, LinkType, Object3D>;
+  linkThreeObjectExtend?: LinkAccessor<NodeType, LinkType, boolean>;
   linkPositionUpdate?: LinkPositionUpdateFn | null;
-  linkDirectionalArrowLength?: Accessor<LinkObject<NodeType, LinkType>, number>;
-  linkDirectionalArrowColor?: Accessor<LinkObject<NodeType, LinkType>, string>;
-  linkDirectionalArrowRelPos?: Accessor<LinkObject<NodeType, LinkType>, number>;
+  linkDirectionalArrowLength?: LinkAccessor<NodeType, LinkType, number>;
+  linkDirectionalArrowColor?: LinkAccessor<NodeType, LinkType, string>;
+  linkDirectionalArrowRelPos?: LinkAccessor<NodeType, LinkType, number>;
   linkDirectionalArrowResolution?: number;
-  linkDirectionalParticles?: Accessor<LinkObject<NodeType, LinkType>, number>;
-  linkDirectionalParticleSpeed?: Accessor<LinkObject<NodeType, LinkType>, number>;
-  linkDirectionalParticleWidth?: Accessor<LinkObject<NodeType, LinkType>, number>;
-  linkDirectionalParticleColor?: Accessor<LinkObject<NodeType, LinkType>, string>;
+  linkDirectionalParticles?: LinkAccessor<NodeType, LinkType, number>;
+  linkDirectionalParticleSpeed?: LinkAccessor<NodeType, LinkType, number>;
+  linkDirectionalParticleWidth?: LinkAccessor<NodeType, LinkType, number>;
+  linkDirectionalParticleColor?: LinkAccessor<NodeType, LinkType, string>;
   linkDirectionalParticleResolution?: number;
 
   // Force engine (d3-force) configuration
