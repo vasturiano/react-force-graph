@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Object3D, Material } from 'three';
 import { ConfigOptions, ForceGraphVRInstance as ForceGraphKapsuleInstance } from '3d-force-graph-vr';
 
-export interface GraphData<NodeType = {}, LinkType = LinkObject<no>> {
+export interface GraphData<NodeType = {}, LinkType = {}> {
   nodes: NodeObjectIntersection<NodeType>[];
   links: LinkObjectIntersection<NodeType, LinkType>[];
 }
