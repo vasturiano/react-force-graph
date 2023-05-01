@@ -73,27 +73,27 @@ export interface ForceGraphProps<
   nodeThreeObjectExtend?: Accessor<NodeObject<NodeType>, boolean>;
 
   // Link styling
-  linkLabel?: Accessor<LinkType, string>;
-  linkVisibility?: Accessor<LinkType, boolean>;
-  linkColor?: Accessor<LinkType, string>;
-  linkAutoColorBy?: Accessor<LinkType, string | null>;
-  linkWidth?: Accessor<LinkType, number>;
+  linkLabel?: Accessor<LinkObject<NodeType, LinkType>, string>;
+  linkVisibility?: Accessor<LinkObject<NodeType, LinkType>, boolean>;
+  linkColor?: Accessor<LinkObject<NodeType, LinkType>, string>;
+  linkAutoColorBy?: Accessor<LinkObject<NodeType, LinkType>, string | null>;
+  linkWidth?: Accessor<LinkObject<NodeType, LinkType>, number>;
   linkOpacity?: number;
   linkResolution?: number;
-  linkCurvature?: Accessor<LinkType, number>;
-  linkCurveRotation?: Accessor<LinkType, number>;
-  linkMaterial?: Accessor<LinkType, Material | boolean | null>;
-  linkThreeObject?: Accessor<LinkType, Object3D>;
-  linkThreeObjectExtend?: Accessor<LinkType, boolean>;
+  linkCurvature?: Accessor<LinkObject<NodeType, LinkType>, number>;
+  linkCurveRotation?: Accessor<LinkObject<NodeType, LinkType>, number>;
+  linkMaterial?: Accessor<LinkObject<NodeType, LinkType>, Material | boolean | null>;
+  linkThreeObject?: Accessor<LinkObject<NodeType, LinkType>, Object3D>;
+  linkThreeObjectExtend?: Accessor<LinkObject<NodeType, LinkType>, boolean>;
   linkPositionUpdate?: LinkPositionUpdateFn | null;
-  linkDirectionalArrowLength?: Accessor<LinkType, number>;
-  linkDirectionalArrowColor?: Accessor<LinkType, string>;
-  linkDirectionalArrowRelPos?: Accessor<LinkType, number>;
+  linkDirectionalArrowLength?: Accessor<LinkObject<NodeType, LinkType>, number>;
+  linkDirectionalArrowColor?: Accessor<LinkObject<NodeType, LinkType>, string>;
+  linkDirectionalArrowRelPos?: Accessor<LinkObject<NodeType, LinkType>, number>;
   linkDirectionalArrowResolution?: number;
-  linkDirectionalParticles?: Accessor<LinkType, number>;
-  linkDirectionalParticleSpeed?: Accessor<LinkType, number>;
-  linkDirectionalParticleWidth?: Accessor<LinkType, number>;
-  linkDirectionalParticleColor?: Accessor<LinkType, string>;
+  linkDirectionalParticles?: Accessor<LinkObject<NodeType, LinkType>, number>;
+  linkDirectionalParticleSpeed?: Accessor<LinkObject<NodeType, LinkType>, number>;
+  linkDirectionalParticleWidth?: Accessor<LinkObject<NodeType, LinkType>, number>;
+  linkDirectionalParticleColor?: Accessor<LinkObject<NodeType, LinkType>, string>;
   linkDirectionalParticleResolution?: number;
 
   // Force engine (d3-force) configuration
