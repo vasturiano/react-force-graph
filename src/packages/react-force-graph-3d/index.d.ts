@@ -121,9 +121,9 @@ export interface ForceGraphProps<
   onNodeHover?: (node: NodeObject<NodeType> | null, previousNode: NodeObject<NodeType> | null) => void;
   onNodeDrag?: (node: NodeObject<NodeType>, translate: { x: number, y: number }) => void;
   onNodeDragEnd?: (node: NodeObject<NodeType>, translate: { x: number, y: number }) => void;
-  onLinkClick?: (link: LinkType, event: MouseEvent) => void;
-  onLinkRightClick?: (link: LinkType, event: MouseEvent) => void;
-  onLinkHover?: (link: LinkType | null, previousLink: LinkType | null) => void;
+  onLinkClick?: (link: LinkObject<NodeType, LinkType>, event: MouseEvent) => void;
+  onLinkRightClick?: (link: LinkObject<NodeType, LinkType>, event: MouseEvent) => void;
+  onLinkHover?: (link: LinkObject<NodeType, LinkType> | null, previousLink: LinkObject<NodeType, LinkType> | null) => void;
   linkHoverPrecision?: number;
   onBackgroundClick?: (event: MouseEvent) => void;
   onBackgroundRightClick?: (event: MouseEvent) => void;
@@ -137,7 +137,7 @@ export interface ForceGraphMethods<
   LinkType = {}
 > {
   // Link styling
-  emitParticle(link: LinkType): ForceGraphKapsuleInstance;
+  emitParticle(link: LinkObject<NodeType, LinkType>): ForceGraphKapsuleInstance;
 
   // Force engine (d3-force) configuration
   d3Force(forceName: 'link' | 'charge' | 'center' | string): ForceFn<NodeObject<NodeType>> | undefined;
