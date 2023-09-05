@@ -52,8 +52,8 @@
     "react": "*"
   },
   "devDependencies": {
-    "rimraf": "^5.0.0",
-    "rollup": "^3.21.2"
+    "rimraf": "^5.0.1",
+    "rollup": "^3.28.1"
   },
   "engines": {
     "node": ">=12"
