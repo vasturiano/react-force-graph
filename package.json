@@ -4,14 +4,14 @@
   "description": "React component for 2D, 3D, VR and AR force directed graphs",
   "license": "MIT",
   "type": "module",
-  "unpkg": "dist/react-force-graph.min.js",
-  "main": "dist/react-force-graph.mjs",
-  "module": "dist/react-force-graph.mjs",
-  "types": "dist/react-force-graph.d.ts",
+  "unpkg": "src/index.js",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "types": "src/index.d.ts",
   "exports": {
-    "types": "./dist/react-force-graph.d.ts",
-    "umd": "./dist/react-force-graph.min.js",
-    "default": "./dist/react-force-graph.mjs"
+    "types": "./src/index.d.ts",
+    "umd": "./src/index.js",
+    "default": "./src/index.js"
   },
   "sideEffects": false,
   "repository": {
@@ -47,12 +47,12 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph": "1",
+    "3d-force-graph": "ngvtuan1/3d-force-graph",
     "3d-force-graph-ar": "1",
     "3d-force-graph-vr": "2",
-    "force-graph": "1",
+    "force-graph": "1.42.16",
     "prop-types": "15",
-    "react-kapsule": "2"
+    "react-kapsule": "2.2.2"
   },
   "peerDependencies": {
     "react": "*"

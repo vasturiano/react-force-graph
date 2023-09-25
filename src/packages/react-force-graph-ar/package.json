@@ -5,13 +5,13 @@
   "license": "MIT",
   "type": "module",
   "unpkg": "dist/react-force-graph-ar.min.js",
-  "main": "dist/react-force-graph-ar.mjs",
-  "module": "dist/react-force-graph-ar.mjs",
+  "main": "dist/react-force-graph-ar.js",
+  "module": "dist/react-force-graph-ar.js",
   "types": "dist/react-force-graph-ar.d.ts",
   "exports": {
     "types": "./dist/react-force-graph-ar.d.ts",
     "umd": "./dist/react-force-graph-ar.min.js",
-    "default": "./dist/react-force-graph-ar.mjs"
+    "default": "./dist/react-force-graph-ar.js"
   },
   "sideEffects": false,
   "repository": {
@@ -44,9 +44,9 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph-ar": "1",
+    "3d-force-graph-ar": "1.7.5",
     "prop-types": "15",
-    "react-kapsule": "2"
+    "react-kapsule": "2.2.2"
   },
   "peerDependencies": {
     "react": "*"

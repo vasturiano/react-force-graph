@@ -5,13 +5,13 @@
   "license": "MIT",
   "type": "module",
   "unpkg": "dist/react-force-graph-2d.min.js",
-  "main": "dist/react-force-graph-2d.mjs",
-  "module": "dist/react-force-graph-2d.mjs",
+  "main": "dist/react-force-graph-2d.js",
+  "module": "dist/react-force-graph-2d.js",
   "types": "dist/react-force-graph-2d.d.ts",
   "exports": {
     "types": "./dist/react-force-graph-2d.d.ts",
     "umd": "./dist/react-force-graph-2d.min.js",
-    "default": "./dist/react-force-graph-2d.mjs"
+    "default": "./dist/react-force-graph-2d.js"
   },
   "sideEffects": false,
   "repository": {
@@ -42,9 +42,9 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "force-graph": "1",
+    "force-graph": "1.42.16",
     "prop-types": "15",
-    "react-kapsule": "2"
+    "react-kapsule": "2.2.2"
   },
   "peerDependencies": {
     "react": "*"

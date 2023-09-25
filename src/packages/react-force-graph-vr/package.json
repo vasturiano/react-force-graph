@@ -5,13 +5,13 @@
   "license": "MIT",
   "type": "module",
   "unpkg": "dist/react-force-graph-vr.min.js",
-  "main": "dist/react-force-graph-vr.mjs",
-  "module": "dist/react-force-graph-vr.mjs",
+  "main": "dist/react-force-graph-vr.js",
+  "module": "dist/react-force-graph-vr.js",
   "types": "dist/react-force-graph-vr.d.ts",
   "exports": {
     "types": "./dist/react-force-graph-vr.d.ts",
     "umd": "./dist/react-force-graph-vr.min.js",
-    "default": "./dist/react-force-graph-vr.mjs"
+    "default": "./dist/react-force-graph-vr.js"
   },
   "sideEffects": false,
   "repository": {
@@ -43,9 +43,9 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph-vr": "2",
+    "3d-force-graph-vr": "2.0.16",
     "prop-types": "15",
-    "react-kapsule": "2"
+    "react-kapsule": "2.2.2"
   },
   "peerDependencies": {
     "react": "*"
