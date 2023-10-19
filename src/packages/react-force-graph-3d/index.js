@@ -18,6 +18,7 @@ const ForceGraph3D = fromKapsule(
       'screen2GraphCoords',
       'graph2ScreenCoords',
       'postProcessingComposer',
+      'lights',
       'scene',
       'camera',
       'renderer',

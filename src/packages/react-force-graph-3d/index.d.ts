@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Scene, Camera, WebGLRenderer, Object3D, Material } from 'three';
+import { Light, Scene, Camera, WebGLRenderer, Object3D, Material } from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { ConfigOptions, ForceGraph3DInstance as ForceGraphKapsuleInstance } from '3d-force-graph';
 
@@ -150,6 +150,8 @@ export interface ForceGraphMethods<
   cameraPosition(position: Partial<Coords>, lookAt?: Coords, transitionMs?: number): ForceGraphKapsuleInstance;
   zoomToFit(durationMs?: number, padding?: number, nodeFilter?: (node: NodeObject<NodeType>) => boolean): ForceGraphKapsuleInstance;
   postProcessingComposer(): EffectComposer;
+  lights(): Light[];
+  lights(lights: Light[]): ChainableInstance;
   scene(): Scene;
   camera(): Camera;
   renderer(): WebGLRenderer;
