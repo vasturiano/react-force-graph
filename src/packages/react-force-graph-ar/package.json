@@ -53,7 +53,7 @@
   },
   "devDependencies": {
     "rimraf": "^5.0.5",
-    "rollup": "^4.1.4"
+    "rollup": "^4.6.1"
   },
   "engines": {
     "node": ">=12"

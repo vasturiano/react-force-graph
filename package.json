@@ -58,20 +58,20 @@
     "react": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.2",
-    "@babel/preset-env": "^7.23.2",
-    "@babel/preset-react": "^7.22.15",
+    "@babel/core": "^7.23.5",
+    "@babel/preset-env": "^7.23.5",
+    "@babel/preset-react": "^7.23.3",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-replace": "^5.0.4",
+    "@rollup/plugin-replace": "^5.0.5",
     "@rollup/plugin-terser": "^0.4.4",
-    "@types/react": "^18.2.29",
-    "@types/three": "^0.157.2",
+    "@types/react": "^18.2.42",
+    "@types/three": "^0.159.0",
     "rimraf": "^5.0.5",
-    "rollup": "^4.1.4",
+    "rollup": "^4.6.1",
     "rollup-plugin-dts": "^6.1.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.3"
   },
   "engines": {
     "node": ">=12"
