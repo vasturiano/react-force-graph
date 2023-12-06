@@ -151,7 +151,7 @@ export interface ForceGraphMethods<
   zoomToFit(durationMs?: number, padding?: number, nodeFilter?: (node: NodeObject<NodeType>) => boolean): ForceGraphKapsuleInstance;
   postProcessingComposer(): EffectComposer;
   lights(): Light[];
-  lights(lights: Light[]): ChainableInstance;
+  lights(lights: Light[]): ForceGraphKapsuleInstance;
   scene(): Scene;
   camera(): Camera;
   renderer(): WebGLRenderer;
