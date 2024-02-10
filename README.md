@@ -7,7 +7,7 @@ react-force-graph
 React bindings for the **force-graph** [suite](https://vasturiano.github.io/react-force-graph/example/forcegraph-dependencies) of components: [force-graph](https://github.com/vasturiano/force-graph) (2D HTML Canvas), [3d-force-graph](https://github.com/vasturiano/3d-force-graph) (ThreeJS/WebGL), [3d-force-graph-vr](https://github.com/vasturiano/3d-force-graph-vr) (A-Frame) and [3d-force-graph-ar](https://github.com/vasturiano/3d-force-graph-ar) (AR.js).
 
 <p align="center">
-  <a href="https://vasturiano.github.io/react-force-graph/example/large-graph/"><img width="80%" src="http://gist.github.com/vasturiano/02affe306ce445e423f992faeea13521/raw/preview.png"></a>
+  <a href="https://vasturiano.github.io/react-force-graph/example/large-graph/"><img width="80%" src="https://vasturiano.github.io/react-force-graph/example/preview.png"></a>
 </p>
 
 This module exports 4 React components with identical interfaces: `ForceGraph2D`, `ForceGraph3D`, `ForceGraphVR` and `ForceGraphAR`. Each can be used to represent a graph data structure in a 2 or 3-dimensional space using a force-directed iterative layout.
