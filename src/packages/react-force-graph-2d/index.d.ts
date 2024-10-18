@@ -121,8 +121,8 @@ export interface ForceGraphProps<
   onZoom?: (transform: {k: number, x: number, y: number}) => void;
   onZoomEnd?: (transform: {k: number, x: number, y: number}) => void;
   enableNodeDrag?: boolean;
-  enableZoomInteraction?: boolean;
-  enablePanInteraction?: boolean;
+  enableZoomInteraction?: boolean | ((event: MouseEvent) => boolean);
+  enablePanInteraction?: boolean | ((event: MouseEvent) => boolean);
   enablePointerInteraction?: boolean;
 }
 
