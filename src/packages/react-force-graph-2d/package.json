@@ -1,6 +1,6 @@
 {
   "name": "react-force-graph-2d",
-  "version": "1.25.6",
+  "version": "1.25.7",
   "description": "React component for 2D force directed graphs",
   "license": "MIT",
   "type": "module",
