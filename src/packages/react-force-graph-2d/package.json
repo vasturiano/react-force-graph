@@ -44,14 +44,14 @@
   "dependencies": {
     "force-graph": "1",
     "prop-types": "15",
-    "react-kapsule": "2"
+    "react-kapsule": "^2.5"
   },
   "peerDependencies": {
     "react": "*"
   },
   "devDependencies": {
     "rimraf": "^6.0.1",
-    "rollup": "^4.24.0"
+    "rollup": "^4.26.0"
   },
   "engines": {
     "node": ">=12"
