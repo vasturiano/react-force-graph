@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ForceGraphInstance as ForceGraphKapsuleInstance } from 'force-graph';
+import ForceGraphKapsule from 'force-graph';
 
 export interface GraphData<NodeType = {}, LinkType = {}> {
   nodes: NodeObject<NodeType>[];
@@ -131,21 +131,21 @@ export interface ForceGraphMethods<
   LinkType = {}
 > {
   // Link styling
-  emitParticle(link: LinkObject<NodeType, LinkType>): ForceGraphKapsuleInstance;
+  emitParticle(link: LinkObject<NodeType, LinkType>): ForceGraphKapsule;
 
   // Force engine (d3-force) configuration
   d3Force(forceName: 'link' | 'charge' | 'center' | string): ForceFn<NodeObject<NodeType>> | undefined;
-  d3Force(forceName: 'link' | 'charge' | 'center' | string, forceFn: ForceFn<NodeObject<NodeType>> | null): ForceGraphKapsuleInstance;
-  d3ReheatSimulation(): ForceGraphKapsuleInstance;
+  d3Force(forceName: 'link' | 'charge' | 'center' | string, forceFn: ForceFn<NodeObject<NodeType>> | null): ForceGraphKapsule;
+  d3ReheatSimulation(): ForceGraphKapsule;
 
   // Render control
-  pauseAnimation(): ForceGraphKapsuleInstance;
-  resumeAnimation(): ForceGraphKapsuleInstance;
+  pauseAnimation(): ForceGraphKapsule;
+  resumeAnimation(): ForceGraphKapsule;
   centerAt(): {x: number, y: number};
-  centerAt(x?: number, y?: number, durationMs?: number): ForceGraphKapsuleInstance;
+  centerAt(x?: number, y?: number, durationMs?: number): ForceGraphKapsule;
   zoom(): number;
-  zoom(scale: number, durationMs?: number): ForceGraphKapsuleInstance;
-  zoomToFit(durationMs?: number, padding?: number, nodeFilter?: (node: NodeObject<NodeType>) => boolean): ForceGraphKapsuleInstance;
+  zoom(scale: number, durationMs?: number): ForceGraphKapsule;
+  zoomToFit(durationMs?: number, padding?: number, nodeFilter?: (node: NodeObject<NodeType>) => boolean): ForceGraphKapsule;
 
   // Utility
   getGraphBbox(nodeFilter?: (node: NodeObject<NodeType>) => boolean): { x: [number, number], y: [number, number] };

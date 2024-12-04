@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Light, Scene, Camera, WebGLRenderer, Object3D, Material } from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
-import { ConfigOptions, ForceGraph3DInstance as ForceGraphKapsuleInstance } from '3d-force-graph';
+import ForceGraphKapsule, { ConfigOptions } from '3d-force-graph';
 
 export interface GraphData<NodeType = {}, LinkType = {}> {
   nodes: NodeObject<NodeType>[];
@@ -137,26 +137,26 @@ export interface ForceGraphMethods<
   LinkType = {}
 > {
   // Link styling
-  emitParticle(link: LinkObject<NodeType, LinkType>): ForceGraphKapsuleInstance;
+  emitParticle(link: LinkObject<NodeType, LinkType>): ForceGraphKapsule;
 
   // Force engine (d3-force) configuration
   d3Force(forceName: 'link' | 'charge' | 'center' | string): ForceFn<NodeObject<NodeType>> | undefined;
-  d3Force(forceName: 'link' | 'charge' | 'center' | string, forceFn: ForceFn<NodeObject<NodeType>> | null): ForceGraphKapsuleInstance;
-  d3ReheatSimulation(): ForceGraphKapsuleInstance;
+  d3Force(forceName: 'link' | 'charge' | 'center' | string, forceFn: ForceFn<NodeObject<NodeType>> | null): ForceGraphKapsule;
+  d3ReheatSimulation(): ForceGraphKapsule;
 
   // Render control
-  pauseAnimation(): ForceGraphKapsuleInstance;
-  resumeAnimation(): ForceGraphKapsuleInstance;
-  cameraPosition(position: Partial<Coords>, lookAt?: Coords, transitionMs?: number): ForceGraphKapsuleInstance;
-  zoomToFit(durationMs?: number, padding?: number, nodeFilter?: (node: NodeObject<NodeType>) => boolean): ForceGraphKapsuleInstance;
+  pauseAnimation(): ForceGraphKapsule;
+  resumeAnimation(): ForceGraphKapsule;
+  cameraPosition(position: Partial<Coords>, lookAt?: Coords, transitionMs?: number): ForceGraphKapsule;
+  zoomToFit(durationMs?: number, padding?: number, nodeFilter?: (node: NodeObject<NodeType>) => boolean): ForceGraphKapsule;
   postProcessingComposer(): EffectComposer;
   lights(): Light[];
-  lights(lights: Light[]): ForceGraphKapsuleInstance;
+  lights(lights: Light[]): ForceGraphKapsule;
   scene(): Scene;
   camera(): Camera;
   renderer(): WebGLRenderer;
   controls(): object;
-  refresh(): ForceGraphKapsuleInstance;
+  refresh(): ForceGraphKapsule;
 
   // Utility
   getGraphBbox(nodeFilter?: (node: NodeObject<NodeType>) => boolean): { x: [number, number], y: [number, number], z: [number, number] };
