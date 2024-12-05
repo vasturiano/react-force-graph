@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Object3D, Material } from 'three';
-import ForceGraphKapsule, { ConfigOptions } from '3d-force-graph-vr';
+import { ConfigOptions, ForceGraphVRInstance as ForceGraphKapsuleInstance } from '3d-force-graph-vr';
 
 export interface GraphData<NodeType = {}, LinkType = {}> {
   nodes: NodeObject<NodeType>[];
@@ -128,15 +128,15 @@ export interface ForceGraphMethods<
   LinkType = {}
 > {
   // Link styling
-  emitParticle(link: LinkObject<NodeType, LinkType>): ForceGraphKapsule;
+  emitParticle(link: LinkObject<NodeType, LinkType>): ForceGraphKapsuleInstance;
 
   // Force engine (d3-force) configuration
   d3Force(forceName: 'link' | 'charge' | 'center' | string): ForceFn<NodeObject<NodeType>> | undefined;
-  d3Force(forceName: 'link' | 'charge' | 'center' | string, forceFn: ForceFn<NodeObject<NodeType>> | null): ForceGraphKapsule;
-  d3ReheatSimulation(): ForceGraphKapsule;
+  d3Force(forceName: 'link' | 'charge' | 'center' | string, forceFn: ForceFn<NodeObject<NodeType>> | null): ForceGraphKapsuleInstance;
+  d3ReheatSimulation(): ForceGraphKapsuleInstance;
 
   // Render control
-  refresh(): ForceGraphKapsule;
+  refresh(): ForceGraphKapsuleInstance;
 
   // Utility
   getGraphBbox(nodeFilter?: (node: NodeObject<NodeType>) => boolean): { x: [number, number], y: [number, number], z: [number, number] };
