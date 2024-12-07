@@ -1,8 +1,8 @@
 <head>
   <style> body { margin: 0; } </style>
 
-  <script src="//unpkg.com/react/umd/react.production.min.js"></script>
-  <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="//unpkg.com/@babel/standalone"></script>
 
   <script src="//unpkg.com/react-force-graph-2d"></script>
@@ -28,14 +28,13 @@
     // gen a number persistent color from around the palette
     const getColor = n => '#' + ((n * 1234567) % Math.pow(2, 24)).toString(16).padStart(6, '0');
 
-    ReactDOM.render(
+    ReactDOM.createRoot(document.getElementById('graph')).render(
       <ForceGraph2D
         graphData={genRandomTree(20)}
         nodeLabel="id"
         nodeCanvasObject={(node, ctx) => nodePaint(node, getColor(node.id), ctx)}
         nodePointerAreaPaint={nodePaint}
-      />,
-      document.getElementById('graph')
+      />
     );
   </script>
 </body>

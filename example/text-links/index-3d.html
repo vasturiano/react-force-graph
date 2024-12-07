@@ -1,8 +1,8 @@
 <head>
   <style> body { margin: 0; } </style>
 
-  <script src="//unpkg.com/react/umd/react.production.min.js"></script>
-  <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="//unpkg.com/@babel/standalone"></script>
 
   <script src="//unpkg.com/react-force-graph-3d"></script>
@@ -17,7 +17,7 @@
     import SpriteText from "//unpkg.com/three-spritetext/dist/three-spritetext.mjs";
 
     fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
-      ReactDOM.render(
+      ReactDOM.createRoot(document.getElementById('graph')).render(
         <ForceGraph3D
           graphData={data}
           nodeLabel="id"
@@ -38,8 +38,7 @@
             // Position sprite
             Object.assign(sprite.position, middlePos);
           }}
-        />,
-        document.getElementById('graph')
+        />
       );
     });
   </script>

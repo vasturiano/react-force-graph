@@ -1,8 +1,8 @@
 <head>
   <style> body { margin: 0; } </style>
 
-  <script src="//unpkg.com/react/umd/react.production.min.js"></script>
-  <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="//unpkg.com/@babel/standalone"></script>
 
   <script src="//unpkg.com/react-force-graph-3d"></script>
@@ -15,14 +15,13 @@
   <div id="graph"></div>
 
   <script type="text/jsx">
-    ReactDOM.render(
+    ReactDOM.createRoot(document.getElementById('graph')).render(
       <ForceGraph3D
         graphData={genRandomTree(40)}
         linkDirectionalArrowLength={3.5}
         linkDirectionalArrowRelPos={1}
         linkCurvature={0.25}
-      />,
-      document.getElementById('graph')
+      />
     );
   </script>
 </body>

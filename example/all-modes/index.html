@@ -1,8 +1,8 @@
 <head>
   <style> body { margin: 0; } </style>
 
-  <script src="//unpkg.com/react/umd/react.production.min.js"></script>
-  <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="//unpkg.com/@babel/standalone"></script>
 
   <script src="//unpkg.com/react-force-graph"></script>
@@ -18,7 +18,7 @@
     const comps = [ForceGraph.ForceGraph2D, ForceGraph.ForceGraph3D, ForceGraph.ForceGraphVR];
     const compWidth = window.innerWidth / comps.length;
 
-    ReactDOM.render(
+    ReactDOM.createRoot(document.getElementById('graph')).render(
       <div style={{ display: 'flex' }}>
         {comps.map(Comp =>
           <Comp
@@ -26,8 +26,7 @@
             graphData={genRandomTree()}
           />
         )}
-      </div>,
-      document.getElementById('graph')
+      </div>
     );
   </script>
 </body>

@@ -1,8 +1,8 @@
 <head>
   <style> body { margin: 0; } </style>
 
-  <script src="//unpkg.com/react/umd/react.production.min.js"></script>
-  <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="//unpkg.com/@babel/standalone"></script>
 
   <script src="//unpkg.com/react-force-graph-vr"></script>
@@ -17,7 +17,7 @@
   <script type="text/jsx" data-type="module">
     import * as THREE from '//unpkg.com/three/build/three.module.js';
 
-    ReactDOM.render(
+    ReactDOM.createRoot(document.getElementById('graph')).render(
       <ForceGraphVR
         graphData={genRandomTree(100)}
         nodeThreeObject={({ id }) => new THREE.Mesh(
@@ -36,8 +36,7 @@
             opacity: 0.75
           })
         )}
-      />,
-      document.getElementById('graph')
+      />
     );
   </script>
 </body>
