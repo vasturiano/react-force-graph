@@ -17,6 +17,8 @@ For dependency convenience, all of the components are also available as stand-al
 Uses canvas/WebGL for rendering and [d3-force-3d](https://github.com/vasturiano/d3-force-3d) for the underlying physics engine. 
 Supports zooming/panning, node dragging and node/link hover/click interactions.
 
+See also the [react-three-fiber component](https://github.com/vasturiano/r3f-forcegraph).
+
 ## Examples
 
 * [Basic](https://vasturiano.github.io/react-force-graph/example/basic/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/basic/index.html))
