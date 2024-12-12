@@ -1,21 +1,27 @@
 <head>
   <style> body { margin: 0; } </style>
 
-  <script src="//unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="//unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="//unpkg.com/@babel/standalone"></script>
+  <script type="importmap">{ "imports": {
+    "react": "https://esm.sh/react",
+    "react-dom": "https://esm.sh/react-dom/client"
+  }}</script>
+  <script type="module">
+    import * as React from 'react';
+    window.React = React;
+  </script>
 
-  <script src="//unpkg.com/react-force-graph-2d"></script>
-  <!--<script src="../../src/packages/react-force-graph-2d/dist/react-force-graph-2d.js"></script>-->
-
-  <script src="//unpkg.com/d3-quadtree"></script>
-  <script src="//unpkg.com/d3-force"></script>
+  <script src="//unpkg.com/react-force-graph-2d" defer></script>
+  <!--<script src="../../src/packages/react-force-graph-2d/dist/react-force-graph-2d.js" defer></script>-->
 </head>
 
 <body>
   <div id="graph"></div>
 
-  <script type="text/jsx">
+  <script src="//unpkg.com/@babel/standalone"></script>
+  <script type="text/jsx" data-type="module">
+    import { createRoot } from 'react-dom';
+    import { forceCollide }  from 'https://esm.sh/d3-force-3d';
+
     const { useState, useEffect, useRef } = React;
 
     const CollisionDetectionFG = () => {
@@ -31,7 +37,7 @@
         fg.d3Force('charge', null);
 
         // Add collision and bounding box forces
-        fg.d3Force('collide', d3.forceCollide(4));
+        fg.d3Force('collide', forceCollide(4));
         fg.d3Force('box', () => {
           const SQUARE_HALF_SIDE = N * 2;
 
@@ -64,7 +70,7 @@
       />;
     };
 
-    ReactDOM.createRoot(document.getElementById('graph'))
+    createRoot(document.getElementById('graph'))
       .render(<CollisionDetectionFG />);
   </script>
 </body>

@@ -1,25 +1,32 @@
 <head>
   <style> body { margin: 0; } </style>
 
-  <script src="//unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="//unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="//unpkg.com/@babel/standalone"></script>
+  <script type="importmap">{ "imports": {
+    "react": "https://esm.sh/react",
+    "react-dom": "https://esm.sh/react-dom/client"
+  }}</script>
+  <script type="module">
+    import * as React from 'react';
+    window.React = React;
+  </script>
 
   <script src="//unpkg.com/aframe"></script>
   <script src="//unpkg.com/@ar-js-org/ar.js"></script>
 
-  <script src="//unpkg.com/react-force-graph-ar"></script>
-  <!--<script src="../../src/packages/react-force-graph-ar/dist/react-force-graph-ar.js"></script>-->
-
-  <script src="../datasets/random-data.js"></script>
+  <script src="//unpkg.com/react-force-graph-ar" defer></script>
+  <!--<script src="../../src/packages/react-force-graph-ar/dist/react-force-graph-ar.js" defer></script>-->
 </head>
 
 <body>
   <div id="graph"></div>
 
-  <script type="text/jsx">
+  <script src="//unpkg.com/@babel/standalone"></script>
+  <script type="text/jsx" data-type="module">
+    import { createRoot } from 'react-dom';
+    import { genRandomTree } from '../datasets/random-data.js';
+
     fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
-      ReactDOM.createRoot(document.getElementById('graph')).render(
+      createRoot(document.getElementById('graph')).render(
         <ForceGraphAR
           glScale={160}
           yOffset={1.8}

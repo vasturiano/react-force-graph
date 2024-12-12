@@ -1,23 +1,29 @@
 <head>
   <style> body { margin: 0; } </style>
 
-  <script src="//unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="//unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="//unpkg.com/@babel/standalone"></script>
+  <script type="importmap">{ "imports": {
+    "react": "https://esm.sh/react",
+    "react-dom": "https://esm.sh/react-dom/client"
+  }}</script>
+  <script type="module">
+    import * as React from 'react';
+    window.React = React;
+  </script>
 
-  <script src="//unpkg.com/react-force-graph-3d"></script>
-  <!--<script src="../../src/packages/react-force-graph-3d/dist/react-force-graph-3d.js"></script>-->
+  <script src="//unpkg.com/react-force-graph-3d" defer></script>
+  <!--<script src="../../src/packages/react-force-graph-3d/dist/react-force-graph-3d.js" defer></script>-->
 </head>
 
 <body>
   <div id="graph"></div>
 
-  <script type="importmap">{ "imports": { "three": "https://unpkg.com/three/build/three.module.js" }}</script>
+  <script src="//unpkg.com/@babel/standalone"></script>
   <script type="text/jsx" data-type="module">
-    import SpriteText from "//unpkg.com/three-spritetext/dist/three-spritetext.mjs";
+    import { createRoot } from 'react-dom';
+    import SpriteText from "https://esm.sh/three-spritetext";
 
     fetch('../datasets/miserables.json').then(res => res.json()).then(data => {
-      ReactDOM.createRoot(document.getElementById('graph')).render(
+      createRoot(document.getElementById('graph')).render(
         <ForceGraph3D
           graphData={data}
           nodeLabel="id"
