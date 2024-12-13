@@ -5,12 +5,8 @@
     "react": "https://esm.sh/react",
     "react-dom": "https://esm.sh/react-dom/client"
   }}</script>
-  <script type="module">
-    import * as React from 'react';
-    window.React = React;
-  </script>
 
-  <script src="//unpkg.com/react-force-graph-2d" defer></script>
+<!--  <script type="module">import * as React from 'react'; window.React = React;</script>-->
 <!--  <script src="../../src/packages/react-force-graph-2d/dist/react-force-graph-2d.js" defer></script>-->
 </head>
 
@@ -18,11 +14,11 @@
 <div id="graph"></div>
 
 <script src="//unpkg.com/@babel/standalone"></script>
-  <script type="text/jsx" data-type="module">
-    import { createRoot } from 'react-dom';
-    import { genRandomTree } from '../datasets/random-data.js';
-
-    const { useRef } = React;
+<script type="text/jsx" data-type="module">
+  import ForceGraph2D from 'https://esm.sh/react-force-graph-2d?external=react';
+  import React, { useRef } from 'react';
+  import { createRoot } from 'react-dom';
+  import { genRandomTree } from '../datasets/random-data.js';
 
   const data = genRandomTree();
   const Graph = () => {
