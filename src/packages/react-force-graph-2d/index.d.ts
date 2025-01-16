@@ -27,6 +27,8 @@ type Accessor<In, Out> = Out | string | ((obj: In) => Out);
 type NodeAccessor<NodeType, T> = Accessor<NodeObject<NodeType>, T>;
 type LinkAccessor<NodeType, LinkType, T> = Accessor<LinkObject<NodeType, LinkType>, T>;
 
+type TooltipContent = string | React.ReactHTMLElement<HTMLElement>;
+
 type CanvasCustomRenderMode = 'replace' | 'before' | 'after';
 type CanvasCustomRenderFn<T> = (obj: T, canvasContext: CanvasRenderingContext2D, globalScale: number) => void;
 type CanvasPointerAreaPaintFn<T> = (obj: T, paintColor: string, canvasContext: CanvasRenderingContext2D, globalScale: number) => void;
@@ -57,7 +59,7 @@ export interface ForceGraphProps<
   // Node styling
   nodeRelSize?: number;
   nodeVal?: NodeAccessor<NodeType, number>;
-  nodeLabel?: NodeAccessor<NodeType, string>;
+  nodeLabel?: NodeAccessor<NodeType, TooltipContent>;
   nodeVisibility?: NodeAccessor<NodeType, boolean>;
   nodeColor?: NodeAccessor<NodeType, string>;
   nodeAutoColorBy?: NodeAccessor<NodeType, string | null>;
@@ -66,7 +68,7 @@ export interface ForceGraphProps<
   nodePointerAreaPaint?: CanvasPointerAreaPaintFn<NodeObject<NodeType>>;
 
   // Link styling
-  linkLabel?: LinkAccessor<NodeType, LinkType, string>;
+  linkLabel?: LinkAccessor<NodeType, LinkType, TooltipContent>;
   linkVisibility?: LinkAccessor<NodeType, LinkType, boolean>;
   linkColor?: LinkAccessor<NodeType, LinkType, string>;
   linkAutoColorBy?: LinkAccessor<NodeType, LinkType, string | null>;

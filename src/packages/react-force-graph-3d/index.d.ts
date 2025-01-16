@@ -32,6 +32,8 @@ type Accessor<In, Out> = Out | string | ((obj: In) => Out);
 type NodeAccessor<NodeType, T> = Accessor<NodeObject<NodeType>, T>;
 type LinkAccessor<NodeType, LinkType, T> = Accessor<LinkObject<NodeType, LinkType>, T>;
 
+type TooltipContent = string | React.ReactHTMLElement<HTMLElement>;
+
 type DagMode = 'td' | 'bu' | 'lr' | 'rl' | 'zout' | 'zin' | 'radialout' | 'radialin';
 
 type ForceEngine = 'd3' | 'ngraph';
@@ -65,7 +67,7 @@ export interface ForceGraphProps<
   // Node styling
   nodeRelSize?: number;
   nodeVal?: NodeAccessor<NodeType, number>;
-  nodeLabel?: NodeAccessor<NodeType, string>;
+  nodeLabel?: NodeAccessor<NodeType, TooltipContent>;
   nodeVisibility?: NodeAccessor<NodeType, boolean>;
   nodeColor?: NodeAccessor<NodeType, string>;
   nodeAutoColorBy?: NodeAccessor<NodeType, string | null>;
@@ -75,7 +77,7 @@ export interface ForceGraphProps<
   nodeThreeObjectExtend?: NodeAccessor<NodeType, boolean>;
 
   // Link styling
-  linkLabel?: LinkAccessor<NodeType, LinkType, string>;
+  linkLabel?: LinkAccessor<NodeType, LinkType, TooltipContent>;
   linkVisibility?: LinkAccessor<NodeType, LinkType, boolean>;
   linkColor?: LinkAccessor<NodeType, LinkType, string>;
   linkAutoColorBy?: LinkAccessor<NodeType, LinkType, string | null>;
