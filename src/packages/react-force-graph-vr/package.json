@@ -43,11 +43,12 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph-vr": "^2.4",
+    "3d-force-graph-vr": "^3.0",
     "prop-types": "15",
     "react-kapsule": "^2.5"
   },
   "peerDependencies": {
+    "aframe": "^1.5",
     "react": "*"
   },
   "devDependencies": {
