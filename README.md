@@ -3,19 +3,23 @@ react-force-graph
 
 **2D**:
 [![NPM package][npm-2d-img]][npm-2d-url]
-[![NPM Downloads][npm-2d-downloads-img]][npm-2d-downloads-url]
+[![Build Size][build-size-2d-img]][build-size-2d-url]
+[![NPM Downloads][npm-downloads-2d-img]][npm-downloads-2d-url]
 
 **3D**:
 [![NPM package][npm-3d-img]][npm-3d-url]
-[![NPM Downloads][npm-3d-downloads-img]][npm-3d-downloads-url]
+[![Build Size][build-size-3d-img]][build-size-3d-url]
+[![NPM Downloads][npm-downloads-3d-img]][npm-downloads-3d-url]
 
 **VR**:
 [![NPM package][npm-vr-img]][npm-vr-url]
-[![NPM Downloads][npm-vr-downloads-img]][npm-vr-downloads-url]
+[![Build Size][build-size-vr-img]][build-size-vr-url]
+[![NPM Downloads][npm-downloads-vr-img]][npm-downloads-vr-url]
 
 **AR**:
 [![NPM package][npm-ar-img]][npm-ar-url]
-[![NPM Downloads][npm-ar-downloads-img]][npm-ar-downloads-url]
+[![Build Size][build-size-ar-img]][build-size-ar-url]
+[![NPM Downloads][npm-downloads-ar-img]][npm-downloads-ar-url]
 
 React bindings for the **force-graph** [suite](https://vasturiano.github.io/react-force-graph/example/forcegraph-dependencies) of components: [force-graph](https://github.com/vasturiano/force-graph) (2D HTML Canvas), [3d-force-graph](https://github.com/vasturiano/3d-force-graph) (ThreeJS/WebGL), [3d-force-graph-vr](https://github.com/vasturiano/3d-force-graph-vr) (A-Frame) and [3d-force-graph-ar](https://github.com/vasturiano/3d-force-graph-ar) (AR.js).
 
@@ -289,11 +293,19 @@ Note that not all props listed below apply to all 4 components. The last 4 colum
 [npm-3d-url]: https://npmjs.org/package/react-force-graph-3d
 [npm-vr-url]: https://npmjs.org/package/react-force-graph-vr
 [npm-ar-url]: https://npmjs.org/package/react-force-graph-ar
-[npm-2d-downloads-img]: https://img.shields.io/npm/dt/react-force-graph-2d
-[npm-3d-downloads-img]: https://img.shields.io/npm/dt/react-force-graph-3d
-[npm-vr-downloads-img]: https://img.shields.io/npm/dt/react-force-graph-vr
-[npm-ar-downloads-img]: https://img.shields.io/npm/dt/react-force-graph-ar
-[npm-2d-downloads-url]: https://www.npmtrends.com/react-force-graph-2d
-[npm-3d-downloads-url]: https://www.npmtrends.com/react-force-graph-2d
-[npm-vr-downloads-url]: https://www.npmtrends.com/react-force-graph-vr
-[npm-ar-downloads-url]: https://www.npmtrends.com/react-force-graph-ar
+[build-size-2d-img]: https://img.shields.io/bundlephobia/minzip/react-force-graph-2d
+[build-size-3d-img]: https://img.shields.io/bundlephobia/minzip/react-force-graph-3d
+[build-size-vr-img]: https://img.shields.io/bundlephobia/minzip/react-force-graph-vr
+[build-size-ar-img]: https://img.shields.io/bundlephobia/minzip/react-force-graph-ar
+[build-size-2d-url]: https://bundlephobia.com/result?p=react-force-graph-2d
+[build-size-3d-url]: https://bundlephobia.com/result?p=react-force-graph-3d
+[build-size-vr-url]: https://bundlephobia.com/result?p=react-force-graph-vr
+[build-size-ar-url]: https://bundlephobia.com/result?p=react-force-graph-ar
+[npm-downloads-2d-img]: https://img.shields.io/npm/dt/react-force-graph-2d
+[npm-downloads-3d-img]: https://img.shields.io/npm/dt/react-force-graph-3d
+[npm-downloads-vr-img]: https://img.shields.io/npm/dt/react-force-graph-vr
+[npm-downloads-ar-img]: https://img.shields.io/npm/dt/react-force-graph-ar
+[npm-downloads-2d-url]: https://www.npmtrends.com/react-force-graph-2d
+[npm-downloads-3d-url]: https://www.npmtrends.com/react-force-graph-2d
+[npm-downloads-vr-url]: https://www.npmtrends.com/react-force-graph-vr
+[npm-downloads-ar-url]: https://www.npmtrends.com/react-force-graph-ar
