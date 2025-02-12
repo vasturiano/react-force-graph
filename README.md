@@ -1,8 +1,21 @@
 react-force-graph
 =================
 
-[![NPM package][npm-img]][npm-url]
-[![NPM Downloads][npm-downloads-img]][npm-downloads-url]
+**2D**:
+[![NPM package][npm-2d-img]][npm-2d-url]
+[![NPM Downloads][npm-2d-downloads-img]][npm-2d-downloads-url]
+
+**3D**:
+[![NPM package][npm-3d-img]][npm-3d-url]
+[![NPM Downloads][npm-3d-downloads-img]][npm-3d-downloads-url]
+
+**VR**:
+[![NPM package][npm-vr-img]][npm-vr-url]
+[![NPM Downloads][npm-vr-downloads-img]][npm-vr-downloads-url]
+
+**AR**:
+[![NPM package][npm-ar-img]][npm-ar-url]
+[![NPM Downloads][npm-ar-downloads-img]][npm-ar-downloads-url]
 
 React bindings for the **force-graph** [suite](https://vasturiano.github.io/react-force-graph/example/forcegraph-dependencies) of components: [force-graph](https://github.com/vasturiano/force-graph) (2D HTML Canvas), [3d-force-graph](https://github.com/vasturiano/3d-force-graph) (ThreeJS/WebGL), [3d-force-graph-vr](https://github.com/vasturiano/3d-force-graph-vr) (A-Frame) and [3d-force-graph-ar](https://github.com/vasturiano/3d-force-graph-ar) (AR.js).
 
@@ -10,9 +23,8 @@ React bindings for the **force-graph** [suite](https://vasturiano.github.io/reac
   <a href="https://vasturiano.github.io/react-force-graph/example/large-graph/"><img width="80%" src="https://vasturiano.github.io/react-force-graph/example/preview.png"></a>
 </p>
 
-This module exports 4 React components with identical interfaces: `ForceGraph2D`, `ForceGraph3D`, `ForceGraphVR` and `ForceGraphAR`. Each can be used to represent a graph data structure in a 2 or 3-dimensional space using a force-directed iterative layout.
-
-For dependency convenience, all of the components are also available as stand-alone packages: `react-force-graph-2d`, `react-force-graph-3d`, `react-force-graph-vr` and `react-force-graph-ar`.
+This module exports 4 stand-alone React component packages with identical interfaces: `react-force-graph-2d`, `react-force-graph-3d`, `react-force-graph-vr` and `react-force-graph-ar`.
+Each can be used to represent a graph data structure in a 2 or 3-dimensional space using a force-directed iterative layout.
 
 Uses canvas/WebGL for rendering and [d3-force-3d](https://github.com/vasturiano/d3-force-3d) for the underlying physics engine. 
 Supports zooming/panning, node dragging and node/link hover/click interactions.
@@ -54,12 +66,6 @@ import ForceGraph2D from 'react-force-graph-2d';
 import ForceGraph3D from 'react-force-graph-3d';
 import ForceGraphVR from 'react-force-graph-vr';
 import ForceGraphAR from 'react-force-graph-ar';
-```
-
-or
-
-```js
-import { ForceGraph2D, ForceGraph3D, ForceGraphVR, ForceGraphAR } from 'react-force-graph';
 ```
 
 or using a *script* tag
@@ -275,7 +281,19 @@ Note that not all props listed below apply to all 4 components. The last 4 colum
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=L398E7PKP47E8&currency_code=USD&source=url) If this project has helped you and you'd like to contribute back, you can always [buy me a ☕](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=L398E7PKP47E8&currency_code=USD&source=url)!
 
-[npm-img]: https://img.shields.io/npm/v/react-force-graph
-[npm-url]: https://npmjs.org/package/react-force-graph
-[npm-downloads-img]: https://img.shields.io/npm/dt/react-force-graph
-[npm-downloads-url]: https://www.npmtrends.com/react-force-graph
+[npm-2d-img]: https://img.shields.io/npm/v/react-force-graph-2d
+[npm-3d-img]: https://img.shields.io/npm/v/react-force-graph-3d
+[npm-vr-img]: https://img.shields.io/npm/v/react-force-graph-vr
+[npm-ar-img]: https://img.shields.io/npm/v/react-force-graph-ar
+[npm-2d-url]: https://npmjs.org/package/react-force-graph-2d
+[npm-3d-url]: https://npmjs.org/package/react-force-graph-3d
+[npm-vr-url]: https://npmjs.org/package/react-force-graph-vr
+[npm-ar-url]: https://npmjs.org/package/react-force-graph-ar
+[npm-2d-downloads-img]: https://img.shields.io/npm/dt/react-force-graph-2d
+[npm-3d-downloads-img]: https://img.shields.io/npm/dt/react-force-graph-3d
+[npm-vr-downloads-img]: https://img.shields.io/npm/dt/react-force-graph-vr
+[npm-ar-downloads-img]: https://img.shields.io/npm/dt/react-force-graph-ar
+[npm-2d-downloads-url]: https://www.npmtrends.com/react-force-graph-2d
+[npm-3d-downloads-url]: https://www.npmtrends.com/react-force-graph-2d
+[npm-vr-downloads-url]: https://www.npmtrends.com/react-force-graph-vr
+[npm-ar-downloads-url]: https://www.npmtrends.com/react-force-graph-ar
