@@ -5,14 +5,8 @@
     "react": "https://esm.sh/react",
     "react-dom": "https://esm.sh/react-dom/client"
   }}</script>
-  <script type="module">
-    import * as React from 'react';
-    window.React = React;
-  </script>
 
   <script src="//unpkg.com/aframe"></script>
-  <script src="//unpkg.com/react-force-graph" defer></script>
-  <!--<script src="../../dist/react-force-graph.js" defer></script>-->
 </head>
 
 <body>
@@ -20,10 +14,12 @@
 
   <script src="//unpkg.com/@babel/standalone"></script>
   <script type="text/jsx" data-type="module">
+    import { ForceGraph2D, ForceGraph3D, ForceGraphVR } from 'https://esm.sh/react-force-graph?external=react';
+    import React from 'react';
     import { createRoot } from 'react-dom';
     import { genRandomTree } from '../datasets/random-data.js';
 
-    const comps = [ForceGraph.ForceGraph2D, ForceGraph.ForceGraph3D, ForceGraph.ForceGraphVR];
+    const comps = [ForceGraph2D, ForceGraph3D, ForceGraphVR];
     const compWidth = window.innerWidth / comps.length;
 
     createRoot(document.getElementById('graph')).render(
