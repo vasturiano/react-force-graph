@@ -1,0 +1,62 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script type="importmap">{ "imports": {
+    "react": "https://esm.sh/react",
+    "react-dom": "https://esm.sh/react-dom/client"
+  }}</script>
+
+<!--  <script type="module">import * as React from 'react'; window.React = React;</script>-->
+<!--  <script src="../../src/packages/react-force-graph-3d/dist/react-force-graph-3d.js" defer></script>-->
+</head>
+
+<body>
+  <div id="graph"></div>
+
+  <script src="//unpkg.com/@babel/standalone"></script>
+  <script type="text/jsx" data-type="module">
+    import ForceGraph3D from 'https://esm.sh/react-force-graph-3d?external=react';
+    import React, { useMemo, useState, useCallback } from 'react';
+    import { createRoot } from 'react-dom';
+    import { genRandomTree } from '../datasets/random-data.js';
+
+    const MultiSelectionGraph = () => {
+      const data = useMemo(() => genRandomTree(40), []);
+      const [selectedNodes, setSelectedNodes] = useState(new Set());
+
+      return <ForceGraph3D
+        graphData={data}
+        nodeRelSize={9}
+        nodeColor={useCallback(node => selectedNodes.has(node) ? 'yellow' : 'grey', [selectedNodes])}
+        onNodeClick={useCallback((node, event) => {
+          if (event.ctrlKey || event.shiftKey || event.altKey) { // multi-selection
+            selectedNodes.has(node) ? selectedNodes.delete(node) : selectedNodes.add(node);
+            setSelectedNodes(new Set(selectedNodes));
+          } else { // single-selection
+            const untoggle = selectedNodes.has(node) && selectedNodes.size === 1;
+            selectedNodes.clear();
+            !untoggle && selectedNodes.add(node);
+          }
+          setSelectedNodes(new Set(selectedNodes)); // update selected nodes state
+        }, [selectedNodes])}
+        onNodeDrag={useCallback((node, translate) => {
+          if (selectedNodes.has(node)) { // moving a selected node
+            [...selectedNodes]
+              .filter(selNode => selNode !== node) // don't touch node being dragged
+              .forEach(node => ['x', 'y', 'z'].forEach(coord => node[`f${coord}`] = node[coord] + translate[coord])); // translate other nodes by same amount
+          }
+        }, [selectedNodes])}
+        onNodeDragEnd={useCallback(node => {
+          if (selectedNodes.has(node)) { // finished moving a selected node
+            [...selectedNodes]
+              .filter(selNode => selNode !== node) // don't touch node being dragged
+              .forEach(node => ['x', 'y', 'z'].forEach(coord => node[`f${coord}`] = undefined)); // unfix controlled nodes
+          }
+        }, [selectedNodes])}
+      />;
+    };
+
+    createRoot(document.getElementById('graph'))
+      .render(<MultiSelectionGraph />);
+  </script>
+</body>

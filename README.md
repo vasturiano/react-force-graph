@@ -51,6 +51,7 @@ See also the [react-three-fiber component](https://github.com/vasturiano/r3f-for
 * [Curved lines and self links](https://vasturiano.github.io/react-force-graph/example/curved-links/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/curved-links/index.html))
 * [Text in links](https://vasturiano.github.io/react-force-graph/example/text-links/index-3d.html) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/text-links/index-3d.html))
 * [Highlight nodes/links](https://vasturiano.github.io/react-force-graph/example/highlight/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/highlight/index.html))
+* [Multiple Node Selection](https://vasturiano.github.io/react-force-graph/example/multi-selection/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/multi-selection/index.html))
 * [Larger graph](https://vasturiano.github.io/react-force-graph/example/large-graph/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/large-graph/index.html))
 * [Dynamic data changes](https://vasturiano.github.io/react-force-graph/example/dynamic/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/dynamic/index.html))
 * [Click to focus on node](https://vasturiano.github.io/react-force-graph/example/click-to-focus/) ([source](https://github.com/vasturiano/react-force-graph/blob/master/example/click-to-focus/index.html))
