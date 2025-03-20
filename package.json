@@ -5,6 +5,7 @@
   "license": "MIT",
   "type": "module",
   "unpkg": "dist/react-force-graph.min.js",
+  "jsdelivr": "dist/react-force-graph.min.js",
   "main": "dist/react-force-graph.mjs",
   "module": "dist/react-force-graph.mjs",
   "types": "dist/react-force-graph.d.ts",

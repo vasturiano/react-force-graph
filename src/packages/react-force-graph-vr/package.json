@@ -5,6 +5,7 @@
   "license": "MIT",
   "type": "module",
   "unpkg": "dist/react-force-graph-vr.min.js",
+  "jsdelivr": "dist/react-force-graph-vr.min.js",
   "main": "dist/react-force-graph-vr.mjs",
   "module": "dist/react-force-graph-vr.mjs",
   "types": "dist/react-force-graph-vr.d.ts",
