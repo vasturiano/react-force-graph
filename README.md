@@ -76,10 +76,10 @@ import ForceGraphAR from 'react-force-graph-ar';
 or using a *script* tag
 
 ```html
-<script src="//unpkg.com/react-force-graph-2d"></script>
-<script src="//unpkg.com/react-force-graph-3d"></script>
-<script src="//unpkg.com/react-force-graph-vr"></script>
-<script src="//unpkg.com/react-force-graph-ar"></script>
+<script src="//cdn.jsdelivr.net/npm/react-force-graph-2d"></script>
+<script src="//cdn.jsdelivr.net/npm/react-force-graph-3d"></script>
+<script src="//cdn.jsdelivr.net/npm/react-force-graph-vr"></script>
+<script src="//cdn.jsdelivr.net/npm/react-force-graph-ar"></script>
 ```
 
 then
