@@ -46,6 +46,7 @@ interface ForceFn<NodeType = {}> {
 
 type Coords = { x: number; y: number; z: number; }
 
+type NodePositionUpdateFn = <NodeType = {}>(obj: Object3D, coords: Coords, node: NodeObject<NodeType>) => void | null | boolean;
 type LinkPositionUpdateFn = <NodeType = {}, LinkType = {}>(obj: Object3D, coords: { start: Coords, end: Coords }, link: LinkObject<NodeType, LinkType>) => void | null | boolean;
 
 export interface ForceGraphProps<
@@ -75,6 +76,7 @@ export interface ForceGraphProps<
   nodeResolution?: number;
   nodeThreeObject?: NodeAccessor<NodeType, Object3D>;
   nodeThreeObjectExtend?: NodeAccessor<NodeType, boolean>;
+  nodePositionUpdate?: NodePositionUpdateFn | null;
 
   // Link styling
   linkLabel?: LinkAccessor<NodeType, LinkType, TooltipContent>;
