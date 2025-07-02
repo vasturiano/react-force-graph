@@ -7,13 +7,15 @@
     { "package": "3d-force-graph-vr", "user": "vasturiano" },
     { "package": "3d-force-graph-ar", "user": "vasturiano" },
     { "package": "aframe-forcegraph-component", "user": "vasturiano" },
+    { "package": "r3f-forcegraph", "user": "vasturiano" },
     { "package": "three-forcegraph", "user": "vasturiano" },
     { "package": "d3-force-3d", "user": "vasturiano" },
     { "package": "d3-force", "user": "d3" },
     { "package": "ngraph", "user": "anvaka" },
     { "package": "three.js", "user": "mrdoob" },
     { "package": "aframe", "user": "aframevr" },
-    { "package": "AR.js", "user": "jeromeetienne" }
+    { "package": "AR.js", "user": "AR-js-org" },
+    { "package": "react-three-fiber", "user": "pmndrs" }
   ],
   "links": [
     { "target": "force-graph", "source": "react-force-graph" },
@@ -25,6 +27,7 @@
     { "target": "three-forcegraph", "source": "3d-force-graph" },
     { "target": "three-render-objects", "source": "3d-force-graph" },
     { "target": "three-forcegraph", "source": "aframe-forcegraph-component" },
+    { "target": "three-forcegraph", "source": "r3f-forcegraph" },
     { "target": "d3-force-3d", "source": "three-forcegraph" },
     { "target": "ngraph", "source": "three-forcegraph" },
     { "target": "d3-force", "source": "force-graph" },
@@ -32,5 +35,7 @@
     { "target": "three.js", "source": "aframe" },
     { "target": "three.js", "source": "3d-force-graph" },
     { "target": "AR.js", "source": "3d-force-graph-ar" },
-    { "target": "aframe", "source": "AR.js" }]
+    { "target": "aframe", "source": "AR.js" },
+    { "target": "react-three-fiber", "source": "r3f-forcegraph" }
+  ]
 }
