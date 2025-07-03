@@ -48,10 +48,10 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph": "^1.76",
-    "3d-force-graph-ar": "^1.9",
-    "3d-force-graph-vr": "^3.0",
-    "force-graph": "^1.49",
+    "3d-force-graph": "^1.78",
+    "3d-force-graph-ar": "^1.10",
+    "3d-force-graph-vr": "^3.1",
+    "force-graph": "^1.50",
     "prop-types": "15",
     "react-kapsule": "^2.5"
   },
@@ -59,20 +59,20 @@
     "react": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.8",
-    "@babel/preset-env": "^7.26.8",
-    "@babel/preset-react": "^7.26.3",
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-react": "^7.27.1",
     "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^28.0.2",
-    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-replace": "^6.0.2",
     "@rollup/plugin-terser": "^0.4.4",
-    "@types/react": "^19.0.8",
-    "@types/three": "^0.173.0",
+    "@types/react": "^19.1.8",
+    "@types/three": "^0.178.0",
     "rimraf": "^6.0.1",
-    "rollup": "^4.34.6",
-    "rollup-plugin-dts": "^6.1.1",
-    "typescript": "^5.7.3"
+    "rollup": "^4.44.1",
+    "rollup-plugin-dts": "^6.2.1",
+    "typescript": "^5.8.3"
   },
   "engines": {
     "node": ">=12"
