@@ -95,9 +95,11 @@ export interface ForceGraphProps<
   linkDirectionalArrowResolution?: number;
   linkDirectionalParticles?: LinkAccessor<NodeType, LinkType, number>;
   linkDirectionalParticleSpeed?: LinkAccessor<NodeType, LinkType, number>;
+  linkDirectionalParticleOffset?: LinkAccessor<NodeType, LinkType, number>;
   linkDirectionalParticleWidth?: LinkAccessor<NodeType, LinkType, number>;
   linkDirectionalParticleColor?: LinkAccessor<NodeType, LinkType, string>;
   linkDirectionalParticleResolution?: number;
+  linkDirectionalParticleThreeObject?: LinkAccessor<NodeType, LinkType, Object3D>;
 
   // Force engine (d3-force) configuration
   forceEngine?: ForceEngine;

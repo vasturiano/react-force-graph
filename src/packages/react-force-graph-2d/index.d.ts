@@ -82,8 +82,10 @@ export interface ForceGraphProps<
   linkDirectionalArrowRelPos?: LinkAccessor<NodeType, LinkType, number>;
   linkDirectionalParticles?: LinkAccessor<NodeType, LinkType, number>;
   linkDirectionalParticleSpeed?: LinkAccessor<NodeType, LinkType, number>;
+  linkDirectionalParticleOffset?: LinkAccessor<NodeType, LinkType, number>;
   linkDirectionalParticleWidth?: LinkAccessor<NodeType, LinkType, number>;
   linkDirectionalParticleColor?: LinkAccessor<NodeType, LinkType, string>;
+  linkDirectionalParticleCanvasObject?: (x: number, y: number, link: LinkType, canvasContext: CanvasRenderingContext2D, globalScale: number) => void;
   linkPointerAreaPaint?: CanvasPointerAreaPaintFn<LinkObject<NodeType, LinkType>>;
 
   // Render control
