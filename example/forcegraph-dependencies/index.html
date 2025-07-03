@@ -33,10 +33,13 @@
           linkDirectionalParticles={2}
           linkDirectionalParticleWidth={0.5}
           onNodeClick={node => window.open(`https://github.com/${node.user}/${node.package}`, '_blank')}
+          nodeRelSize={2}
+          nodeThreeObjectExtend={true}
           nodeThreeObject={node => {
             const sprite = new SpriteText(node.package);
             sprite.color = node.color;
             sprite.textHeight = 5;
+            sprite.center.y = -0.4; // shift above node
             return sprite;
           }}
         />

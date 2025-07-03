@@ -25,10 +25,12 @@
         <ForceGraph3D
           graphData={data}
           nodeAutoColorBy="group"
+          nodeThreeObjectExtend={true}
           nodeThreeObject={node => {
             const sprite = new SpriteText(node.id);
             sprite.color = node.color;
             sprite.textHeight = 8;
+            sprite.center.y = -0.6; // shift above node
             return sprite;
           }}
         />
