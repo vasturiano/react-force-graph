@@ -133,6 +133,7 @@ export interface ForceGraphProps<
   linkHoverPrecision?: number;
   onBackgroundClick?: (event: MouseEvent) => void;
   onBackgroundRightClick?: (event: MouseEvent) => void;
+  showPointerCursor?: boolean | ((obj: NodeObject<NodeType> | LinkObject<NodeType, LinkType> | undefined) => boolean);
   enableNodeDrag?: boolean;
   enableNavigationControls?: boolean;
   enablePointerInteraction?: boolean;

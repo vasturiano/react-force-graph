@@ -59,6 +59,7 @@ const pointerBasedPropTypes = {
   linkHoverPrecision: PropTypes.number,
   onBackgroundClick: PropTypes.func,
   onBackgroundRightClick: PropTypes.func,
+  showPointerCursor: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
   enablePointerInteraction: PropTypes.bool,
   enableNodeDrag: PropTypes.bool
 };

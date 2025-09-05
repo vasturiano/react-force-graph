@@ -122,6 +122,7 @@ export interface ForceGraphProps<
   linkHoverPrecision?: number;
   onBackgroundClick?: (event: MouseEvent) => void;
   onBackgroundRightClick?: (event: MouseEvent) => void;
+  showPointerCursor?: boolean | ((obj: NodeObject<NodeType> | LinkObject<NodeType, LinkType> | undefined) => boolean);
   onZoom?: (transform: {k: number, x: number, y: number}) => void;
   onZoomEnd?: (transform: {k: number, x: number, y: number}) => void;
   enableNodeDrag?: boolean;
