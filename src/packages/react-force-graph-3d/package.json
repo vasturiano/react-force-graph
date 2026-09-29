@@ -44,16 +44,16 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "3d-force-graph": "^1.79",
+    "3d-force-graph": "^1.80",
     "prop-types": "15",
-    "react-kapsule": "^2.5"
+    "react-kapsule": "^2.6"
   },
   "peerDependencies": {
     "react": "*"
   },
   "devDependencies": {
-    "rimraf": "^6.1.2",
-    "rollup": "^4.57.1"
+    "rimraf": "^6.1.3",
+    "rollup": "^4.63.5"
   },
   "engines": {
     "node": ">=12"
